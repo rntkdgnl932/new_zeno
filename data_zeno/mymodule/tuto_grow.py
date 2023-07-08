@@ -205,8 +205,26 @@ def tuto_grow_start(cla):
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
                 else:
-                    dead_die(cla)
-                    tuto_quest(cla)
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\out\\out_talk.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(290, 870, 340, 920, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_click_0.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(650, 80, 880, 150, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            dead_die(cla)
+                            tuto_quest(cla)
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quest_look\\quest_look.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(880, 100, 960, 170, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
 
         print('hi tuto_grow_start!', cla)
