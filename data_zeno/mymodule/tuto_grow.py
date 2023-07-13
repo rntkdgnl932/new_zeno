@@ -421,6 +421,14 @@ def tuto_quest(cla):
     try:
         print('tuto_quest!', cla)
         boho_ = False
+
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\boho\\quest_boho.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(650, 80, 880, 150, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            boho_ = True
+
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\boho\\seline.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
