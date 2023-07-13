@@ -701,10 +701,17 @@ def drag_pos(pos_1, pos_2, pos_3, pos_4, cla):
     try:
         # 마우스 이동
         mouse_move_cpp(pos_1, pos_2, cla)
+
+        # 0.2초
+        time.sleep(0.2)
         # 마우스 누르기
         drag_pos_Press()
+        # 0.2초
+        time.sleep(0.2)
         # 마우스 이동
         mouse_move_cpp(pos_3, pos_4, cla)
+        # 0.2초
+        time.sleep(0.2)
         # 마우스 떼기
         drag_pos_Release()
 
@@ -717,10 +724,17 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
         cla = "one"
         # 마우스 이동
         mouse_move_cpp(pos_1, pos_2, cla)
+
+        # 0.2초
+        time.sleep(0.2)
         # 마우스 누르기
         drag_pos_Press()
+        # 0.2초
+        time.sleep(0.2)
         # 마우스 이동
         mouse_move_cpp(pos_3, pos_4, cla)
+        # 0.2초
+        time.sleep(0.2)
         # 마우스 떼기
         drag_pos_Release()
 
