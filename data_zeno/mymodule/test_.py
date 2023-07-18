@@ -13,22 +13,12 @@ def go_test():
 
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
     from jadong_zeno import jadong_start
-    from action_zeno import gold_check_open, out_check
-    cla = "three"
+    from action_zeno import gold_check_open, out_check, now_hunting
+    cla = "one"
     v_.now_cla = cla
 
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(700, 300, 740, 340, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("check", imgs_)
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(700, 300, 740, 340, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("check2", imgs_)
+    result = now_hunting(cla)
+    print("re", result)
 
     # # 층수 클릭
     #

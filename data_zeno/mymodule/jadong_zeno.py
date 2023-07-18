@@ -108,6 +108,10 @@ def map_in(cla, where):
                         # 도착 확인
                         spot_arrive(cla, where)
                         # 사냥 중인지 확인
+
+                        # 1
+
+                        # 2
                         juljun_arrive(cla, where)
                         # 절전 모드 확인 후 전투중인지 확인하고 다시 공격 버튼 누르기
 
@@ -336,7 +340,7 @@ def spot_arrive(cla, where):
 
 def juljun_arrive(cla, where):
     try:
-        from action_zeno import clean_screen, out_check
+        from action_zeno import clean_screen, out_check, now_hunting
         from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
         print("map_list_open")
         in_map_ = False
@@ -381,10 +385,20 @@ def juljun_arrive(cla, where):
                                 time.sleep(2)
                                 # 사냥터로 가는 중
                                 spot_arrive(cla, where)
-
-                    click_pos_2(905, 790, cla)
-                    time.sleep(0.3)
-                    click_pos_2(30, 930, cla)
+                    result_hunting1 = now_hunting(cla)
+                    if result_hunting1 == True:
+                        result_hunting2 = now_hunting(cla)
+                        if result_hunting2 == True:
+                            print("사냥중")
+                            click_pos_2(30, 930, cla)
+                        else:
+                            click_pos_2(905, 790, cla)
+                            time.sleep(0.3)
+                            click_pos_2(30, 930, cla)
+                    else:
+                        click_pos_2(905, 790, cla)
+                        time.sleep(0.3)
+                        click_pos_2(30, 930, cla)
                 else:
                     clean_screen(cla)
             time.sleep(1)
@@ -437,31 +451,42 @@ def map_pic_name(cla, where):
 
 def jadong_arrive_check(cla, where):
     try:
-        from action_zeno import clean_screen
+        from action_zeno import clean_screen, juljun_potion_check, juljun_maul_potion
         from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
         print("jadong_arrive_check")
 
+        potion_check = False
         arrive = False
 
         result_arrive = jadong_juljun_attack_check(cla, where)
         if result_arrive == True:
 
             gold_1 = jadong_juljun_attack_gold_check(cla, where)
-            time.sleep(15)
-            gold_2 = jadong_juljun_attack_gold_check(cla, where)
+            # time.sleep(15)
+            # 여기 15초동안 포션체크 하자
+            for i in range(15):
+                result_potion = juljun_potion_check(cla)
+                if result_potion == False:
+                    potion_check = True
+                    juljun_maul_potion(cla)
+                    break
+                time.sleep(1)
 
-            if gold_1 != gold_2:
-                arrive = True
-            else:
-                for i in range(3):
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        drag_pos(360, 460, 600, 460, cla)
-                        break
-                    time.sleep(1)
+            if potion_check == False:
+                gold_2 = jadong_juljun_attack_gold_check(cla, where)
+
+                if gold_1 != gold_2:
+                    arrive = True
+                else:
+                    for i in range(3):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            drag_pos(360, 460, 600, 460, cla)
+                            break
+                        time.sleep(1)
 
         else:
             for i in range(3):
