@@ -66,7 +66,7 @@ def dungeon_ready(cla, where):
 
 def dungeon_menu_in(cla, where):
     from action_zeno import menu_open
-    from function import imgs_set_, click_pos_reg
+    from function import imgs_set_, click_pos_reg, click_pos_2
     try:
         print("dungeon_menu_in")
 
@@ -91,6 +91,9 @@ def dungeon_menu_in(cla, where):
                 imgs_ = imgs_set_(660, 90, 950, 480, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    # 처음엔 new 글자...
+                    click_pos_2(705, 260, cla)
             time.sleep(0.5)
 
 
