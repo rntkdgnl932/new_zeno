@@ -285,14 +285,21 @@ def map_spot_click(cla, where):
             in_map_count += 1
             if in_map_count > 10:
                 in_map_ = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map_spot.PNG"
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\confirm.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(310, 170, 950, 840, cla, img, 0.85)
+            imgs_ = imgs_set_(490, 610, 650, 650, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 in_map_ = True
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(1)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map_spot.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(310, 170, 950, 840, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(1)
             time.sleep(0.5)
     except Exception as e:
         print(e)
