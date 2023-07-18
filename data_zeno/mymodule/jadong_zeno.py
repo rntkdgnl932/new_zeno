@@ -244,31 +244,38 @@ def map_junlipoom_click(cla, where):
             if in_map_count > 10:
                 in_map_ = True
 
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_1.PNG"
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map_spot.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
+            imgs_ = imgs_set_(310, 170, 950, 840, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    in_map_ = True
-
+                in_map_ = True
             else:
 
-                if click_reg == 'red_hwangya_1':
-                    click_pos_2(110, 570, cla)
-                else:
-
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
+                    imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                else:
+
+                    if click_reg == 'red_hwangya_1':
+                        click_pos_2(110, 570, cla)
+                    else:
+
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(0.5)
     except Exception as e:
         print(e)
