@@ -598,6 +598,14 @@ def clean_screen(cla):
                 clean = True
             else:
 
+                # 지도 관련
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(635, 365, cla)
+
                 # 절전
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
