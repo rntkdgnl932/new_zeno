@@ -172,6 +172,12 @@ def tuto_grow_start(cla):
                 imgs_ = imgs_set_(560, 500, 840, 590, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     skip_ready = True
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\skip\\seboo_stat_skip_ready.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(560, 500, 840, 590, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    skip_ready = True
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\skip\\mohumga_skip_ready.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
