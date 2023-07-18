@@ -90,16 +90,16 @@ def potion_check_tuto(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
+            imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 potion_ready = text_check_get(580, 985, 605, 1003, cla)
                 print("potion", potion_ready)
                 v_.potion_count = 0
             else:
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\not_have_potion.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
+                imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     print("없다.", v_.potion_count)
 
@@ -108,7 +108,7 @@ def potion_check_tuto(cla):
                         v_.potion_count = 0
                         maul_potion(cla)
                 else:
-                    print("있다.")
+                    print("비어있다.")
         else:
             clean_screen(cla)
 

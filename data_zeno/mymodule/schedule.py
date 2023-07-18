@@ -181,8 +181,7 @@ def myQuest_play_check(cla, data):
                 v_.two_cla_count = 0
                 v_.one_cla_ing = 'check'
                 v_.two_cla_ing = 'check'
-                v_.one_cla_get_event = False
-                v_.two_cla_get_event = False
+                v_.dead_count = 0
 
 
         else:
@@ -307,14 +306,15 @@ def myQuest_play_add(cla, data):
         print(cla)
         print(data)
         clear_mission = data
-        if cla == 'one' or cla == "three":
+        if cla == 'one':
             clalal_ = 'One'
-            id_cla = v_.myId_1
-        if cla == 'two' or cla == "four":
+        if cla == 'two':
             clalal_ = 'Two'
-            id_cla = v_.myId_2
+        if cla == "three":
+            clalal_ = 'Three'
+        if cla == "four":
+            clalal_ = 'Four'
 
-        id_cla = str(id_cla)
         nowDay_ = datetime.today().strftime("%Y%m%d")
         nowDay = int(nowDay_)
         nowTime = int(datetime.today().strftime("%H"))
@@ -423,7 +423,6 @@ def myQuest_play_add(cla, data):
                             if j == 7:
                                 cla_schedule2 += complete_[7] + "\n"
                 #여기서 현재 부분 체크...
-                print('id_cla', id_cla)
                 cla_schedule1_ = cla_schedule1.split("\n")
                 cla_schedule2_ = cla_schedule2.split("\n")
                 print('lines', lines)
@@ -458,7 +457,6 @@ def myQuest_play_add(cla, data):
             print('start', start)
             print('clear_mission', clear_mission)
             print('start', start[2])
-            print('id_cla', id_cla)
             print('start[1]', start[1])
             print('clalal_', clalal_)
             print('start[0]', start[0])
@@ -627,8 +625,7 @@ def myQuest_play_add(cla, data):
             v_.two_cla_count = 0
             v_.one_cla_ing = 'check'
             v_.two_cla_ing = 'check'
-            v_.one_cla_get_event = False
-            v_.two_cla_get_event = False
+            v_.dead_count = 0
             # myQuest_number_check(cla, "new")
             # change_ = 1
             # characterChange(change_, cla)

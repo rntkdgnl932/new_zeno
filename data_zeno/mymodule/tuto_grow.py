@@ -107,6 +107,8 @@ def tuto_grow_start(cla):
                 else:
                     break
                 time.sleep(1)
+        else:
+            level_up_point(cla)
 
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_ing_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -266,15 +268,12 @@ def tuto_1(cla):
         print(e)
         return 0
 
-
-def tuto_skip(cla):
+def level_up_point(cla):
     import numpy as np
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
-    from action_zeno import menu_open_check
     try:
-        print('skip!', cla)
-
+        print("level_up_point")
         # 체크 후 스텟 업
 
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\levelup_check\\levelup_check.PNG"
@@ -283,6 +282,8 @@ def tuto_skip(cla):
         imgs_ = imgs_set_(40, 25, 80, 60, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             print("level_up_check", imgs_)
+            reg_x = imgs_.x - 20
+            reg_y = imgs_.y + 8
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_soolock_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -300,8 +301,6 @@ def tuto_skip(cla):
                     print("quest_soolock_2", imgs_)
                     click_pos_reg(imgs_.x, imgs_.y, cla)
 
-            reg_x = imgs_.x - 20
-            reg_y = imgs_.y + 8
             click_pos_reg(reg_x, reg_y, cla)
             time.sleep(1)
 
@@ -339,6 +338,19 @@ def tuto_skip(cla):
                 else:
                     click_pos_reg(reg_x, reg_y, cla)
                 time.sleep(0.5)
+    except Exception as e:
+        print(e)
+        return 0
+
+def tuto_skip(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2
+    from action_zeno import menu_open_check
+    try:
+        print('skip!', cla)
+
+
 
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\skip\\skip_1.PNG"
         img_array = np.fromfile(full_path, np.uint8)

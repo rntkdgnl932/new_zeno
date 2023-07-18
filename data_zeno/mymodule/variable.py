@@ -18,19 +18,17 @@ one_cla_pw = "none"
 two_cla_id = "none"
 two_cla_pw = "none"
 # 1번
-mynumber_1 = 0
-mylevel_1 = 0
-mymoney_1 = 0
-mypower_1 = 0
 mypotion_1 = 9999
 myId_1 = 0
 # 2번
-mynumber_2 = 0
-mylevel_2 = 0
-mymoney_2 = 0
-mypower_2 = 0
 mypotion_2 = 9999
 myId_2 = 0
+# 3번
+mypotion_3 = 9999
+myId_3 = 0
+# 4번
+mypotion_4 = 9999
+myId_4 = 0
 # 현재실행중인 클라우드
 now_cla = 'none'
 global_howcla = 'none'
@@ -58,6 +56,7 @@ this_game = "제노니아"
 
 # 자동모드 관련
 potion_count = 0
+dead_count = 0
 
 # 던전 진행중 여부
 now_dungeon_ing = False

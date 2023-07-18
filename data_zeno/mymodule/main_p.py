@@ -47,6 +47,8 @@ from test_ import go_test
 from tuto_grow import tuto_grow_start
 
 from action_zeno import get_items
+from dungeon_zeno import dungeon_start
+from jadong_zeno import jadong_start
 # from pywinauto import Application
 import variable as v_
 
@@ -660,7 +662,6 @@ class FirstTab(QWidget):
 
         # 강제 노역(서브퀘스트 강제수행)
         self.onActivated_slelect_gold_read()
-        self.onActivated_slelect_spot_read()
         self.force_sub = QGroupBox('강제 서브퀘스트')
 
         self.my_limit_gold = QLabel("골드 : " + str(v_.onForceGold) + " 이하 강제노역 ㄱㄱ")
@@ -798,7 +799,7 @@ class FirstTab(QWidget):
         # 초기화 시간 수정
         self.com_group33 = QGroupBox('초기화 시간 수정')
         cb33 = QComboBox()
-        list33 = ['시간 선택', '4', '5', '6', '7', '8', '9', '10', '11']
+        list33 = ['시간 선택', '5', '6', '7', '8', '9', '10', '11']
         cb33.addItems(list33)
         vbox33 = QVBoxLayout()
         vbox33.addWidget(cb33)
@@ -877,10 +878,11 @@ class FirstTab(QWidget):
         # 던전 종류
         self.com_group4 = QGroupBox('던전')
         cb4 = QComboBox()
-        list4 = ['던전 선택', '던전_번영', '던전_수련', '던전_신전', '던전_유적', '던전_동굴']
+        # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
+        list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스']
         cb4.addItems(list4)
         cb44 = QComboBox()
-        list44 = ['구역 및 전당', '1', '2', '3', '4', '5', '6']
+        list44 = ['층수', '1', '2', '3', '4', '5', '6']
         cb44.addItems(list44)
 
         vbox4 = QHBoxLayout()
@@ -895,7 +897,7 @@ class FirstTab(QWidget):
 
         # 사냥터
         dir_path = "C:\\my_games\\zenonia\\data_zeno"
-        file_path1 = dir_path + "\\jadong\\abilius.txt"
+        file_path1 = dir_path + "\\jadong\\midgard.txt"
         file_path2 = dir_path + "\\jadong\\bastium.txt"
         file_path3 = dir_path + "\\jadong\\chalano.txt"
 
@@ -903,7 +905,7 @@ class FirstTab(QWidget):
             with open(file_path1, "r", encoding='utf-8-sig') as file:
                 read_1 = file.read()
                 read_1 = read_1.split(":")
-                read_1 = "< 아빌리우스 >/" + read_1[1]
+                read_1 = "< 미드가르드 >/" + read_1[1]
                 read_1 = read_1.split("/")
                 list5 = []
                 for i in range(len(read_1)):
@@ -929,7 +931,7 @@ class FirstTab(QWidget):
         cb5 = QComboBox()
         #list5 = ['자동 사냥터 선택1', '사냥_콜리아 삼거리', '사냥_마른땅 벌목지', '사냥_실바인 진흙탕', '사냥_실바인 저수지']
         cb5.addItems(list5)
-        jadong1 = QPushButton('아빌리우스 추가')
+        jadong1 = QPushButton('미드가르드 추가')
         jadong1.clicked.connect(self.onActivated_hunt_add)
 
         cb55 = QComboBox()
@@ -1125,59 +1127,7 @@ class FirstTab(QWidget):
         # self.BackGroundPotion_.potion_back_ = True
         # self.BackGroundPotion_.start()
         # time.sleep(1)
-    def onActivated_slelect_spot_read(self):
-        print("onActivated_slelect_spot_read")
-        # dir_path = "C:\\my_games\\zenonia"
-        # dir_spot = "C:\\my_games\\zenonia\\mysettings\\gold_force"
-        # file_path = dir_path + "\\mysettings\\gold_force\\limit_gold_spot.txt"
-        #
-        # islimitgold = False
-        # while islimitgold is False:
-        #     if os.path.isfile(file_path) == True:
-        #         with open(file_path, "r", encoding='utf-8-sig') as file:
-        #             v_.onForceGoldSpot = file.read()
-        #             islimitgold = True
-        #     else:
-        #         if os.path.isdir(dir_spot) == False:
-        #             print('강제노역 장소 디렉토리 존재하지 않음')
-        #             os.makedirs(dir_spot)
-        #         with open(file_path, "w", encoding='utf-8-sig') as file:
-        #             file.write("콜리아삼거리")
-        #
-        # abilius = dir_path + "\\data_zeno\\jadong\\abilius.txt"
-        # bastium = dir_path + "\\data_zeno\\jadong\\bastium.txt"
-        # chalano = dir_path + "\\data_zeno\\jadong\\chalano.txt"
-        #
-        # jadong_list = v_.onForceGoldSpot
-        # with open(abilius, "r", encoding='utf-8-sig') as file:
-        #     abilius_list = file.read()
-        #     abilius_list_ = abilius_list.split(":")
-        #     abilius_list_result = abilius_list_[1].split("/")
-        #     for i in range(len(abilius_list_result)):
-        #         if jadong_list == abilius_list_result[i]:
-        #             spot_ = "사냥_아빌리우스_" + jadong_list
-        #             print("spot_1", spot_)
-        # with open(bastium, "r", encoding='utf-8-sig') as file:
-        #     bastium_list = file.read()
-        #     bastium_list_ = bastium_list.split(":")
-        #     bastium_list_result = bastium_list_[1].split("/")
-        #     for i in range(len(bastium_list_result)):
-        #         if jadong_list == bastium_list_result[i]:
-        #             spot_ = "사냥_바스티움_" + jadong_list
-        #             print("spot_2", spot_)
-        # with open(chalano, "r", encoding='utf-8-sig') as file:
-        #     chalano_list = file.read()
-        #     chalano_list_ = chalano_list.split(":")
-        #     chalano_list_result = chalano_list_[1].split("/")
-        #     for i in range(len(chalano_list_result)):
-        #         if jadong_list == chalano_list_result[i]:
-        #             spot_ = "사냥_첼라노_" + jadong_list
-        #             print("spot_3", spot_)
-        #
-        #
-        # v_.onForceGoldSpot_go = spot_
-        #
-        # return v_.onForceGoldSpot
+
 
     def onActivated_slelect_spot(self, e):
         if e != 0 and e != '사냥터':
@@ -1202,7 +1152,6 @@ class FirstTab(QWidget):
         else:
             print("사냥터를 선택해 주세요.")
         self.my_limit_gold_spot.setText("사냥터 : " + str(v_.onForceGoldSpot))
-        self.onActivated_slelect_spot_read()
 
     def onActivated_slelect_gold_read(self):
         dir_path = "C:\\my_games\\zenonia"
@@ -1385,12 +1334,12 @@ class FirstTab(QWidget):
 
     def onActivated_hunt(self, text):
         global onHunt
-        if text != 0 and text != '< 아빌리우스 >':
+        if text != 0 and text != '< 미드가르드 >':
             onHunt = text
             print('onHunt', onHunt)
         else:
             onHunt = 'none'
-            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='아빌리우스')
+            pyautogui.alert(button='넵', text='사냥터를 선택해 주시지예', title='미드가르드')
             print("자동 사냥터를 선택해 주세요.")
     def onActivated_hunt2(self, text):
         global onHunt2
@@ -1496,12 +1445,12 @@ class FirstTab(QWidget):
     def onActivated_hunt_add(self):
         global onCharacter, onHunt
         char_ = onCharacter
-        hun_ = "사냥_" + "아빌리우스_" + onHunt
+        hun_ = "사냥_" + "미드가르드_" + onHunt
         if onCharacter == 0:
             pyautogui.alert(button='넵', text='캐릭터를 선택해 주시지예', title='뭐합니꺼')
-        elif onHunt == '< 아빌리우스 >' or onHunt == 'none':
+        elif onHunt == '< 미드가르드 >' or onHunt == 'none':
             pyautogui.alert(button='넵', text='던전을 선택해 주시지예', title='뭐합니꺼')
-        elif onCharacter != 0 and onHunt != '< 아빌리우스 >':
+        elif onCharacter != 0 and onHunt != '< 미드가르드 >':
             print('char_', char_)
             print('dun_', hun_)
 
@@ -2117,8 +2066,8 @@ class FirstTab(QWidget):
             v_.two_cla_count = 0
             v_.one_cla_ing = 'check'
             v_.two_cla_ing = 'check'
-            v_.one_cla_get_event = False
-            v_.two_cla_get_event = False
+
+            v_.dead_count = 0
 
             # myQuest_number_check('all', 'refresh')
 
@@ -2196,8 +2145,8 @@ class FirstTab(QWidget):
             v_.two_cla_count = 0
             v_.one_cla_ing = 'check'
             v_.two_cla_ing = 'check'
-            v_.one_cla_get_event = False
-            v_.two_cla_get_event = False
+
+            v_.dead_count = 0
 
             # myQuest_number_check('all', 'refresh')
 
@@ -2843,6 +2792,8 @@ class game_Playing(QThread):
                         character_id = result_schedule[0][1]
                         result_schedule_ = result_schedule[0][2]
 
+                        #캐릭 번ㅅ번호 다르다면 체인지
+
                         if result_schedule_ == "각종템받기":
                             get_items(v_.now_cla)
                             myQuest_play_add(v_.now_cla, result_schedule_)
@@ -2850,6 +2801,13 @@ class game_Playing(QThread):
 
                         if result_schedule_ == "튜토육성":
                             tuto_grow_start(v_.now_cla)
+
+                        if '_' in result_schedule_:
+                            jadong_spl_ = result_schedule_.split("_")
+                            if jadong_spl_[0] == "사냥":
+                                jadong_start(v_.now_cla, result_schedule_)
+                            elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+                                dungeon_start(v_.now_cla, result_schedule_)
 
                 time.sleep(2)
 
