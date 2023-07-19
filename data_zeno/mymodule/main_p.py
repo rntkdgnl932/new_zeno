@@ -2808,7 +2808,7 @@ class game_Playing(QThread):
             while self.isCheck is True:
 
                 if v_.now_cla == 'none':
-                    print("게임시작 대기")
+                    print("게임시작 대기!")
                 else:
                     print("제노니아 실행 모드(ver " + version + ")")
                     print("zenonia cla", v_.now_cla)
