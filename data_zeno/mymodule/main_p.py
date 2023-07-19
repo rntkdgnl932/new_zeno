@@ -2685,7 +2685,6 @@ class game_Playing_Ready(QThread):
     def run(self):
         try:
             # v_.now_cla = 'none' <= 최초 부를때 자동으로 불러옴. 또는 실행하여 바꿀수 있음. 오딘은 그냥 설정해줘야함.
-            v_.global_howcla = 'onecla'
 
             # self.m_ = Monitoring_one()
             # self.m_.start()
@@ -2734,16 +2733,11 @@ class game_Playing_onecla(QThread):
                 file.write(str(data))
 
             # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
-            v_.global_howcla = 'onecla'
 
 
 
             self.m_ = Monitoring_one()
             self.m_.start()
-            #
-            #
-            # self.x_ = game_Playing()
-            # self.x_.start()
 
         except Exception as e:
             print(e)
@@ -2774,7 +2768,6 @@ class game_Playing_twocla(QThread):
 
 
             # v_.now_cla = 'four' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
-            v_.global_howcla = 'twocla'
 
             self.m_ = Monitoring_two()
             self.m_.start()
@@ -2814,7 +2807,7 @@ class game_Playing(QThread):
                     print("zenonia cla", v_.now_cla)
 
                     result_game = game_start()
-                    if result_game == True:
+                    if result_game == True and v_.now_cla != "none":
                         # 이전 게임 모드 불러와서 실행
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\touching.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -2842,7 +2835,8 @@ class game_Playing(QThread):
                                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_title_2.PNG"
                                             img_array = np.fromfile(full_path, np.uint8)
                                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                            imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.8)
+                                            # 제노는 3클라 고정
+                                            imgs_ = imgs_set_(0, 50, 960, 1030, "three", img, 0.8)
                                             if imgs_ is not None and imgs_ != False:
                                                 click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
                                             break
