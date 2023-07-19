@@ -2689,7 +2689,22 @@ class game_Playing_Ready(QThread):
 
             # self.m_ = Monitoring_one()
             # self.m_.start()
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path2 = dir_path + "\\cla.txt"
+            isstart2 = False
+            while isstart2 is False:
+                if os.path.isdir(dir_path) == True:
+                    if os.path.isfile(file_path2) == True:
+                        with open(file_path2, "r", encoding='utf-8-sig') as file:
+                            v_.now_cla = file.read()
 
+                            isstart2 = True
+                    else:
+                        with open(file_path2, "w", encoding='utf-8-sig') as file:
+                            data = 'none'
+                            file.write(str(data))
+                else:
+                    os.makedirs(dir_path)
 
             self.x_ = game_Playing()
             self.x_.start()

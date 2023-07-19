@@ -15,8 +15,6 @@ def game_start():
         file_path = dir_path + "\\start.txt"
         file_path2 = dir_path + "\\cla.txt"
 
-
-
         isstart1 = False
         while isstart1 is False:
             if os.path.isdir(dir_path) == True:
@@ -36,6 +34,7 @@ def game_start():
                 if os.path.isfile(file_path2) == True:
                     with open(file_path2, "r", encoding='utf-8-sig') as file:
                         v_.now_cla = file.read()
+
                         isstart2 = True
                 else:
                     with open(file_path2, "w", encoding='utf-8-sig') as file:
