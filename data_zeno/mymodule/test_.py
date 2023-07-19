@@ -15,14 +15,15 @@ def go_test():
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
     from jadong_zeno import jadong_start
     from action_zeno import gold_check_open, out_check, now_hunting
+    from server import server_get_version, server_get_zeno
     cla = "one"
     v_.now_cla = cla
 
-    file_path = "C:\\my_games\\zenonia\\data_zeno\\mymodule\\version.txt"
-    with open(file_path, "r", encoding='utf-8-sig') as file:
-        lines = file.read()
+    result_my_server_read = server_get_zeno()
+    print("my_server_read", result_my_server_read)
 
-    print("re", lines)
+    server_version = server_get_version()
+    print("server_version", server_version)
 
     # # 층수 클릭
     #
