@@ -2791,6 +2791,7 @@ class game_Playing(QThread):
                         time.sleep(1)
                         # 실행 후 재시작 부분
                         os.execl(sys.executable, sys.executable, *sys.argv)
+                        print("now cla ? ", v_.now_cla)
                     else:
                         print("버젼 같아서 대기...")
 

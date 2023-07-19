@@ -4,7 +4,8 @@ def server_get_zeno():
     try:
         url = "https://raw.githubusercontent.com/rntkdgnl932/server/master/zenonia.txt"
 
-        response = requests.get(url)
+        response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+        # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
         data = response.text
 
         print("server_get_zeno", data)
@@ -17,7 +18,8 @@ def server_get_version():
     try:
         url = "https://raw.githubusercontent.com/rntkdgnl932/new_zeno/master/data_zeno/mymodule/version.txt"
 
-        response = requests.get(url)
+        response = requests.get(url, headers={'Cache-Control': 'no-cache'})
+        # response = requests.get(url, headers={'Cache-Control': 'no-cache'})
         data = response.text
 
         print("server_get_version", data)
