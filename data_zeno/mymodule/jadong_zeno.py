@@ -318,7 +318,7 @@ def map_spot_click(cla, where):
 
 def spot_arrive(cla, where):
     try:
-        from action_zeno import clean_screen, out_check
+        from action_zeno import clean_screen, out_check, confirm_all
         from function import click_pos_2, click_pos_reg, imgs_set_
         print("spot_arrive")
         time.sleep(5)
@@ -333,6 +333,7 @@ def spot_arrive(cla, where):
                 in_map_ = True
             else:
                 print("사냥터 가는중")
+                confirm_all(cla)
             time.sleep(2)
     except Exception as e:
         print(e)

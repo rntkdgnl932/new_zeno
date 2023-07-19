@@ -1,5 +1,6 @@
 import sys
 import time
+import requests
 
 sys.path.append('C:/my_games/zenonia/data_zeno/mymodule')
 
@@ -17,8 +18,12 @@ def go_test():
     cla = "one"
     v_.now_cla = cla
 
-    result = now_hunting(cla)
-    print("re", result)
+    url = "https://raw.githubusercontent.com/rntkdgnl932/server/master/zenonia.txt"
+
+    response = requests.get(url)
+    data = response.text
+
+    print("re", data)
 
     # # 층수 클릭
     #
