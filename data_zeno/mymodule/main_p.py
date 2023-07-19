@@ -2795,7 +2795,7 @@ class game_Playing(QThread):
                         print("버젼 같아서 대기...")
 
 
-                time.sleep(2)
+                time.sleep(5)
 
 
 
