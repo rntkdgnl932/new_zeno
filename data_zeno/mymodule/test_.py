@@ -16,14 +16,18 @@ def go_test():
     from jadong_zeno import jadong_start
     from action_zeno import gold_check_open, out_check, now_hunting
     from server import server_get_version, server_get_zeno
-    cla = "one"
+    cla = "three"
     v_.now_cla = cla
 
-    result_my_server_read = server_get_zeno()
-    print("my_server_read", result_my_server_read)
-
-    server_version = server_get_version()
-    print("server_version", server_version)
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_title_2.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        click_pos_reg(imgs_.x - 40, imgs_.y, cla)
+        print("qhdu", imgs_)
+    else:
+        print("no look")
 
     # # 층수 클릭
     #

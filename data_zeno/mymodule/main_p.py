@@ -2816,7 +2816,64 @@ class game_Playing(QThread):
                     result_game = game_start()
                     if result_game == True:
                         # 이전 게임 모드 불러와서 실행
-                        print("go")
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\touching.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
+                        if imgs_ is not None and imgs_ != False:
+                            print("touching_mode 5초", imgs_)
+                            time.sleep(5)
+                        else:
+                            print("touching 없")
+
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                            if imgs_ is not None and imgs_ != False:
+                                print("매크로를 내려야 실행됨...15초")
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                                    if imgs_ is not None and imgs_ != False:
+                                        if i > 8:
+                                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_title_2.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.8)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
+                                            break
+
+                                    else:
+                                        break
+                                    time.sleep(1)
+
+                            else:
+
+                                result_schedule = myQuest_play_check(v_.now_cla, "check")
+                                print("result_schedule", result_schedule)
+                                character_id = result_schedule[0][1]
+                                result_schedule_ = result_schedule[0][2]
+
+                                # 캐릭 번ㅅ번호 다르다면 체인지
+
+                                if result_schedule_ == "각종템받기":
+                                    get_items(v_.now_cla)
+                                    myQuest_play_add(v_.now_cla, result_schedule_)
+                                    time.sleep(0.2)
+
+                                if result_schedule_ == "튜토육성":
+                                    tuto_grow_start(v_.now_cla)
+
+                                if '_' in result_schedule_:
+                                    jadong_spl_ = result_schedule_.split("_")
+                                    if jadong_spl_[0] == "사냥":
+                                        jadong_start(v_.now_cla, result_schedule_)
+                                    elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+                                        dungeon_start(v_.now_cla, result_schedule_)
 
 
 
@@ -2829,75 +2886,75 @@ class game_Playing(QThread):
             os.system("pause")
             return 0
 #################BACK UP############################################################
-# class game_Playing(QThread):
-#
-#     def __init__(self):
-#         super().__init__()
-#         # self.parent = parent
-#
-#         self.isCheck = True
-#
-#     def run(self):
-#
-#         try:
-#             # 튜토육성 스케쥴 불러오기
-#
-#             print("zenonia go", v_.now_cla)
-#
-#             while self.isCheck is True:
-#
-#                 print("제노니아 실행 모드(ver " + version + ")")
-#
-#
-#
-#                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\touching.PNG"
-#                 img_array = np.fromfile(full_path, np.uint8)
-#                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-#                 imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
-#                 if imgs_ is not None and imgs_ != False:
-#                     print("touching_mode 5초", imgs_)
-#                     time.sleep(5)
-#                 else:
-#                     print("touching 없")
-#
-#                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
-#                     img_array = np.fromfile(full_path, np.uint8)
-#                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-#                     imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
-#                     if imgs_ is not None and imgs_ != False:
-#                         print("매크로를 내려야 실행됨")
-#                     else:
-#
-#                         result_schedule = myQuest_play_check(v_.now_cla, "check")
-#                         print("result_schedule", result_schedule)
-#                         character_id = result_schedule[0][1]
-#                         result_schedule_ = result_schedule[0][2]
-#
-#                         #캐릭 번ㅅ번호 다르다면 체인지
-#
-#                         if result_schedule_ == "각종템받기":
-#                             get_items(v_.now_cla)
-#                             myQuest_play_add(v_.now_cla, result_schedule_)
-#                             time.sleep(0.2)
-#
-#                         if result_schedule_ == "튜토육성":
-#                             tuto_grow_start(v_.now_cla)
-#
-#                         if '_' in result_schedule_:
-#                             jadong_spl_ = result_schedule_.split("_")
-#                             if jadong_spl_[0] == "사냥":
-#                                 jadong_start(v_.now_cla, result_schedule_)
-#                             elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
-#                                 dungeon_start(v_.now_cla, result_schedule_)
-#
-#                 time.sleep(2)
-#
-#
-#
-#         except Exception as e:
-#             print(e)
-#             os.system("pause")
-#             return 0
+class game_Playing_ex(QThread):
+
+    def __init__(self):
+        super().__init__()
+        # self.parent = parent
+
+        self.isCheck = True
+
+    def run(self):
+
+        try:
+            # 튜토육성 스케쥴 불러오기
+
+            print("zenonia go", v_.now_cla)
+
+            while self.isCheck is True:
+
+                print("제노니아 실행 모드(ver " + version + ")")
+
+
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\touching.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("touching_mode 5초", imgs_)
+                    time.sleep(5)
+                else:
+                    print("touching 없")
+
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+                    if imgs_ is not None and imgs_ != False:
+                        print("매크로를 내려야 실행됨")
+                    else:
+
+                        result_schedule = myQuest_play_check(v_.now_cla, "check")
+                        print("result_schedule", result_schedule)
+                        character_id = result_schedule[0][1]
+                        result_schedule_ = result_schedule[0][2]
+
+                        #캐릭 번ㅅ번호 다르다면 체인지
+
+                        if result_schedule_ == "각종템받기":
+                            get_items(v_.now_cla)
+                            myQuest_play_add(v_.now_cla, result_schedule_)
+                            time.sleep(0.2)
+
+                        if result_schedule_ == "튜토육성":
+                            tuto_grow_start(v_.now_cla)
+
+                        if '_' in result_schedule_:
+                            jadong_spl_ = result_schedule_.split("_")
+                            if jadong_spl_[0] == "사냥":
+                                jadong_start(v_.now_cla, result_schedule_)
+                            elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+                                dungeon_start(v_.now_cla, result_schedule_)
+
+                time.sleep(2)
+
+
+
+        except Exception as e:
+            print(e)
+            os.system("pause")
+            return 0
 ####################################################################################################################
 ####################################################################################################################
 ####################################################################################################################

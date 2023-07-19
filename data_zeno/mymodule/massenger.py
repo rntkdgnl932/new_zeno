@@ -195,6 +195,7 @@ def line_monitor(game, cla):
     from function import imgs_set, click_pos_reg
     import time
     from datetime import datetime, timedelta, date
+    from server import server_get_zeno
     try:
         isLoop = False
 
@@ -203,122 +204,127 @@ def line_monitor(game, cla):
 
             # x같은 팝업창
 
-            # 블랙 스크린
-            nowTime = datetime.today().strftime("%Y/%m/%d %H:%M:%S")
-            print(nowTime)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\unreal_error_1.png"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(0, 700, 960, 850, "one", img)
-            if imgs_ is not None:
-                ms_ = str(game) + str(" 블랙스크린")
-                line_to_me("one", ms_)
+            result_my_server_read = server_get_zeno()
+            print("my_server_read", result_my_server_read)
 
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\closewithoutsending.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(0, 700, 960, 850, "one", img)
-            if imgs_ is not None:
-                ms_ = str(game) + str(" 블랙스크린")
-                line_to_me("one", ms_)
+            if result_my_server_read == 'start':
 
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\unreal_error_2.png"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(0, 700, 960, 850, "two", img)
-            if imgs_ is not None:
-                ms_ = str(game) + str(" 블랙스크린")
-                line_to_me("two", ms_)
+                # 블랙 스크린
+                nowTime = datetime.today().strftime("%Y/%m/%d %H:%M:%S")
+                print(nowTime)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\unreal_error_1.png"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 700, 960, 850, "one", img)
+                if imgs_ is not None:
+                    ms_ = str(game) + str(" 블랙스크린")
+                    line_to_me("one", ms_)
 
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\sendandrestart.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set(0, 700, 960, 850, "two", img)
-            if imgs_ is not None:
-                ms_ = str(game) + str(" 블랙스크린")
-                line_to_me("two", ms_)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\closewithoutsending.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 700, 960, 850, "one", img)
+                if imgs_ is not None:
+                    ms_ = str(game) + str(" 블랙스크린")
+                    line_to_me("one", ms_)
 
-            # 화면
-            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\zenonia_title.PNG"
-            # img_array = np.fromfile(full_path, np.uint8)
-            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            # imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
-            # if imgs_ is None:
-            #     ms_ = str(game) + str(" 꺼진것 같다")
-            #     line_to_me(cla, ms_)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\unreal_error_2.png"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 700, 960, 850, "two", img)
+                if imgs_ is not None:
+                    ms_ = str(game) + str(" 블랙스크린")
+                    line_to_me("two", ms_)
 
-            #나가기 버튼
-            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item_1\\exit_1.PNG"
-            # img_array = np.fromfile(full_path, np.uint8)
-            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            # imgs_ = imgs_set(400, 980, 570, 1030, cla, img)
-            # if imgs_ is not None and imgs_ != False:
-            #     print("monitoring catch exit")
-            #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\sendandrestart.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(0, 700, 960, 850, "two", img)
+                if imgs_ is not None:
+                    ms_ = str(game) + str(" 블랙스크린")
+                    line_to_me("two", ms_)
 
+                # 화면
+                # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\zenonia_title.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set(0, 0, 960, 1030, cla, img)
+                # if imgs_ is None:
+                #     ms_ = str(game) + str(" 꺼진것 같다")
+                #     line_to_me(cla, ms_)
 
-
-
-            # 장시간
-            jangsigan = False
-            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\jangsigan_1.PNG"
-            # img_array = np.fromfile(full_path, np.uint8)
-            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            # imgs_ = imgs_set(300, 450, 700, 550, cla, img)
-            # if imgs_ is not None:
-            #     ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다")
-            #     line_to_me(cla, ms_)
-
-
-            if jangsigan == True:
-                ms_ = str(game) + str(" 죽어뿌따 ㅠㅅㅠ")
-                line_to_me(cla, ms_)
+                #나가기 버튼
+                # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item_1\\exit_1.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set(400, 980, 570, 1030, cla, img)
+                # if imgs_ is not None and imgs_ != False:
+                #     print("monitoring catch exit")
+                #     click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
 
 
-            # 날짜 갱신 체크 관련
-            print("날짜 갱신 체크")
-            # 닉네임 받아와서 전역변수 설정하기
-            nowDay_ = datetime.today().strftime("%Y%m%d")
-            nowDay = int(nowDay_)
-            nowTime = int(datetime.today().strftime("%H"))
-            yesterday_ = date.today() - timedelta(1)
-            yesterday = int(yesterday_.strftime('%Y%m%d'))
+                # 장시간
+                jangsigan = False
+                # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\jangsigan_1.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set(300, 450, 700, 550, cla, img)
+                # if imgs_ is not None:
+                #     ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다")
+                #     line_to_me(cla, ms_)
 
-            dir_path = "C:\\my_games\\zenonia"
-            file_path2 = dir_path + "\\mysettings\\refresh_time\\quest.txt"
-            file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
 
-            isRefresh = False
-            while isRefresh is False:
-                if os.path.isfile(file_path13) == True:
-                    with open(file_path13, "r", encoding='utf-8-sig') as file:
-                        isRefresh = True
-                        refresh_time = file.read()
-                        print("refresh_time", refresh_time)
-                else:
-                    with open(file_path13, "w", encoding='utf-8-sig') as file:
-                        file.write(str(6))
-
-            isNowday = False
-            while isNowday is False:
-                if os.path.isfile(file_path2) == True:
-                    with open(file_path2, "r", encoding='utf-8-sig') as file:
-                        isNowday = True
-                        lines2 = file.read().splitlines()
-                        day_ = lines2[0].split(":")
-                        print("day_", day_)
-                else:
-                    with open(file_path2, "w", encoding='utf-8-sig') as file:
-                        file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
-
-            if nowTime >= int(refresh_time) + 1:
-                if int(day_[0]) != nowDay:
-                    print("day_[0]", day_[0])
-                    print("nowDay", nowDay)
-                    ms_ = str(game) + str(" 초기화 갱신 안되었다.")
+                if jangsigan == True:
+                    ms_ = str(game) + str(" 죽어뿌따 ㅠㅅㅠ")
                     line_to_me(cla, ms_)
+
+
+
+
+                # 날짜 갱신 체크 관련
+                print("날짜 갱신 체크")
+                # 닉네임 받아와서 전역변수 설정하기
+                nowDay_ = datetime.today().strftime("%Y%m%d")
+                nowDay = int(nowDay_)
+                nowTime = int(datetime.today().strftime("%H"))
+                yesterday_ = date.today() - timedelta(1)
+                yesterday = int(yesterday_.strftime('%Y%m%d'))
+
+                dir_path = "C:\\my_games\\zenonia"
+                file_path2 = dir_path + "\\mysettings\\refresh_time\\quest.txt"
+                file_path13 = dir_path + "\\mysettings\\refresh_time\\refresh_time.txt"
+
+                isRefresh = False
+                while isRefresh is False:
+                    if os.path.isfile(file_path13) == True:
+                        with open(file_path13, "r", encoding='utf-8-sig') as file:
+                            isRefresh = True
+                            refresh_time = file.read()
+                            print("refresh_time", refresh_time)
+                    else:
+                        with open(file_path13, "w", encoding='utf-8-sig') as file:
+                            file.write(str(6))
+
+                isNowday = False
+                while isNowday is False:
+                    if os.path.isfile(file_path2) == True:
+                        with open(file_path2, "r", encoding='utf-8-sig') as file:
+                            isNowday = True
+                            lines2 = file.read().splitlines()
+                            day_ = lines2[0].split(":")
+                            print("day_", day_)
+                    else:
+                        with open(file_path2, "w", encoding='utf-8-sig') as file:
+                            file.write(str(nowDay) + ":" + str(refresh_time) + "\n")
+
+                if nowTime >= int(refresh_time) + 1:
+                    if int(day_[0]) != nowDay:
+                        print("day_[0]", day_[0])
+                        print("nowDay", nowDay)
+                        ms_ = str(game) + str(" 초기화 갱신 안되었다.")
+                        line_to_me(cla, ms_)
 
             time.sleep(300)
 
