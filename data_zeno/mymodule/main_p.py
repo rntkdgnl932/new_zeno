@@ -50,7 +50,7 @@ from action_zeno import get_items
 from dungeon_zeno import dungeon_start
 from jadong_zeno import jadong_start
 # from pywinauto import Application
-from server import server_get_zeno, server_get_version
+from server import game_start
 import variable as v_
 
 sys.setrecursionlimit(10 ** 7)
@@ -119,6 +119,8 @@ class MyApp(QDialog):
 
         self.setLayout(vbox)
 
+        start_ready = game_Playing_Ready(self)
+        start_ready.start()
 
         self.my_title()
 
@@ -635,16 +637,18 @@ class FirstTab(QWidget):
         sche_down_modify = QPushButton('down')
         sche_down_modify.clicked.connect(self.sche_down_modify)
         # 스케쥴 변경 확인
-        self.sche_add1 = QPushButton('one 대기중', self)
+        self.sche_add1 = QPushButton('>> Three', self)
         self.sche_add1.clicked.connect(self.mySchedule_start1)
-        self.sche_add2 = QPushButton('two 대기중', self)
+        self.sche_add2 = QPushButton('>> Four', self)
         self.sche_add2.clicked.connect(self.mySchedule_start2)
 
         # 테스트 버튼
         self.mytestin = QPushButton('테스뚜')
         self.mytestin.clicked.connect(self.mytestin_)
-        self.temporary_pause = QPushButton('제노켜기')
-        self.temporary_pause.clicked.connect(self.zeno_start)
+        self.perfect_pause = QPushButton('완전정지')
+        self.perfect_pause.clicked.connect(self.zeno_stop_perfect)
+        # self.temporary_pause = QPushButton('제노켜기')
+        # self.temporary_pause.clicked.connect(self.zeno_start)
         self.again_restart = QPushButton('업데이트')
         self.again_restart.clicked.connect(self.again_restart_game)
 
@@ -991,7 +995,7 @@ class FirstTab(QWidget):
         hbox1 = QHBoxLayout()
         # hbox1.addWidget(self.setItems)
         hbox1.addWidget(self.mytestin)
-        hbox1.addWidget(self.temporary_pause)
+        hbox1.addWidget(self.perfect_pause)
         hbox1.addWidget(self.again_restart)
         hbox1.addWidget(self.del_)
         hbox1.addWidget(self.clear)
@@ -1059,14 +1063,6 @@ class FirstTab(QWidget):
         vbox.addLayout(hbox2)
         self.setLayout(vbox)
 
-    def temporary_all_pause_game(self):
-        # change_ready_main = True
-        # change_ready_step = True
-        print("game_Playing(self): temporary_pause_game")
-        # self.game.isCheck = False
-        # self.game.quit()
-        # self.game.wait(3000)
-        # self.temporary_pause_background()
     def zeno_start(self):
         # from pywinauto import Application
         # import subprocess
@@ -1086,20 +1082,27 @@ class FirstTab(QWidget):
         except Exception as e:
             print(e)
             return 0
-    def temporary_pause_background(self):
 
-        print("game_Playing(self): temporary_pause_background")
-        # self.BackGroundPotion_.potion_back_ = False
-        # self.BackGroundPotion_.quit()
-        # self.BackGroundPotion_.wait(3000)
+    def zeno_stop_perfect(self):
+        try:
+            print("game_Playing(self): zeno_stop")
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'no'
+                file.write(str(data))
+                time.sleep(0.2)
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = v_.now_cla
+                file.write(str(data))
+                time.sleep(0.2)
+            os.execl(sys.executable, sys.executable, *sys.argv)
+        except Exception as e:
+            print(e)
+            return 0
 
-    def temporary_pause_game(self):
 
-        print("game_Playing(self): temporary_pause_game")
-        # self.game.isCheck = False
-        # self.game.quit()
-        # self.game.wait(3000)
-        time.sleep(5)
 
     def again_restart_game(self):
         # change_ready_main = False
@@ -1111,6 +1114,12 @@ class FirstTab(QWidget):
         # g = git.cmd.Git(git_dir)
         # g.pull()
         # Repo('여기 비워진것은 현재 실행되는 창의 위치란 뜻...현재 실행되는 창의 위치 기준...상대경로임...')
+        dir_path = "C:\\my_games\\load\\zenonia"
+        file_path = dir_path + "\\start.txt"
+        with open(file_path, "w", encoding='utf-8-sig') as file:
+            data = 'no'
+            file.write(str(data))
+
         my_repo = git.Repo()
         my_repo.remotes.origin.pull()
         time.sleep(1)
@@ -2503,8 +2512,8 @@ class FirstTab(QWidget):
 
     def mySchedule_start1(self):
         try:
-            self.sche_add1.setText("one 실행중")
-            self.sche_add2.setText("two")
+            self.sche_add1.setText("Three")
+            self.sche_add2.setText("")
             self.sche_add1.setDisabled(True)
             self.sche_add2.setDisabled(True)
             start_onecla = game_Playing_onecla(self)
@@ -2516,8 +2525,8 @@ class FirstTab(QWidget):
 
     def mySchedule_start2(self):
         try:
-            self.sche_add1.setText("one")
-            self.sche_add2.setText("two 실행중")
+            self.sche_add1.setText("")
+            self.sche_add2.setText("Four")
             self.sche_add1.setDisabled(True)
             self.sche_add2.setDisabled(True)
             start_twocla = game_Playing_twocla(self)
@@ -2648,7 +2657,7 @@ class Monitoring_one(QThread):
     def run(self):
         try:
             print("monitoring start")
-            line_monitor("zenonia", "one")
+            line_monitor("zenonia", v_.now_cla)
         except Exception as e:
             print(e)
             return 0
@@ -2663,11 +2672,30 @@ class Monitoring_two(QThread):
     def run(self):
         try:
             print("monitoring start")
-            line_monitor("zenonia", "two")
+            line_monitor("zenonia", v_.now_cla)
         except Exception as e:
             print(e)
             return 0
 
+class game_Playing_Ready(QThread):
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+
+    def run(self):
+        try:
+            # v_.now_cla = 'none' <= 최초 부를때 자동으로 불러옴. 또는 실행하여 바꿀수 있음. 오딘은 그냥 설정해줘야함.
+            v_.global_howcla = 'onecla'
+
+            # self.m_ = Monitoring_one()
+            # self.m_.start()
+
+
+            self.x_ = game_Playing()
+            self.x_.start()
+        except Exception as e:
+            print(e)
+            return 0
 
 class game_Playing_onecla(QThread):
     def __init__(self, parent):
@@ -2676,31 +2704,32 @@ class game_Playing_onecla(QThread):
 
     def run(self):
         try:
-            howcla = 'onecla'
 
-            v_.now_cla = 'three'
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'yes'
+                file.write(str(data))
+
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = 'three'
+                v_.now_cla = 'three'
+                file.write(str(data))
+
+            # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
             v_.global_howcla = 'onecla'
+
+
 
             self.m_ = Monitoring_one()
             self.m_.start()
-
-
-            self.x_ = game_Playing()
-            self.x_.start()
-
-            # result_ = login_start_ready(howcla)
-            # if result_ == True:
-            #     print("이제 시작 했다 다 죽었다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", howcla)
             #
-            #     v_.now_cla = 'one'
-            #     v_.global_howcla = 'onecla'
             #
-            #     # self.parent.again_restart_game()
-            #     self.x_ = game_Playing()
-            #     self.x_.start()
-            #
-            #     self.y_ = BackGroundPotion()
-            #     self.y_.start()
+            # self.x_ = game_Playing()
+            # self.x_.start()
+
         except Exception as e:
             print(e)
             return 0
@@ -2714,31 +2743,30 @@ class game_Playing_twocla(QThread):
 
     def run(self):
         try:
-            howcla = 'twocla'
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
 
-            v_.now_cla = 'four'
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'yes'
+                file.write(str(data))
+
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = 'four'
+                v_.now_cla = 'four'
+                file.write(str(data))
+
+
+
+            # v_.now_cla = 'four' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
             v_.global_howcla = 'twocla'
 
             self.m_ = Monitoring_two()
             self.m_.start()
 
-            self.x_ = game_Playing()
-            self.x_.start()
+            # self.x_ = game_Playing()
+            # self.x_.start()
 
-            # result_ = login_start_ready(howcla)
-            # if result_ == True:
-            #     print("이제 시작 했다 다 죽었다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", howcla)
-            #
-            #     v_.now_cla = 'one'
-            #     v_.global_howcla = 'onetwocla'
-            #     self.x_ = game_Playing()
-            #     self.x_.start()
-            #
-            #     self.y_ = BackGroundPotion()
-            #     self.y_.start()
-            # else:
-            #     print("아직 2클라 덜 돌아갔다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print('return!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         except Exception as e:
             print(e)
             return 0
@@ -2760,40 +2788,21 @@ class game_Playing(QThread):
     def run(self):
 
         try:
-            # 튜토육성 스케쥴 불러오기
-
             print("zenonia go", v_.now_cla)
 
             while self.isCheck is True:
 
-                print("제노니아 실행 모드(ver " + version + ")")
+                if v_.now_cla == 'none':
+                    print("게임시작 대기")
+                else:
+                    print("제노니아 실행 모드(ver " + version + ")")
+                    print("zenonia cla", v_.now_cla)
 
-                result_my_server_read = server_get_zeno()
-                print("my_server_read", result_my_server_read)
+                    result_game = game_start()
+                    if result_game == True:
+                        # 이전 게임 모드 불러와서 실행
+                        print("go")
 
-
-                if result_my_server_read == 'start':
-                    print("게임 중")
-                elif result_my_server_read == 'update':
-
-                    file_path = "C:\\my_games\\zenonia\\data_zeno\\mymodule\\version.txt"
-                    with open(file_path, "r", encoding='utf-8-sig') as file:
-                        my_version = file.read()
-
-                    server_version = server_get_version()
-                    print("my_version", my_version)
-                    print("server_version", server_version)
-
-                    if str(my_version) != str(server_version):
-                        print("버젼 달라서 업데이트")
-                        my_repo = git.Repo()
-                        my_repo.remotes.origin.pull()
-                        time.sleep(1)
-                        # 실행 후 재시작 부분
-                        os.execl(sys.executable, sys.executable, *sys.argv)
-                        print("now cla ? ", v_.now_cla)
-                    else:
-                        print("버젼 같아서 대기...")
 
 
                 time.sleep(5)
