@@ -18,12 +18,11 @@ def go_test():
     cla = "one"
     v_.now_cla = cla
 
-    url = "https://raw.githubusercontent.com/rntkdgnl932/server/master/zenonia.txt"
+    file_path = "C:\\my_games\\zenonia\\data_zeno\\mymodule\\version.txt"
+    with open(file_path, "r", encoding='utf-8-sig') as file:
+        lines = file.read()
 
-    response = requests.get(url)
-    data = response.text
-
-    print("re", data)
+    print("re", lines)
 
     # # 층수 클릭
     #

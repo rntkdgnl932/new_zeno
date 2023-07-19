@@ -50,6 +50,7 @@ from action_zeno import get_items
 from dungeon_zeno import dungeon_start
 from jadong_zeno import jadong_start
 # from pywinauto import Application
+from server import server_get_zeno, server_get_version
 import variable as v_
 
 sys.setrecursionlimit(10 ** 7)
@@ -2767,47 +2768,32 @@ class game_Playing(QThread):
 
                 print("제노니아 실행 모드(ver " + version + ")")
 
+                result_my_server_read = server_get_zeno()
+                print("my_server_read", result_my_server_read)
 
 
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\touching.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
-                if imgs_ is not None and imgs_ != False:
-                    print("touching_mode 5초", imgs_)
-                    time.sleep(5)
-                else:
-                    print("touching 없")
+                if result_my_server_read == 'start':
+                    print("게임 중")
+                elif result_my_server_read == 'update':
 
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        print("매크로를 내려야 실행됨")
+                    file_path = "C:\\my_games\\zenonia\\data_zeno\\mymodule\\version.txt"
+                    with open(file_path, "r", encoding='utf-8-sig') as file:
+                        my_version = file.read()
+
+                    server_version = server_get_version()
+                    print("my_version", my_version)
+                    print("server_version", server_version)
+
+                    if str(my_version) != str(server_version):
+                        print("버젼 달라서 업데이트")
+                        my_repo = git.Repo()
+                        my_repo.remotes.origin.pull()
+                        time.sleep(1)
+                        # 실행 후 재시작 부분
+                        os.execl(sys.executable, sys.executable, *sys.argv)
                     else:
+                        print("버젼 같아서 대기...")
 
-                        result_schedule = myQuest_play_check(v_.now_cla, "check")
-                        print("result_schedule", result_schedule)
-                        character_id = result_schedule[0][1]
-                        result_schedule_ = result_schedule[0][2]
-
-                        #캐릭 번ㅅ번호 다르다면 체인지
-
-                        if result_schedule_ == "각종템받기":
-                            get_items(v_.now_cla)
-                            myQuest_play_add(v_.now_cla, result_schedule_)
-                            time.sleep(0.2)
-
-                        if result_schedule_ == "튜토육성":
-                            tuto_grow_start(v_.now_cla)
-
-                        if '_' in result_schedule_:
-                            jadong_spl_ = result_schedule_.split("_")
-                            if jadong_spl_[0] == "사냥":
-                                jadong_start(v_.now_cla, result_schedule_)
-                            elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
-                                dungeon_start(v_.now_cla, result_schedule_)
 
                 time.sleep(2)
 
@@ -2817,8 +2803,76 @@ class game_Playing(QThread):
             print(e)
             os.system("pause")
             return 0
-
-
+#################BACK UP############################################################
+# class game_Playing(QThread):
+#
+#     def __init__(self):
+#         super().__init__()
+#         # self.parent = parent
+#
+#         self.isCheck = True
+#
+#     def run(self):
+#
+#         try:
+#             # 튜토육성 스케쥴 불러오기
+#
+#             print("zenonia go", v_.now_cla)
+#
+#             while self.isCheck is True:
+#
+#                 print("제노니아 실행 모드(ver " + version + ")")
+#
+#
+#
+#                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\touching.PNG"
+#                 img_array = np.fromfile(full_path, np.uint8)
+#                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                 imgs_ = imgs_set_(0, 0, 3840, 1080, "one", img, 0.8)
+#                 if imgs_ is not None and imgs_ != False:
+#                     print("touching_mode 5초", imgs_)
+#                     time.sleep(5)
+#                 else:
+#                     print("touching 없")
+#
+#                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
+#                     img_array = np.fromfile(full_path, np.uint8)
+#                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                     imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+#                     if imgs_ is not None and imgs_ != False:
+#                         print("매크로를 내려야 실행됨")
+#                     else:
+#
+#                         result_schedule = myQuest_play_check(v_.now_cla, "check")
+#                         print("result_schedule", result_schedule)
+#                         character_id = result_schedule[0][1]
+#                         result_schedule_ = result_schedule[0][2]
+#
+#                         #캐릭 번ㅅ번호 다르다면 체인지
+#
+#                         if result_schedule_ == "각종템받기":
+#                             get_items(v_.now_cla)
+#                             myQuest_play_add(v_.now_cla, result_schedule_)
+#                             time.sleep(0.2)
+#
+#                         if result_schedule_ == "튜토육성":
+#                             tuto_grow_start(v_.now_cla)
+#
+#                         if '_' in result_schedule_:
+#                             jadong_spl_ = result_schedule_.split("_")
+#                             if jadong_spl_[0] == "사냥":
+#                                 jadong_start(v_.now_cla, result_schedule_)
+#                             elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
+#                                 dungeon_start(v_.now_cla, result_schedule_)
+#
+#                 time.sleep(2)
+#
+#
+#
+#         except Exception as e:
+#             print(e)
+#             os.system("pause")
+#             return 0
 ####################################################################################################################
 ####################################################################################################################
 ####################################################################################################################
