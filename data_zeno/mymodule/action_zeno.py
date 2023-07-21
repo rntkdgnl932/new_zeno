@@ -1057,7 +1057,7 @@ def get_event(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(320, 340, 350, 420, cla, img, 0.85)
+                    imgs_ = imgs_set_(320, 340, 350, 480, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("e_point", imgs_)
                         click_pos_reg(imgs_.x - 30, imgs_.y + 10, cla)
