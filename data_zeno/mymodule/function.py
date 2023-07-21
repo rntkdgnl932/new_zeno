@@ -226,7 +226,11 @@ def click_with_image(image_path):
         from functools import partial
         import pyautogui
         isClick = False
+        data_count = 0
         while isClick is False:
+            data_count += 1
+            if data_count > 7:
+                isClick = True
             location = pyautogui.locateOnScreen(image_path)
             if location is not None:
                 pyautogui.click(location)
