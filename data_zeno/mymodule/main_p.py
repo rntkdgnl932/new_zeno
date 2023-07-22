@@ -46,7 +46,7 @@ from test_ import go_test
 
 from tuto_grow import tuto_grow_start
 
-from action_zeno import get_items
+from action_zeno import get_items, character_change
 from dungeon_zeno import dungeon_start
 from jadong_zeno import jadong_start
 # from pywinauto import Application
@@ -2859,7 +2859,9 @@ class game_Playing(QThread):
                                     result_schedule_ = result_schedule[0][2]
 
                                     # 캐릭 번ㅅ번호 다르다면 체인지
+                                    character_change(v_.now_cla, character_id)
 
+                                    # 스케쥴 시작
                                     if result_schedule_ == "각종템받기":
                                         get_items(v_.now_cla)
                                         myQuest_play_add(v_.now_cla, result_schedule_)
@@ -2953,6 +2955,29 @@ class game_Playing_ex(QThread):
                         result_schedule_ = result_schedule[0][2]
 
                         #캐릭 번ㅅ번호 다르다면 체인지
+                        dir_path = "C:\\my_games\\zenonia"
+                        if v_.now_cla == 'one':
+                            file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+                        if v_.now_cla == 'two':
+                            file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+                        if v_.now_cla == 'three':
+                            file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+                        if v_.now_cla == 'four':
+                            file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+
+                        isstart1 = False
+                        while isstart1 is False:
+                            if os.path.isdir(dir_path) == True:
+                                if os.path.isfile(file_path) == True:
+                                    with open(file_path, "r", encoding='utf-8-sig') as file:
+                                        start_get = file.read()
+                                        isstart1 = True
+                                else:
+                                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                                        data = 'none'
+                                        file.write(str(data))
+                            else:
+                                os.makedirs(dir_path)
 
                         if result_schedule_ == "각종템받기":
                             get_items(v_.now_cla)

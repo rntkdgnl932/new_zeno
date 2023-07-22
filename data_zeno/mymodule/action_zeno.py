@@ -10,7 +10,51 @@ sys.path.append('C:/my_games/zenonia/data_zeno/mymodule')
 
 import variable as v_
 
+def character_schedule_select(cla, character_id):
+    import os
+    try:
+        # 현재 진입한 캐릭터 번호(id)
 
+        dir_path = "C:\\my_games\\zenonia"
+        if cla == 'one':
+            file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
+        if cla == 'two':
+            file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
+        if cla == 'three':
+            file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
+        if cla == 'four':
+            file_path = dir_path + "\\mysettings\\myschedule\\four_now_id.txt"
+
+        change_now = False
+
+        is_select_ = False
+        is_select_count = 0
+        while is_select_ is False:
+            is_select_count += 1
+            if is_select_count > 15:
+                is_select_ = True
+
+            if os.path.isfile(file_path) == True:
+
+                with open(file_path, "r", encoding='utf-8-sig') as file:
+                    read_id = file.read()
+
+                if str(character_id) == str(read_id):
+                    is_select_ = True
+                else:
+                    change_now = True
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        file.write(str(character_id))
+                time.sleep(0.3)
+            else:
+                with open(file_path, "w", encoding='utf-8-sig') as file:
+                    file.write(str("none"))
+            time.sleep(0.3)
+
+        return change_now
+    except Exception as e:
+        print(e)
+        return 0
 
 def character_change(cla, character_id):
     try:
@@ -21,115 +65,96 @@ def character_change(cla, character_id):
         import cv2
         import os
 
-        print("캐릭터 체인지")
 
 
-        cha_select = False
-        cha_select_count = 0
-        while cha_select is False:
-            cha_select_count += 1
-            if cha_select_count > 10:
-                cha_select = True
-                line_to_me(cla, "처음 스타트 화면에 문제가 있다.")
+        result_now_select = character_schedule_select(cla, character_id)
 
-            # 캐릭터 선택 화면
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
+        if result_now_select == True:
+            print("캐릭터 체인지")
+            cha_select = False
+            cha_select_count = 0
+            while cha_select is False:
+                cha_select_count += 1
+                if cha_select_count > 10:
+                    cha_select = True
+                    line_to_me(cla, "처음 스타트 화면에 문제가 있다.")
 
-                # 좌표
-                x_reg = imgs_.x
-                y_reg = imgs_.y
+                # 캐릭터 선택 화면
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
 
-                last_change = False
-                last_change_count = 0
-                while last_change is False:
-                    last_change_count += 1
-                    if last_change_count > 10:
-                        last_change = True
-                    print("진입")
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
-                    if imgs_ is None:
-                        # 진입여부 파악
-                        in_game = False
-                        in_game_count = 0
-                        while in_game is False:
-                            in_game_count += 1
-                            if in_game_count > 40:
-                                in_game = True
-                                line_to_me(cla, "게임화면 진입에 문제가 있다.")
-                            result_out = out_check(cla)
-                            if result_out == True:
-                                last_change = True
-                                cha_select = True
-                                in_game = True
+                    # 좌표
+                    x_reg = imgs_.x
+                    y_reg = imgs_.y
 
-                                # 현재 진입한 캐릭터 번호(id)
-
-                                dir_path = "C:\\my_games\\zenonia"
-                                if cla == 'one':
-                                    file_path = dir_path + "\\mysettings\\myschedule\\one_now_id.txt"
-                                if cla == 'two':
-                                    file_path = dir_path + "\\mysettings\\myschedule\\two_now_id.txt"
-                                if cla == 'three':
-                                    file_path = dir_path + "\\mysettings\\myschedule\\three_now_id.txt"
-
-                                is_out = False
-                                is_out_count = 0
-                                while is_out is False:
-                                    is_out_count += 1
-                                    if is_out_count > 15:
-                                        is_out = True
-                                    with open(file_path, "r", encoding='utf-8-sig') as file:
-                                        read_id = file.read()
-
-                                    if str(character_id) == str(read_id):
-                                        is_out = True
-                                    else:
-                                        with open(file_path, "w", encoding='utf-8-sig') as file:
-                                            file.write(str(character_id))
-                                    time.sleep(0.3)
+                    last_change = False
+                    last_change_count = 0
+                    while last_change is False:
+                        last_change_count += 1
+                        if last_change_count > 10:
+                            last_change = True
+                        print("진입")
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+                        if imgs_ is None:
+                            # 진입여부 파악
+                            in_game = False
+                            in_game_count = 0
+                            while in_game is False:
+                                in_game_count += 1
+                                if in_game_count > 40:
+                                    in_game = True
+                                    line_to_me(cla, "게임화면 진입에 문제가 있다.")
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    last_change = True
+                                    cha_select = True
+                                    in_game = True
 
 
-                            else:
-                                print("진입중")
-                            time.sleep(0.5)
-                    else:
-                        y_ = 50 + (int(character_id) * 90)
-                        click_pos_2(55, y_, cla)
-                        time.sleep(0.2)
 
-                        click_pos_reg(x_reg, y_reg, cla)
+
+                                else:
+                                    print("진입중")
+                                time.sleep(1)
+                        else:
+                            y_ = 50 + (int(character_id) * 90)
+                            click_pos_2(55, y_, cla)
+                            time.sleep(0.2)
+
+                            click_pos_reg(x_reg, y_reg, cla)
+                        time.sleep(0.5)
+
+
+
+                else:
+                    # 추후 대기중 화면 설정하기
+                    # 대기중 화면이 아닐때
+
+                    menu_open(cla)
+                    time.sleep(0.1)
+                    click_pos_2(910, 410, cla)
+                    time.sleep(1)
+                    confirm_all(cla)
+                    # wait_y = False
+                    # wait_y_count = 0
+                    # while wait_y is False:
+                    #     wait_y_count += 1
+                    #     if wait_y_count > 10:
+                    #         wait_y = True
+                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\confirm.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(480, 580, 630, 650, cla, img, 0.85)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         wait_y = True
+                    #     time.sleep(0.3)
                     time.sleep(0.5)
-
-
-
-            else:
-                # 추후 대기중 화면 설정하기
-                # 대기중 화면이 아닐때
-
-                menu_open(cla)
-                time.sleep(0.1)
-                click_pos_2(910, 410, cla)
-                wait_y = False
-                wait_y_count = 0
-                while wait_y is False:
-                    wait_y_count += 1
-                    if wait_y_count > 10:
-                        wait_y = True
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\confirm.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(480, 580, 630, 650, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        wait_y = True
-                    time.sleep(0.3)
-                time.sleep(0.5)
 
     except Exception as e:
         print(e)
@@ -1669,3 +1694,7 @@ def zeno_moving(cla):
     except Exception as e:
         print(e)
         return 0
+
+
+
+
