@@ -24,7 +24,7 @@ def chago_setting(cla):
 
 
         print("chago_setting")
-        chago_drag(160, 690, 160, 190, cla)
+        chago_drag(160, 690, 160, 175, cla)
         time.sleep(0.2)
         chango_bogwan_ = False
         chango_bogwan_count = 0
@@ -75,7 +75,7 @@ def chago_setting(cla):
 
             # 드래그
             time.sleep(0.4)
-            chago_drag(160, 690, 160, 190, cla)
+            chago_drag(160, 690, 160, 175, cla)
             time.sleep(0.4)
 
 
