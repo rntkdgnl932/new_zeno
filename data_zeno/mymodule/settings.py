@@ -36,14 +36,14 @@ def chago_setting(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\peari_soul.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(50 + plus, 370, 320, 730, cla, img, 0.85)
+            imgs_ = imgs_set_(50, 370, 320, 730, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 chango_bogwan_ = True
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\guisok_1.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            for i in pyautogui.locateAllOnScreen(img, region=(50, 370, 270, 360), confidence=0.8):
+            for i in pyautogui.locateAllOnScreen(img, region=(50 + plus, 370, 270, 360), confidence=0.8):
                 # for i in pyautogui.locateAllOnScreen(img, region=(810 + plus, 110, 945 + plus, 985),
                 #                                      confidence=0.7):
                 last_x1 = i.left
@@ -54,7 +54,7 @@ def chago_setting(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\guisok_2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            for i in pyautogui.locateAllOnScreen(img, region=(50, 370, 270, 360), confidence=0.8):
+            for i in pyautogui.locateAllOnScreen(img, region=(50 + plus, 370, 270, 360), confidence=0.8):
                 # for i in pyautogui.locateAllOnScreen(img, region=(810 + plus, 110, 945 + plus, 985),
                 #                                      confidence=0.7):
                 last_x2 = i.left
@@ -65,7 +65,7 @@ def chago_setting(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\guisok_3.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            for i in pyautogui.locateAllOnScreen(img, region=(50, 370, 270, 360), confidence=0.8):
+            for i in pyautogui.locateAllOnScreen(img, region=(50 + plus, 370, 270, 360), confidence=0.8):
                 # for i in pyautogui.locateAllOnScreen(img, region=(810 + plus, 110, 945 + plus, 985),
                 #                                      confidence=0.7):
                 last_x2 = i.left
