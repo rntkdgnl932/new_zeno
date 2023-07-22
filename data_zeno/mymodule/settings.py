@@ -13,6 +13,16 @@ def chago_setting(cla):
     import numpy as np
     from function import imgs_set_, click_pos_reg
     try:
+        if cla == 'one':
+            plus = 0
+        if cla == 'two':
+            plus = 960
+        if cla == 'three':
+            plus = 960 + 960
+        if cla == 'four':
+            plus = 960 + 960 + 960
+
+
         print("chago_setting")
         chago_drag(160, 690, 160, 190, cla)
         time.sleep(0.2)
@@ -26,7 +36,7 @@ def chago_setting(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\peari_soul.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(50, 370, 320, 730, cla, img, 0.85)
+            imgs_ = imgs_set_(50 + plus, 370, 320, 730, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 chango_bogwan_ = True
 
