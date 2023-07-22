@@ -80,12 +80,12 @@ def character_change(cla, character_id):
                     line_to_me(cla, "처음 스타트 화면에 문제가 있다.")
 
                 # 캐릭터 선택 화면
+                print("# 캐릭터 선택 화면1")
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-
                     # 좌표
                     x_reg = imgs_.x
                     y_reg = imgs_.y
@@ -115,19 +115,24 @@ def character_change(cla, character_id):
                                     last_change = True
                                     cha_select = True
                                     in_game = True
-
-
-
-
                                 else:
                                     print("진입중")
                                 time.sleep(1)
                         else:
-                            y_ = 50 + (int(character_id) * 90)
-                            click_pos_2(55, y_, cla)
-                            time.sleep(0.2)
 
-                            click_pos_reg(x_reg, y_reg, cla)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    y_ = 50 + (int(character_id) * 90)
+                                    click_pos_2(55, y_, cla)
+                                    time.sleep(0.2)
+                                    click_pos_reg(x_reg, y_reg, cla)
+                                else:
+                                    break
+                                time.sleep(5)
                         time.sleep(0.5)
 
 
@@ -135,27 +140,79 @@ def character_change(cla, character_id):
                 else:
                     # 추후 대기중 화면 설정하기
                     # 대기중 화면이 아닐때
-
                     menu_open(cla)
                     time.sleep(0.1)
                     click_pos_2(910, 410, cla)
                     time.sleep(1)
-                    confirm_all(cla)
-                    # wait_y = False
-                    # wait_y_count = 0
-                    # while wait_y is False:
-                    #     wait_y_count += 1
-                    #     if wait_y_count > 10:
-                    #         wait_y = True
-                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\confirm.PNG"
-                    #     img_array = np.fromfile(full_path, np.uint8)
-                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    #     imgs_ = imgs_set_(480, 580, 630, 650, cla, img, 0.85)
-                    #     if imgs_ is not None and imgs_ != False:
-                    #         wait_y = True
-                    #     time.sleep(0.3)
-                    time.sleep(0.5)
+                    for i in range(20):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        else:
+                            confirm_all(cla)
+                        time.sleep(1)
+                time.sleep(1)
+        else:
+            # 캐릭터 선택 화면
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                # 좌표
+                x_reg = imgs_.x
+                y_reg = imgs_.y
 
+                last_change = False
+                last_change_count = 0
+                while last_change is False:
+                    last_change_count += 1
+                    if last_change_count > 10:
+                        last_change = True
+                    print("진입")
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+                    if imgs_ is None:
+                        # 진입여부 파악
+                        in_game = False
+                        in_game_count = 0
+                        while in_game is False:
+                            in_game_count += 1
+                            if in_game_count > 40:
+                                in_game = True
+                                line_to_me(cla, "게임화면 진입에 문제가 있다.")
+                            result_out = out_check(cla)
+                            if result_out == True:
+                                last_change = True
+                                in_game = True
+
+
+
+
+                            else:
+                                print("진입중")
+                            time.sleep(1)
+                    else:
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                y_ = 50 + (int(character_id) * 90)
+                                click_pos_2(55, y_, cla)
+                                time.sleep(0.2)
+                                click_pos_reg(x_reg, y_reg, cla)
+                            else:
+                                break
+                            time.sleep(5)
+                    time.sleep(0.5)
     except Exception as e:
         print(e)
 
@@ -906,23 +963,34 @@ def menu_open(cla):
         import numpy as np
         from function import click_pos_2, imgs_set_
         print("menu_open")
+
+
+
         mno_ = False
         mno_count = 0
         while mno_ is False:
             mno_count += 1
             if mno_count > 7:
                 mno_ = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\menu_setting.PNG"
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(820, 380, 890, 450, cla, img, 0.85)
+            imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 mno_ = True
             else:
-                clean_screen(cla)
-                time.sleep(0.3)
-                click_pos_2(915, 55, cla)
-            time.sleep(0.5)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\menu_setting.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(820, 380, 890, 450, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    mno_ = True
+                else:
+                    clean_screen(cla)
+                    time.sleep(0.3)
+                    click_pos_2(915, 55, cla)
+                time.sleep(0.5)
         time.sleep(0.5)
     except Exception as e:
         print(e)
