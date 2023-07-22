@@ -10,8 +10,8 @@ import variable as v_
 
 
 def jadong_start(cla, where):
-    from action_zeno import juljun_potion_check, juljun_maul_potion, dead_die
-    from function import click_pos_2
+    from action_zeno import dead_die
+    from potion_zeno import juljun_potion_check, juljun_maul_potion
     try:
         print("jadong_start")
         # jadong_juljun_attack_gold_check(cla, where)
@@ -452,8 +452,9 @@ def map_pic_name(cla, where):
 
 def jadong_arrive_check(cla, where):
     try:
-        from action_zeno import clean_screen, juljun_potion_check, juljun_maul_potion
+        from action_zeno import clean_screen
         from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
+        from potion_zeno import juljun_potion_check, juljun_maul_potion
         print("jadong_arrive_check")
 
         potion_check = False
@@ -657,6 +658,38 @@ def jadong_juljun_attack_gold_check(cla, where):
         else:
             print("숫자가 아니다.")
         return many_gold
+    except Exception as e:
+        print(e)
+        return 0
+
+def jadong_juljun_attack_dead(cla, where):
+    try:
+        from action_zeno import clean_screen, dead_die
+        from function import drag_pos
+        from function import click_pos_2, click_pos_reg, imgs_set_,text_check_get, in_number_check, int_put_
+
+        print("jadong_juljun_attack_dead")
+
+        # 절전모드 부터 해제
+
+        dead_juljun = False
+        dead_juljun_count = 0
+        while dead_juljun is False:
+            dead_juljun_count += 1
+            if dead_juljun_count > 7:
+                dead_juljun = True
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                drag_pos(360, 460, 600, 460, cla)
+            else:
+                dead_die(cla)
+            time.sleep(1)
+
+
+
     except Exception as e:
         print(e)
         return 0

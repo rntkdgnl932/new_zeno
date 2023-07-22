@@ -10,8 +10,9 @@ sys.path.append('C:/my_games/zenonia/data_zeno/mymodule')
 import variable as v_
 
 def dungeon_start(cla, where):
-    from action_zeno import juljun_potion_check, juljun_maul_potion, dead_die
+    from action_zeno import dead_die
     from jadong_zeno import jadong_arrive_check
+    from potion_zeno import juljun_potion_check, juljun_maul_potion
     try:
         print("dungeon_start")
         # 절전 자동 모드 아니라면 진입하기

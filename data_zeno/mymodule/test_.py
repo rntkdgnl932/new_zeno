@@ -14,20 +14,21 @@ def go_test():
 
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
     from jadong_zeno import jadong_start
-    from action_zeno import gold_check_open, out_check, now_hunting
+    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen
     from server import server_get_version, server_get_zeno
-    cla = "three"
+    from potion_zeno import juljun_potion_check, juljun_maul_potion
+    from realtime import collection, boonhae, chango_in, all_realtime
+    cla = "one"
     v_.now_cla = cla
 
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_title_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.8)
-    if imgs_ is not None and imgs_ != False:
-        click_pos_reg(imgs_.x - 40, imgs_.y, cla)
-        print("qhdu", imgs_)
-    else:
-        print("no look")
+    all_realtime(cla)
+
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\collection\\collection_click2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(330, 170, 570, 970, cla, img, 0.85)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("collection_click", imgs_)
 
     # # 층수 클릭
     #

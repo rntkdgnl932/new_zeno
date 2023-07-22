@@ -2889,7 +2889,7 @@ class game_Playing(QThread):
                                 if is_zeno == False:
                                     why = "제노 꺼진게 확실하다"
                                     print(why)
-                                    line_to_me(cla, why)
+                                    line_to_me(v_.now_cla, why)
 
                                     dir_path = "C:\\my_games\\load\\zenonia"
                                     file_path = dir_path + "\\start.txt"
