@@ -320,7 +320,8 @@ def spot_arrive(cla, where):
     try:
         from action_zeno import clean_screen, out_check, confirm_all
         from function import click_pos_2, click_pos_reg, imgs_set_
-        print("spot_arrive")
+        # 여기 where는 2023. 7. 22. 현재는 큰 의미 없음.
+        print("spot_arrive", where)
         time.sleep(5)
         in_map_ = False
         in_map_count = 0

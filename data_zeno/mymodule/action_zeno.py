@@ -766,6 +766,7 @@ def go_maul(cla):
         import cv2
         import numpy as np
         from function import click_pos_2, click_pos_reg, imgs_set_
+        from jadong_zeno import spot_arrive
         print("go_maul")
 
         in_maul_ = False
@@ -780,53 +781,82 @@ def go_maul(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(20, 20, 100, 70, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                time.sleep(0.2)
-                click_pos_2(840, 100, cla)
-                time.sleep(0.5)
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\maul.PNG"
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\is_dungeon.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+                imgs_ = imgs_set_(60, 550, 250, 620, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x + 50, imgs_.y, cla)
-                    time.sleep(0.2)
-                    click_pos_2(240, 100, cla)
-                potal_ = False
-                potal_count = 0
-                while potal_ is False:
-                    potal_count += 1
-                    if potal_count > 7:
-                        potal_ = True
+                    print("is_dungeon", imgs_)
 
-                    in_ = in_maul_check(cla)
-                    if in_ == False:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\teleport.PNG"
+                    quihwan_ = False
+                    quihwan_count = 0
+                    while quihwan_ is False:
+                        quihwan_count += 1
+                        if quihwan_count > 10:
+                            quihwan_ = True
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(240, 160, 300, 230, cla, img, 0.85)
+                        imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_2(270, 200, cla)
-                            time.sleep(0.5)
-                        confirm_all(cla)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            quihwan_ = True
+                            time.sleep(2)
+                            where = "마을로 가즈아"
+                            spot_arrive(cla, where)
+                        else:
+                            click_pos_2(930, 50, cla)
+                        time.sleep(1)
+                else:
+                    time.sleep(0.2)
+                    click_pos_2(840, 100, cla)
+                    time.sleep(0.5)
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\maul.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x + 50, imgs_.y, cla)
+                        time.sleep(0.2)
+                        click_pos_2(240, 100, cla)
+                    potal_ = False
+                    potal_count = 0
+                    while potal_ is False:
+                        potal_count += 1
+                        if potal_count > 7:
+                            potal_ = True
 
-                    else:
-                        in_maul_ = True
-                        potal_ = True
-                    time.sleep(0.3)
+                        in_ = in_maul_check(cla)
+                        if in_ == False:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\teleport.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(240, 160, 300, 230, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(270, 200, cla)
+                                time.sleep(0.5)
+                            confirm_all(cla)
+
+                        else:
+                            in_maul_ = True
+                            potal_ = True
+                        time.sleep(0.3)
             else:
                 clean_screen(cla)
                 time.sleep(0.2)
-                # 마을이동서 있으면 클릭...없으면 map으로 이동
-                # map으로 이동 후 던전인지 확인...
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    in_maul_ = True
-                else:
-                    click_pos_2(110, 130, cla)
+                click_pos_2(110, 130, cla)
+                # # 마을이동서 있으면 클릭...없으면 map으로 이동
+                # # map으로 이동 후 던전인지 확인...
+                # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
+                # img_array = np.fromfile(full_path, np.uint8)
+                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                # imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
+                # if imgs_ is not None and imgs_ != False:
+                #     click_pos_reg(imgs_.x, imgs_.y, cla)
+                #     in_maul_ = True
+                # else:
+                #     click_pos_2(110, 130, cla)
             time.sleep(1)
     except Exception as e:
         print(e)
