@@ -29,6 +29,8 @@ def go_test():
     imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
         print("매크로를 내려야 실행됨...10초")
+    else:
+        print("매크로 제목 안 보여")
     #
     #(50, 370, 320, 730, cla, img, 0.85)
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\guisok.PNG"
