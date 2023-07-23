@@ -23,7 +23,12 @@ def go_test():
     v_.now_cla = cla
 
     # chago_drag(160, 690, 160, 170, cla)
-    chago_setting(cla)
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(0, 0, 960, 1030, v_.now_cla, img, 0.8)
+    if imgs_ is not None and imgs_ != False:
+        print("매크로를 내려야 실행됨...10초")
     #
     #(50, 370, 320, 730, cla, img, 0.85)
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\chango\\guisok.PNG"
