@@ -22,7 +22,7 @@ def go_test():
     cla = "three"
     v_.now_cla = cla
 
-    # chago_drag(160, 690, 160, 170, cla)
+    # chago_drag(160, 690, 160, 170, cla) 
 
     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
     img_array = np.fromfile(full_path, np.uint8)
