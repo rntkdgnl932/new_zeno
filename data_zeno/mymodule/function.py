@@ -213,6 +213,10 @@ def imgs_set_(a, b, c, d, cla, img, data):
             plus = 960 + 960
         if cla == 'four':
             plus = 960 + 960 + 960
+
+        pos = (a + plus, b, c - a, d - b)
+        pyautogui.screenshot("asd.png", region=pos)
+
         result = pyautogui.locateCenterOnScreen(img, region=(a + plus, b, c - a + 10, d - b + 10),
                                                confidence=data)
         return result
