@@ -15,6 +15,7 @@ import variable as v_
 def tuto_grow_start(cla):
     import numpy as np
     import cv2
+    import os
     from function import imgs_set_, click_pos_2, click_pos_reg
     from action_zeno import dead_die, bag_open, get_items, quickslot_check, in_maul_check
     from potion_zeno import potion_check_tuto
@@ -36,25 +37,26 @@ def tuto_grow_start(cla):
             for i in range(5):
                 jangbi = 'jangbi_' + str(i)
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\select\\tuto_jangbi\\" + jangbi + ".PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(650, 360, 940, 740, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    x_reg = imgs_.x
-                    y_reg = imgs_.y
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\select\\e.PNG"
+                if os.path.isfile(full_path) == True:
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(x_reg - 50, y_reg - 50, x_reg, y_reg, cla, img, 0.85)
+                    imgs_ = imgs_set_(650, 360, 940, 740, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        time.sleep(0.2)
+                        x_reg = imgs_.x
+                        y_reg = imgs_.y
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\select\\e.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(x_reg - 50, y_reg - 50, x_reg, y_reg, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            time.sleep(0.2)
+                        else:
+                            click_pos_reg(x_reg, y_reg, cla)
+                            time.sleep(0.2)
+                            click_pos_reg(x_reg, y_reg, cla)
+                            time.sleep(0.5)
                     else:
-                        click_pos_reg(x_reg, y_reg, cla)
-                        time.sleep(0.2)
-                        click_pos_reg(x_reg, y_reg, cla)
-                        time.sleep(0.5)
-                else:
-                    pass
+                        pass
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\bag\\bag_exit.PNG"
             img_array = np.fromfile(full_path, np.uint8)
