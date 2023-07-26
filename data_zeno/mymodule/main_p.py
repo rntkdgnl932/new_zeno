@@ -129,7 +129,7 @@ class MyApp(QDialog):
         # 업데이트버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import pyserial --hidden-import requests --hidden-import chardet --add-data="C:\\my_games\\zenonia\\data_zeno;./data_zeno" --name zenonia -i="zenonia.ico" --add-data="zenonia.ico;./" --icon="zenonia.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
 
-        self.setGeometry(1000 + 960, 300, 900, 600)
+        self.setGeometry(1000 + 960 + 960, 300, 900, 600)
         self.show()
     def my_title(self):
         self.setWindowTitle("제노니아(ver " + version + ")")
