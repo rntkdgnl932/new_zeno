@@ -1560,92 +1560,92 @@ def quickslot_check(cla):
                 click_pos_2(585, 980, cla)
                 time.sleep(0.5)
 
-        is_potion = False
-        is_potion_count = 0
-        while is_potion is False:
-            is_potion_count += 1
-            if is_potion_count > 10:
-                is_potion = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                drag_pos(585, 980, 430, 980, cla)
-            else:
-                is_potion = True
-            time.sleep(1)
-
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\ccochi.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(450, 940, 510, 1010, cla, img, 0.85)
-        if imgs_ is None:
-            bag_open(cla)
-            click_pos_2(775, 350, cla)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\ccochi2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(480, 980, cla)
-                time.sleep(0.5)
-                drag_pos(480, 980, 480, 1030, cla)
-                time.sleep(0.5)
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\salad.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(500, 940, 560, 1010, cla, img, 0.85)
-        if imgs_ is None:
-            bag_open(cla)
-            click_pos_2(775, 350, cla)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\salad2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(530, 980, cla)
-                time.sleep(0.5)
-                drag_pos(530, 980, 530, 1030, cla)
-                time.sleep(0.5)
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\steak.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
-        if imgs_ is None:
-            bag_open(cla)
-            click_pos_2(775, 350, cla)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\steak2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(585, 980, cla)
-                time.sleep(0.5)
-                drag_pos(585, 980, 585, 1030, cla)
-                time.sleep(0.5)
-
-        is_potion = False
-        is_potion_count = 0
-        while is_potion is False:
-            is_potion_count += 1
-            if is_potion_count > 10:
-                is_potion = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                is_potion = True
-            else:
-                drag_pos(375, 980, 530, 980, cla)
-            time.sleep(1)
+        # is_potion = False
+        # is_potion_count = 0
+        # while is_potion is False:
+        #     is_potion_count += 1
+        #     if is_potion_count > 10:
+        #         is_potion = True
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         drag_pos(585, 980, 430, 980, cla)
+        #     else:
+        #         is_potion = True
+        #     time.sleep(1)
+        #
+        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\ccochi.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(450, 940, 510, 1010, cla, img, 0.85)
+        # if imgs_ is None:
+        #     bag_open(cla)
+        #     click_pos_2(775, 350, cla)
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\ccochi2.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(0.5)
+        #         click_pos_2(480, 980, cla)
+        #         time.sleep(0.5)
+        #         drag_pos(480, 980, 480, 1030, cla)
+        #         time.sleep(0.5)
+        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\salad.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(500, 940, 560, 1010, cla, img, 0.85)
+        # if imgs_ is None:
+        #     bag_open(cla)
+        #     click_pos_2(775, 350, cla)
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\salad2.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(0.5)
+        #         click_pos_2(530, 980, cla)
+        #         time.sleep(0.5)
+        #         drag_pos(530, 980, 530, 1030, cla)
+        #         time.sleep(0.5)
+        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\steak.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
+        # if imgs_ is None:
+        #     bag_open(cla)
+        #     click_pos_2(775, 350, cla)
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\steak2.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(0.5)
+        #         click_pos_2(585, 980, cla)
+        #         time.sleep(0.5)
+        #         drag_pos(585, 980, 585, 1030, cla)
+        #         time.sleep(0.5)
+        #
+        # is_potion = False
+        # is_potion_count = 0
+        # while is_potion is False:
+        #     is_potion_count += 1
+        #     if is_potion_count > 10:
+        #         is_potion = True
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         is_potion = True
+        #     else:
+        #         drag_pos(375, 980, 530, 980, cla)
+        #     time.sleep(1)
 
         for i in range(2):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\bag\\bag_exit.PNG"
