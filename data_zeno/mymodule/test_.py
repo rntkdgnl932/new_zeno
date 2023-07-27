@@ -22,17 +22,17 @@ def go_test():
     cla = "four"
     v_.now_cla = cla
 
-    # chago_drag(160, 690, 160, 170, cla)
+    chago_setting(cla)
 
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_title_2.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # 제노는 4클라 고정
-    imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.7)
-    if imgs_ is not None and imgs_ != False:
-        print("보여", imgs_)
-    else:
-        print("아보여")
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_title_2.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # # 제노는 4클라 고정
+    # imgs_ = imgs_set_(0, 50, 960, 1030, v_.now_cla, img, 0.7)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("보여", imgs_)
+    # else:
+    #     print("아보여")
 
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
