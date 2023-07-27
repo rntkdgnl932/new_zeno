@@ -183,6 +183,9 @@ def imgs_set(a, b, c, d, cla, img):
         from PIL import ImageGrab
         from functools import partial
         import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+        
         if cla == 'one':
             plus = 0
         if cla == 'two':
