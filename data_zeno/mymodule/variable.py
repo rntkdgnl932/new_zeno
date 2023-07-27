@@ -82,3 +82,6 @@ bag_full_open_count = 0
 # 마우스 관련
 mouse_speed = 20
 mouse_pm = 3
+
+# 아두이노
+now_arduino = "none"
