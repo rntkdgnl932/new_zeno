@@ -19,10 +19,12 @@ def go_test():
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
-    cla = "three"
+    cla = "one"
     v_.now_cla = cla
 
-    chago_drag(160, 690, 160, 170, cla)
+    # chago_drag(160, 690, 160, 170, cla)
+
+    collection(cla)
 
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

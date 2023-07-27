@@ -267,18 +267,25 @@ def line_monitor(game, cla):
 
                 # 장시간
                 jangsigan = False
-                # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\jangsigan_1.PNG"
-                # img_array = np.fromfile(full_path, np.uint8)
-                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                # imgs_ = imgs_set(300, 450, 700, 550, cla, img)
-                # if imgs_ is not None:
-                #     ms_ = str(game) + str(" 장시간 보여...꺼진 것 같다")
-                #     line_to_me(cla, ms_)
-
-
-                if jangsigan == True:
-                    ms_ = str(game) + str(" 죽어뿌따 ㅠㅅㅠ")
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\jangsigan_zeno.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set(280, 490, 400, 540, cla, img)
+                if imgs_ is not None:
+                    ms_ = str(game) + str(" 장시간 보여...무슨 에러가 발생한듯...")
                     line_to_me(cla, ms_)
+
+                    dir_path = "C:\\my_games\\load\\zenonia"
+                    file_path = dir_path + "\\start.txt"
+
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        data = 'no'
+                        file.write(str(data))
+
+
+                # if jangsigan == True:
+                #     ms_ = str(game) + str(" 죽어뿌따 ㅠㅅㅠ")
+                #     line_to_me(cla, ms_)
 
 
 
