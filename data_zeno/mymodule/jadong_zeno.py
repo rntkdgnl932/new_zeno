@@ -12,6 +12,7 @@ import variable as v_
 def jadong_start(cla, where):
     from action_zeno import dead_die
     from potion_zeno import juljun_potion_check, juljun_maul_potion
+    from function import imgs_set_
     try:
         print("jadong_start")
         # jadong_juljun_attack_gold_check(cla, where)
@@ -24,6 +25,23 @@ def jadong_start(cla, where):
 
 
         else:
+
+            is_dead_ = False
+            is_dead_count = 0
+            while is_dead_ is False:
+                is_dead_count += 1
+                if is_dead_count > 20:
+                    is_dead_ = True
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    is_dead_ = True
+                time.sleep(0.1)
+            if is_dead_ == True:
+                jadong_juljun_attack_dead(cla, where)
+
             dead_die(cla)
             map_in(cla, where)
         time.sleep(3)
@@ -553,18 +571,18 @@ def jadong_juljun_attack_check(cla, where):
                         if imgs_ is not None and imgs_ != False:
                             go_ = True
                             in_map_ = True
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\rest_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            in_map_ = True
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            in_map_ = True
+                        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\rest_1.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+                        # if imgs_ is not None and imgs_ != False:
+                        #     in_map_ = True
+                        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+                        # if imgs_ is not None and imgs_ != False:
+                        #     in_map_ = True
                         time.sleep(0.1)
                 else:
                     print("절전공격모드 아님")
@@ -618,18 +636,18 @@ def jadong_juljun_attack_check(cla, where):
                             if imgs_ is not None and imgs_ != False:
                                 go_ = True
                                 in_map_ = True
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\rest_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                in_map_ = True
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                in_map_ = True
+                            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\rest_1.PNG"
+                            # img_array = np.fromfile(full_path, np.uint8)
+                            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            # imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+                            # if imgs_ is not None and imgs_ != False:
+                            #     in_map_ = True
+                            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
+                            # img_array = np.fromfile(full_path, np.uint8)
+                            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            # imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+                            # if imgs_ is not None and imgs_ != False:
+                            #     in_map_ = True
                             time.sleep(0.1)
                     else:
                         print("절전공격모드 아님")
@@ -670,6 +688,7 @@ def jadong_juljun_attack_dead(cla, where):
         from function import click_pos_2, click_pos_reg, imgs_set_,text_check_get, in_number_check, int_put_
 
         print("jadong_juljun_attack_dead")
+
 
         # 절전모드 부터 해제
 
