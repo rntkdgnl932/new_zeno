@@ -14,7 +14,7 @@ def go_test():
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
     from jadong_zeno import jadong_start
-    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_post, get_upjuk, get_season_pass
+    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event
     from server import server_get_version, server_get_zeno
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
@@ -25,23 +25,7 @@ def go_test():
     # chago_setting(cla)
 
     # red_hwangya_1
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_list\\red_hwangya_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(740, 120, 960, 1020, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("붉은황야", imgs_)
-    else:
-        print("붉 없")
-
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_list\\red_hwangya_1.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(740, 70, 960, 120, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("붉은황야2", imgs_)
-    else:
-        print("붉 없2")
+    get_event(cla)
 
     # get_season_pass(cla)
 
