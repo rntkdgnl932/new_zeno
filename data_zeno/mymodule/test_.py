@@ -19,13 +19,20 @@ def go_test():
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
-    cla = "four"
+    cla = "one"
     v_.now_cla = cla
 
     # chago_setting(cla)
 
     # red_hwangya_1
-    get_event(cla)
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+    if imgs_ is not None and imgs_ != False:
+        print("dead", imgs_)
+    else:
+        print("not dead")
 
     # get_season_pass(cla)
 

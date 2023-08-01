@@ -11,7 +11,7 @@ import variable as v_
 
 def dungeon_start(cla, where):
     from action_zeno import dead_die
-    from jadong_zeno import jadong_arrive_check
+    from jadong_zeno import jadong_arrive_check, jadong_juljun_attack_dead
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     try:
         print("dungeon_start")
@@ -24,6 +24,14 @@ def dungeon_start(cla, where):
 
 
         else:
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                jadong_juljun_attack_dead(cla, where)
+
+
             dead_die(cla)
             dungeon_ready(cla, where)
         time.sleep(3)
