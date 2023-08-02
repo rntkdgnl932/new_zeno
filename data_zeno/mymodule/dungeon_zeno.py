@@ -13,6 +13,7 @@ def dungeon_start(cla, where):
     from action_zeno import dead_die
     from jadong_zeno import jadong_arrive_check, jadong_juljun_attack_dead
     from potion_zeno import juljun_potion_check, juljun_maul_potion
+    from function import imgs_set_
     try:
         print("dungeon_start")
         # 절전 자동 모드 아니라면 진입하기
