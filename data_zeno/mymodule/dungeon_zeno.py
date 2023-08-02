@@ -17,6 +17,7 @@ def dungeon_start(cla, where):
     try:
         print("dungeon_start")
         # 절전 자동 모드 아니라면 진입하기
+        dead_die(cla)
         result_arrived = jadong_arrive_check(cla, where)
         if result_arrived == True:
             result_potion = juljun_potion_check(cla)

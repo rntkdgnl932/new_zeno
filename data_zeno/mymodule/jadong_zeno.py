@@ -15,6 +15,7 @@ def jadong_start(cla, where):
     from function import imgs_set_
     try:
         print("jadong_start")
+        dead_die(cla)
         # jadong_juljun_attack_gold_check(cla, where)
         # 절전 자동 모드 아니라면 진입하기
         result_arrived = jadong_arrive_check(cla, where)
