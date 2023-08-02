@@ -567,7 +567,7 @@ def confirm_all(cla):
     try:
         import cv2
         import numpy as np
-        from function import imgs_set_, click_pos_reg
+        from function import imgs_set_, click_pos_reg, click_pos_2
 
         go_ = False
 
@@ -645,6 +645,20 @@ def confirm_all(cla):
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(490, 615, 620, 660, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            go_ = True
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\code_406.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 470, 600, 530, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            go_ = True
+            click_pos_2(480, 625)
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\code_406_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(400, 590, 570, 660, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             go_ = True
             click_pos_reg(imgs_.x, imgs_.y, cla)
