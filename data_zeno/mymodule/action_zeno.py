@@ -1634,54 +1634,54 @@ def quickslot_check(cla):
         import numpy as np
         from function import imgs_set_, click_pos_2, click_pos_reg, drag_pos
         # 퀵슬롯 체크
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
-        if imgs_ is None:
-            bag_open(cla)
-            click_pos_2(775, 350, cla)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(375, 980, cla)
-                time.sleep(0.5)
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\random_move.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(400, 940, 460, 1010, cla, img, 0.85)
-        if imgs_ is None:
-            bag_open(cla)
-            click_pos_2(775, 350, cla)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\random_move.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(430, 980, cla)
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
-        if imgs_ is None:
-            bag_open(cla)
-            click_pos_2(775, 350, cla)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion2.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(0.5)
-                click_pos_2(585, 980, cla)
-                time.sleep(0.5)
-
+        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
+        # if imgs_ is None:
+        #     bag_open(cla)
+        #     click_pos_2(775, 350, cla)
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan2.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(0.5)
+        #         click_pos_2(375, 980, cla)
+        #         time.sleep(0.5)
+        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\random_move.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(400, 940, 460, 1010, cla, img, 0.85)
+        # if imgs_ is None:
+        #     bag_open(cla)
+        #     click_pos_2(775, 350, cla)
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\random_move.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(0.5)
+        #         click_pos_2(430, 980, cla)
+        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_(555, 940, 610, 1010, cla, img, 0.85)
+        # if imgs_ is None:
+        #     bag_open(cla)
+        #     click_pos_2(775, 350, cla)
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\potion2.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(650, 350, 940, 740, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(0.5)
+        #         click_pos_2(585, 980, cla)
+        #         time.sleep(0.5)
+        #=======================================================================
         # is_potion = False
         # is_potion_count = 0
         # while is_potion is False:
