@@ -661,6 +661,9 @@ def out_check(cla):
         import numpy as np
         from function import imgs_set_
         print("out_check")
+
+
+
         go_ = False
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\out\\out_talk.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -1789,6 +1792,8 @@ def now_hunting(cla):
         import numpy as np
         from function import imgs_set_, click_pos_reg
         print("now_hunting")
+
+        dead_die(cla)
 
         go_ = False
 
