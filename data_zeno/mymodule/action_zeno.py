@@ -504,7 +504,7 @@ def dead_die(cla):
             else:
                 v_.dead_count += 1
 
-                if v_.dead_count > 4:
+                if v_.dead_count > 9:
                     why = "제노 튜노...심하게 " + str(v_.dead_count) + "번 죽었으니 주인님 오실때 까지 기다리겠습니다."
                     line_to_me(cla, why)
                     loop_ = True

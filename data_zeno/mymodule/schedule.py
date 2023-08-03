@@ -62,6 +62,9 @@ def myQuest_play_check(cla, data):
                 v_.just_one = False
                 v_.force_sub_quest = False
 
+                # 제노니아 전용 죽음 초기화
+                v_.dead_count = 0
+
                 if datetime.today().weekday() == 0:
 
                     with open(file_path2, "w", encoding='utf-8-sig') as file:
@@ -500,6 +503,9 @@ def myQuest_play_add(cla, data):
         else:
             v_.just_one = False
             v_.force_sub_quest = False
+
+            # 죽음 초기화
+            v_.dead_count = 0
 
             if datetime.today().weekday() == 0:
 
