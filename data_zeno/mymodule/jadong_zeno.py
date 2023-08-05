@@ -23,7 +23,13 @@ def jadong_start(cla, where):
             result_potion = juljun_potion_check(cla)
             if result_potion == False:
                 juljun_maul_potion(cla)
-
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun_item_check.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(80, 220, 170, 270, cla, img, 0.95)
+                if imgs_ is not None and imgs_ != False:
+                    juljun_maul_potion(cla)
 
         else:
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
