@@ -141,6 +141,8 @@ def juljun_potion_check(cla):
             imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.95)
             if imgs_ is not None and imgs_ != False:
                 print("false 물약 없다 즉시 집에 가자")
+            else:
+                is_potion = True
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\juljun_potion_0.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
