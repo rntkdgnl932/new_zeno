@@ -839,7 +839,7 @@ def maul_dead_potion(cla):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(530, 530, cla)
+                                    click_pos_2(530, 650, cla)
                                     time.sleep(0.3)
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                     time.sleep(0.3)

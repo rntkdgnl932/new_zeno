@@ -223,6 +223,7 @@ def dead_die(cla):
         from function import click_pos_2, click_pos_reg, imgs_set_
         from schedule import myQuest_play_check, myQuest_play_add
         from massenger import line_to_me
+        from potion_zeno import maul_dead_potion
         print("deae_die")
 
         is_dead = False
@@ -327,7 +328,7 @@ def dead_die(cla):
 
         if is_dead == True:
 
-            why = "제노니아...죽어버렸다...체크바람."
+            why = "제노니아..." + v_.dead_count + "번 죽어버렸다...체크바람."
             line_to_me(cla, why)
 
             result_schedule = myQuest_play_check(v_.now_cla, "check")
@@ -527,12 +528,14 @@ def dead_die(cla):
             result_schedule = myQuest_play_check(v_.now_cla, "check")
             result_schedule_ = result_schedule[0][2]
 
+            maul_dead_potion(cla)
+            time.sleep(0.5)
+
             if result_schedule_ == "튜토육성":
                 v_.dead_count += 1
                 myQuest_play_add(cla, result_schedule_)
             else:
                 v_.dead_count += 1
-
                 if v_.dead_count > 29:
                     why = "제노 튜노...심하게 " + str(v_.dead_count) + "번 죽었으니 주인님 오실때 까지 기다리겠습니다."
                     line_to_me(cla, why)
