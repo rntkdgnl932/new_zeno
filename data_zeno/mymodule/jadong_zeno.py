@@ -32,12 +32,16 @@ def jadong_start(cla, where):
                     juljun_maul_potion(cla)
 
         else:
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                jadong_juljun_attack_dead(cla, where)
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\dead_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(380, 830, 580, 920, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    jadong_juljun_attack_dead(cla, where)
+                    time.sleep(0.5)
+                    break
+                time.sleep(0.1)
 
             dead_die(cla)
             map_in(cla, where)
