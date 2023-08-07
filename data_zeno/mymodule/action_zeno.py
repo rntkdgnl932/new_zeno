@@ -513,7 +513,6 @@ def dead_die(cla):
                         time.sleep(0.3)
                 time.sleep(0.5)
 
-
         for i in range(2):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\dead\\dead_exit.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -534,7 +533,7 @@ def dead_die(cla):
             else:
                 v_.dead_count += 1
 
-                if v_.dead_count > 9:
+                if v_.dead_count > 29:
                     why = "제노 튜노...심하게 " + str(v_.dead_count) + "번 죽었으니 주인님 오실때 까지 기다리겠습니다."
                     line_to_me(cla, why)
                     loop_ = True
