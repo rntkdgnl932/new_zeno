@@ -187,7 +187,20 @@ def map_list_click(cla, where):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(740, 70, 960, 120, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
-                in_map_ = True
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\maul.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_list\\" + click_reg + ".PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(740, 120, 960, 1020, cla, img, 0.9)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                else:
+                    in_map_ = True
             else:
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_list\\" + click_reg + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
