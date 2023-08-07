@@ -248,6 +248,16 @@ def dead_die(cla):
             click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(1)
 
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dead\\dead_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(410, 935, 480, 990, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            is_dead_ready = True
+            print("dead...", imgs_)
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(1)
+
         if is_dead_ready == True:
             is_out_ = False
             is_out_count = 0
@@ -885,6 +895,14 @@ def clean_screen_action(cla):
         imgs_ = imgs_set_(650, 360, 940, 740, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 죽음 dead 관련
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dead\\dead_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(410, 935, 480, 990, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("dead...", imgs_)
+            dead_die(cla)
     except Exception as e:
         print(e)
         return 0
