@@ -304,6 +304,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                             in_jabhwa3 = False
                             in_jabhwa3_count = 0
@@ -343,6 +344,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                             in_jabhwa3 = False
                             in_jabhwa3_count = 0
@@ -376,6 +378,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                             in_jabhwa3 = False
                             in_jabhwa3_count = 0
@@ -416,6 +419,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                             in_jabhwa3 = False
                             in_jabhwa3_count = 0
@@ -454,6 +458,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                             in_jabhwa3 = False
                             in_jabhwa3_count = 0
@@ -496,6 +501,7 @@ def maul_potion(cla):
                         imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
 
                             in_jabhwa3 = False
                             in_jabhwa3_count = 0
@@ -540,6 +546,7 @@ def maul_potion(cla):
                     imgs_ = imgs_set_(690, 940, 750, 1020, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
+
                 time.sleep(1)
         # 마지막 닫기
         for i in range(4):
@@ -549,6 +556,7 @@ def maul_potion(cla):
             imgs_ = imgs_set_(900, 300, 960, 380, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
             else:
                 break
             time.sleep(0.1)
