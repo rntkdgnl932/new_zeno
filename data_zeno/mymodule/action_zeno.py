@@ -682,6 +682,14 @@ def confirm_all(cla):
         if imgs_ is not None and imgs_ != False:
             go_ = True
             click_pos_reg(imgs_.x, imgs_.y, cla)
+        # 업적 수령
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_soolyung.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(415, 710, 540, 780, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
 
         return go_
@@ -1401,7 +1409,7 @@ def get_upjuk(cla):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_soolyung.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(415, 730, 540, 770, cla, img, 0.85)
+                        imgs_ = imgs_set_(415, 710, 540, 780, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             post2_ = True
                             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -1410,15 +1418,22 @@ def get_upjuk(cla):
                             time.sleep(0.5)
 
                 time.sleep(0.5)
-        for i in range(2):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_title.PNG"
+        for i in range(3):
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_soolyung.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+            imgs_ = imgs_set_(415, 710, 540, 780, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(930, 50, cla)
-                time.sleep(0.5)
-                break
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(930, 50, cla)
+                    time.sleep(0.5)
+                    break
     except Exception as e:
         print(e)
         return 0
