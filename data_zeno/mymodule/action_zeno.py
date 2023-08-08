@@ -328,7 +328,7 @@ def dead_die(cla):
 
         if is_dead == True:
 
-            why = "제노니아..." + v_.dead_count + "번 죽어버렸다...체크바람."
+            why = "제노니아..." + str(v_.dead_count) + "번 죽어버렸다...체크바람."
             line_to_me(cla, why)
 
             result_schedule = myQuest_play_check(v_.now_cla, "check")

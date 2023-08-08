@@ -23,6 +23,7 @@ def dungeon_start(cla, where):
             result_potion = juljun_potion_check(cla)
             if result_potion == False:
                 juljun_maul_potion(cla)
+                dungeon_ready(cla, where)
 
 
         else:
@@ -447,5 +448,48 @@ def dungeon_in(cla, where):
         print(e)
         return 0
 
+def dungeon_check(cla, where):
+    from function import imgs_set_, click_pos_reg, text_check_get
+    from action_zeno import confirm_all
+    try:
+        print("dungeon_check")
 
+        # 특수_마족_1
+        # 일반_xx_3
+        where_split = where.split("_")
+
+        if where_split[1] == "마족":
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\devil_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 90, 110, 140, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("절전")
+        if where_split[1] == "아르카스":
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\arcas_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 90, 150, 140, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("절전")
+        if where_split[1] == "업보":
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\upbo_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 90, 110, 140, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                print("절전")
+
+        # 절전모드인지 먼저 체크하기기
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            print("절전")
+
+
+    except Exception as e:
+        print(e)
+        return 0
 
