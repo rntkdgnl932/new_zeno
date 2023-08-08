@@ -774,10 +774,12 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
 
 def text_check_potion(posX1, posY1, posX2, posY2, cla):
     try:
-        # from PIL import ImageGrab
-        # from functools import partial
+        from PIL import ImageGrab
+        from functools import partial
         import pyautogui
         import pytesseract
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
 
         potion = 0
 
@@ -810,6 +812,9 @@ def text_check_get(posX1, posY1, posX2, posY2, cla):
         import pytesseract
         import numpy
         import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+
         coordinate = 0
         if cla == 'one':
             coordinate = 0
@@ -841,6 +846,8 @@ def text_check_get_2(posX1, posY1, posX2, posY2, cla):
         import pytesseract
         import numpy
         import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
         coordinate = 0
         if cla == 'one':
             coordinate = 0
@@ -877,6 +884,8 @@ def text_check_get_3(posX1, posY1, posX2, posY2, color, cla):
         import numpy
         from PIL import Image
         import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
         # color change
         coordinate = 0
         if cla == 'one':
@@ -926,6 +935,8 @@ def text_check_get_4(posX1, posY1, posX2, posY2, color, cla):
         import pytesseract
         import numpy
         import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
         # color change
         coordinate = 0
         if cla == 'one':

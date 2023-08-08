@@ -19,20 +19,47 @@ def go_test():
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
-    cla = "one"
-    v_.now_cla = cla
+    cla = "four"
+    # v_.now_cla = cla
 
     # chago_setting(cla)
 
     # red_hwangya_1
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\upbo_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
+    if imgs_ is not None and imgs_ != False:
+        print("upbo_title", imgs_)
+    else:
+        print("not upbo_title")
+
     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\devil_title.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 90, 110, 140, cla, img, 0.85)
+    imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
     if imgs_ is not None and imgs_ != False:
-        print("juljun_item_check", imgs_)
+        print("devil_title", imgs_)
     else:
-        print("not juljun_item_check")
+        print("not devil_title")
+
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\arcas_title.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
+    if imgs_ is not None and imgs_ != False:
+        print("arcas_title", imgs_)
+    else:
+        print("not arcas_title")
+
+    for i in range(10):
+        title_ = text_check_get(45, 90, 140, 160, cla)
+        print(i)
+        print("title_", title_)
+        time.sleep(1)
+    #
+    # title_ = text_check_get(42, 90, 140, 160, cla)
+    # print("title_", title_)
 
     # get_season_pass(cla)
 
