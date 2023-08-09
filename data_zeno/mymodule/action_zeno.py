@@ -1055,7 +1055,7 @@ def menu_open(cla):
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\menu_setting.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(820, 380, 890, 450, cla, img, 0.85)
+                imgs_ = imgs_set_(820, 420, 890, 520, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     mno_ = True
                 else:
@@ -1067,7 +1067,7 @@ def menu_open(cla):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\menu_setting.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(820, 380, 890, 450, cla, img, 0.85)
+                        imgs_ = imgs_set_(820, 420, 890, 520, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             break
                         time.sleep(0.2)
@@ -1319,6 +1319,13 @@ def get_event(cla):
                 imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
 
+                    y_reg = 370
+                    for k in range(8):
+                        y_reg = y_reg + 50
+                        click_pos_2(320, y_reg, cla)
+                        time.sleep(0.2)
+
+
                     for i in range(10):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
@@ -1473,14 +1480,14 @@ def get_post(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 370, 740, 410, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 420, 740, 470, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             is_post = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 370, 740, 410, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 420, 740, 470, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             is_post = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
@@ -1592,14 +1599,14 @@ def get_season_pass(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 300, 740, 340, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             isseason = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 300, 740, 340, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             isseason = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)

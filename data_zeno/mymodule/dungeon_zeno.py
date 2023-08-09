@@ -183,9 +183,9 @@ def dungeon_click(cla, where):
 
             else:
                 if dungeon_spl_[0] == "일반":
-                    click_pos_2(400, 65, cla)
+                    click_pos_2(365, 65, cla)
                 if dungeon_spl_[0] == "특수":
-                    click_pos_2(480, 65, cla)
+                    click_pos_2(440, 65, cla)
                 # if dungeon_spl_[0] == "파티":
                 #     click_pos_2(560, 65, cla)
                 time.sleep(1)

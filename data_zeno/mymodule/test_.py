@@ -13,7 +13,7 @@ def go_test():
     print("tst")
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
-    from jadong_zeno import jadong_start
+    from jadong_zeno import jadong_start, jadong_juljun_attack_check
     from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event
     from server import server_get_version, server_get_zeno
     from potion_zeno import juljun_potion_check, juljun_maul_potion
@@ -25,38 +25,7 @@ def go_test():
     # chago_setting(cla)
 
     # red_hwangya_1
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\upbo_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("upbo_title", imgs_)
-    else:
-        print("not upbo_title")
-
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\devil_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("devil_title", imgs_)
-    else:
-        print("not devil_title")
-
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\arcas_title.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("arcas_title", imgs_)
-    else:
-        print("not arcas_title")
-
-    for i in range(10):
-        title_ = text_check_get(45, 90, 140, 160, cla)
-        print(i)
-        print("title_", title_)
-        time.sleep(1)
+    jadong_juljun_attack_check(cla, "특수_마족_1")
     #
     # title_ = text_check_get(42, 90, 140, 160, cla)
     # print("title_", title_)
