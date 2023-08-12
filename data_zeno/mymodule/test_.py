@@ -14,7 +14,7 @@ def go_test():
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
     from jadong_zeno import jadong_start, jadong_juljun_attack_check
-    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event
+    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event, dead_die
     from server import server_get_version, server_get_zeno
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
@@ -24,8 +24,10 @@ def go_test():
 
     # chago_setting(cla)
 
+    dead_die(cla)
+
     # red_hwangya_1
-    jadong_juljun_attack_check(cla, "특수_마족_1")
+    # jadong_juljun_attack_check(cla, "특수_마족_1")
     #
     # title_ = text_check_get(42, 90, 140, 160, cla)
     # print("title_", title_)
