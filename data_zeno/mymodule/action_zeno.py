@@ -378,57 +378,57 @@ def dead_die(cla):
                         exp_count += 1
                         if exp_count > 10:
                             exp_ = True
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\zero.PNG"
+                        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\zero.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # imgs_ = imgs_set_(115, 690, 155, 720, cla, img, 0.88)
+                        # if imgs_ is not None and imgs_ != False:
+                        #     exp_ = True
+                        # else:
+
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_cross_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(115, 690, 155, 720, cla, img, 0.88)
+                        imgs_ = imgs_set_(280, 28, 360, 60, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            exp_ = True
-                        else:
-
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_cross_1.PNG"
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\0_30.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(280, 28, 360, 60, cla, img, 0.85)
+                            imgs_ = imgs_set_(75, 340, 125, 370, cla, img, 0.88)
                             if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\0_30.PNG"
+                                print("경험치 0/30..")
+                                exp_ = True
+                            else:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\exp.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(75, 340, 125, 370, cla, img, 0.88)
+                                imgs_ = imgs_set_(20, 375, 80, 440, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    print("경험치 0/30..")
-                                    exp_ = True
-                                else:
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\exp.PNG"
+                                    x_reg = imgs_.x
+                                    y_reg = imgs_.y
+
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_gold.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(20, 375, 80, 440, cla, img, 0.85)
+                                    imgs_ = imgs_set_(20, 720, 65, 785, cla, img, 0.88)
                                     if imgs_ is not None and imgs_ != False:
-                                        x_reg = imgs_.x
-                                        y_reg = imgs_.y
+                                        click_pos_reg(x_reg, y_reg, cla)
+                                        time.sleep(0.3)
+                                        click_pos_2(235, 755, cla)
+                                        time.sleep(0.3)
+                                    else:
+                                        dead_gold_change(cla)
 
-                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_gold.PNG"
-                                        img_array = np.fromfile(full_path, np.uint8)
-                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                        imgs_ = imgs_set_(20, 720, 65, 785, cla, img, 0.88)
-                                        if imgs_ is not None and imgs_ != False:
-                                            click_pos_reg(x_reg, y_reg, cla)
-                                            time.sleep(0.3)
-                                            click_pos_2(235, 755, cla)
-                                            time.sleep(0.3)
-                                        else:
-                                            dead_gold_change(cla)
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\dead\\confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 580, 660, 660, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            exp_ = True
 
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\dead\\confirm.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(480, 580, 660, 660, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                exp_ = True
-
-                        time.sleep(0.3)
+                        # time.sleep(0.3)
 
                 time.sleep(0.5)
 
@@ -470,50 +470,50 @@ def dead_die(cla):
                         jangbi_count += 1
                         if jangbi_count > 10:
                             jangbi_ = True
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\zero.PNG"
+                        # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\zero.PNG"
+                        # img_array = np.fromfile(full_path, np.uint8)
+                        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        # imgs_ = imgs_set_(115, 690, 155, 730, cla, img, 0.88)
+                        # if imgs_ is not None and imgs_ != False:
+                        #     jangbi_ = True
+                        # else:
+
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_cross_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(115, 690, 155, 730, cla, img, 0.88)
+                        imgs_ = imgs_set_(280, 28, 360, 60, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            jangbi_ = True
-                        else:
-
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_cross_1.PNG"
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\0_30.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(280, 28, 360, 60, cla, img, 0.85)
+                            imgs_ = imgs_set_(180, 340, 120, 230, cla, img, 0.88)
                             if imgs_ is not None and imgs_ != False:
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\0_30.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(180, 340, 120, 230, cla, img, 0.88)
-                                if imgs_ is not None and imgs_ != False:
-                                    print("장비 0/30")
-                                    jangbi_ = True
-                                else:
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_gold.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(20, 720, 65, 785, cla, img, 0.88)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(155, 410, cla)
-                                        time.sleep(0.3)
-                                        click_pos_2(235, 755, cla)
-                                        time.sleep(0.3)
-                                    else:
-                                        dead_gold_change(cla)
-
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\dead\\confirm.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(480, 580, 660, 660, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
+                                print("장비 0/30")
                                 jangbi_ = True
+                            else:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\dead_gold.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(20, 720, 65, 785, cla, img, 0.88)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(155, 410, cla)
+                                    time.sleep(0.3)
+                                    click_pos_2(235, 755, cla)
+                                    time.sleep(0.3)
+                                else:
+                                    dead_gold_change(cla)
+
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\dead\\confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(480, 580, 660, 660, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            jangbi_ = True
 
 
-                        time.sleep(0.3)
+                        # time.sleep(0.3)
                 time.sleep(0.5)
 
         for i in range(2):
