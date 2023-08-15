@@ -307,17 +307,32 @@ def map_junlipoom_click(cla, where):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    if click_reg == 'goolm_1':
+                        click_pos_2(455, 555, cla)
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
                 else:
 
                     if click_reg == 'red_hwangya_1':
                         click_pos_2(110, 570, cla)
+                    elif click_reg == 'goolm_1':
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                break
+                            else:
+                                drag_pos(140, 540, 140, 140, cla)
+                            time.sleep(0.5)
                     else:
 
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
@@ -496,10 +511,14 @@ def map_pic_name(cla, where):
                 click_reg = 'lolel_river_2'
             elif jadong_spl_[3] == "17갑옷":
                 click_reg = 'lolel_river_3'
+        elif jadong_spl_[2] == "구름고원":
+            if jadong_spl_[3] == "27인간정수":
+                click_reg = 'goolm_1'
         elif jadong_spl_[2] == "아라크1층":
             click_reg = 'alak_1'
         elif jadong_spl_[2] == "아라크3층":
             click_reg = 'alak_3'
+
         elif jadong_spl_[2] == "엘라움계곡":
             if jadong_spl_[3] == "30목걸이장갑":
                 click_reg = 'elaum_1'
