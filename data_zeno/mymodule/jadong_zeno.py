@@ -509,7 +509,7 @@ def map_pic_name(cla, where):
                 click_reg = 'lolel_river_1'
             elif jadong_spl_[3] == "14장갑":
                 click_reg = 'lolel_river_2'
-            elif jadong_spl_[3] == "17갑옷":
+            elif jadong_spl_[3] == "17갑옷나무600":
                 click_reg = 'lolel_river_3'
         elif jadong_spl_[2] == "구름고원":
             if jadong_spl_[3] == "27인간정수":
@@ -527,7 +527,8 @@ def map_pic_name(cla, where):
             elif jadong_spl_[3] == "33반귀투":
                 click_reg = 'elaum_3'
         elif jadong_spl_[2] == "붉은황야":
-            click_reg = 'red_hwangya_1'
+            if jadong_spl_[3] == "35활목천아인종":
+                click_reg = 'red_hwangya_1'
         elif jadong_spl_[2] == "카나크협곡":
             click_reg = 'canak_1'
         elif jadong_spl_[2] == "로쿠광산":
