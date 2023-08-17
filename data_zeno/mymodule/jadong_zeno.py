@@ -520,11 +520,11 @@ def map_pic_name(cla, where):
             click_reg = 'alak_3'
 
         elif jadong_spl_[2] == "엘라움계곡":
-            if jadong_spl_[3] == "30목걸이장갑":
+            if jadong_spl_[3] == "30목걸이장갑천":
                 click_reg = 'elaum_1'
             elif jadong_spl_[3] == "31벨트":
                 click_reg = 'elaum_2'
-            elif jadong_spl_[3] == "33반귀투":
+            elif jadong_spl_[3] == "33반귀투천":
                 click_reg = 'elaum_3'
         elif jadong_spl_[2] == "붉은황야":
             if jadong_spl_[3] == "35활목천아인종":
