@@ -338,6 +338,11 @@ def dead_die(cla):
             if result_schedule_ == "튜토육성":
                 myQuest_play_add(cla, result_schedule_)
 
+            if '_' in result_schedule_:
+                sche_ = result_schedule_.split("_")
+                if sche_[1] == "지옥" and v_.dead_count > 4:
+                    myQuest_play_add(cla, result_schedule_)
+
             time.sleep(1)
 
             dead_click = False
@@ -452,6 +457,7 @@ def dead_die(cla):
             time.sleep(0.5)
 
             if dead_click == True:
+
                 dead_gold_change(cla)
                 # 장비 복구
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\0_30.PNG"
