@@ -19,12 +19,13 @@ def go_test():
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
-    cla = "four"
+    from potion_zeno import maul_potion
+    cla = "one"
     # v_.now_cla = cla
 
     # chago_setting(cla)
 
-    dead_die(cla)
+    maul_potion(cla)
 
     # red_hwangya_1
     # jadong_juljun_attack_check(cla, "특수_마족_1")
