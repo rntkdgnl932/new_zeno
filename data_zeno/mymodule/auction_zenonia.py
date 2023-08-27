@@ -171,7 +171,16 @@ def auction_ready(cla):
                                     else:
                                         break
                                     time.sleep(0.5)
-
+                        for k in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                break
+                            time.sleep(0.5)
 
 
                 auction_ = True
