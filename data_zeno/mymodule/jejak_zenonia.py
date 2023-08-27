@@ -22,7 +22,7 @@ def jejak_ready(cla):
         jejak_count = 0
         while jejak_ is False:
             jejak_count += 1
-            if jejak_count > 7:
+            if jejak_count > 10:
                 jejak_ = True
             print("jejak_count", jejak_count)
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_title.PNG"
@@ -30,6 +30,7 @@ def jejak_ready(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
+                print("jejak_count222", jejak_count)
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_jaelyo_jangbi.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -59,6 +60,7 @@ def jejak_ready(cla):
                             imgs_ = imgs_set_(500, 70, 720, 120, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
                 time.sleep(0.5)
             else:
                 menu_open(cla)
