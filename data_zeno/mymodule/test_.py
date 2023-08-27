@@ -22,19 +22,19 @@ def go_test():
     from potion_zeno import maul_potion
     from jejak_zenonia import jejak_start, jejak_ready
     from auction_zenonia import auction_ready, auction_start, auction_start2
-    cla = "one"
+    cla = "four"
     # v_.now_cla = cla
 
     # chago_setting(cla)
 
     # auction_ready(cla)
     # jejak_ready(cla)
-    auction_ready(cla)
+    # auction_ready(cla)
 
-    # result_low = auction_start(cla)
-    # print("result_low", result_low)
-    # result_many = auction_start2(cla)
-    # print("result_many", result_many)
+    result_low = auction_start(cla)
+    print("result_low", result_low)
+    result_many = auction_start2(cla)
+    print("result_many", result_many)
 
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\4.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

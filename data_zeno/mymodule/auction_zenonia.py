@@ -214,6 +214,15 @@ def auction_start(cla):
     import cv2
     try:
 
+        if cla == "one":
+            x_plus = 0
+        elif cla == "two":
+            x_plus = 960
+        elif cla == "three":
+            x_plus = 960 * 2
+        elif cla == "four":
+            x_plus = 960 * 3
+
         # 결과값
         sell_ready_now_low = ""
         x1_reg_point = 0
@@ -251,19 +260,19 @@ def auction_start(cla):
             if k == 0:
                 # 첫째자리
                 x_1 = 255
-                x_2 = 269
+                x_2 = 270
             if k == 1:
                 # 둘째자리
                 x_1 = 265
-                x_2 = 279
+                x_2 = 280
             if k == 2:
                 # 셋째자리
-                x_1 = 274
-                x_2 = 288
+                x_1 = 275
+                x_2 = 290
             if k == 3:
                 # 넷째자리
-                x_1 = 283
-                x_2 = 297
+                x_1 = 285
+                x_2 = 300
 
             y_1 = 460
             y_2 = 480
@@ -274,18 +283,18 @@ def auction_start(cla):
                 if k != 0:
                     if x1_reg_point != 0 or x1_reg_1000 != 0:
                         # 270, 278, 286
-                        if 266 < x1_reg_point < 274 or 266 < x1_reg_1000 < 274:
+                        if 266 + x_plus < x1_reg_point < 274 + x_plus or 266 + x_plus < x1_reg_1000 < 274 + x_plus:
                             if k > 0:
-                                x_1 = x_1 + 5
-                                x_2 = x_2 + 5
-                        if 274 < x1_reg_point < 282 or 274 < x1_reg_1000 < 282:
+                                x_1 = x_1 + 4
+                                x_2 = x_2 + 4
+                        if 274 + x_plus < x1_reg_point < 282 + x_plus or 274 + x_plus < x1_reg_1000 < 282 + x_plus:
                             if k > 1:
-                                x_1 = x_1 + 5
-                                x_2 = x_2 + 5
-                        if 282 < x1_reg_point < 290 or 282 < x1_reg_1000 < 290:
+                                x_1 = x_1 + 4
+                                x_2 = x_2 + 4
+                        if 282 + x_plus < x1_reg_point < 290 + x_plus or 282 + x_plus < x1_reg_1000 < 290 + x_plus:
                             if k > 2:
-                                x_1 = x_1 + 5
-                                x_2 = x_2 + 5
+                                x_1 = x_1 + 4
+                                x_2 = x_2 + 4
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -308,6 +317,8 @@ def auction_start(cla):
                         # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
 
+                        left_x1 = 266
+                        right_x1 = 274
 
                         if k != 0:
                             # 270, 278, 286
