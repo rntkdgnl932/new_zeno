@@ -323,13 +323,13 @@ def auction_start(cla):
                         if k != 0:
                             # 270, 278, 286
                             if k == 1:
-                                if x1_reg_point != 0 and (266 < x1_reg_point < 274):
+                                if x1_reg_point != 0 and (266 + x_plus < x1_reg_point < 274 + x_plus):
                                     sell_ready_now_low += "."
                             if k == 2:
-                                if x1_reg_point != 0 and (274 < x1_reg_point < 282):
+                                if x1_reg_point != 0 and (274 + x_plus < x1_reg_point < 282 + x_plus):
                                     sell_ready_now_low += "."
                             if k == 3:
-                                if x1_reg_point != 0 and (282 < x1_reg_point < 290):
+                                if x1_reg_point != 0 and (282 + x_plus < x1_reg_point < 290 + x_plus):
                                     sell_ready_now_low += "."
                             sell_ready_now_low += str(i)
                         else:
