@@ -29,7 +29,7 @@ def go_test():
 
     # auction_ready(cla)
     jejak_ready(cla)
-    # auction_ready(cla)
+    auction_ready(cla)
 
     # result_low = auction_start(cla)
     # print("result_low", result_low)
