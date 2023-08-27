@@ -36,6 +36,7 @@ def jejak_ready(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 120, 70, 190, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
+                    print("jejak_startjejak_startjejak_start", jejak_count)
                     jejak_start(cla)
                     jejak_ = True
                 else:
