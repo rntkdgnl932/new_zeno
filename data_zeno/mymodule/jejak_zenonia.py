@@ -241,6 +241,8 @@ def jejak_start(cla):
                 imgs_ = imgs_set_(840, 970, 900, 1020, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(760, 1000, cla)
+                    time.sleep(0.1)
+                    click_pos_2(760, 1000, cla)
                     time.sleep(0.5)
                     click_pos_2(860, 1000, cla)
                     time.sleep(0.5)
