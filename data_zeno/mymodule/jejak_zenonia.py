@@ -166,6 +166,7 @@ def jejak_start(cla):
                 time.sleep(0.3)
             time.sleep(0.3)
 
+        time.sleep(1)
         # 희귀로 전환전에 다시 재설정
         for i in range(5):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_skillbook_click.PNG"
@@ -182,7 +183,14 @@ def jejak_start(cla):
                     imgs_ = imgs_set_(10, 120, 70, 190, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         break
-                    time.sleep(0.2)
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_skillbook_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(120, 190, 190, 240, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
 
                 break
             else:
@@ -194,6 +202,7 @@ def jejak_start(cla):
                     click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(1)
 
+        time.sleep(1)
         # 다시 돌아오기
         for i in range(5):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jangbi_click.PNG"
@@ -210,7 +219,14 @@ def jejak_start(cla):
                     imgs_ = imgs_set_(10, 120, 70, 190, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         break
-                    time.sleep(0.2)
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jangbi_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(120, 120, 180, 180, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
 
                 break
             else:
@@ -222,6 +238,7 @@ def jejak_start(cla):
                     click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(1)
 
+        time.sleep(1)
         # 희귀로 전환
         for i in range(len(jejak_list_2)):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\" + jejak_list_2[i] + ".PNG"
