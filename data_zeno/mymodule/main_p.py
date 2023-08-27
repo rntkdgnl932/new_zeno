@@ -49,6 +49,10 @@ from tuto_grow import tuto_grow_start
 from action_zeno import get_items, character_change
 from dungeon_zeno import dungeon_start
 from jadong_zeno import jadong_start
+from jejak_zenonia import jejak_ready
+from auction_zenonia import auction_ready
+
+
 # from pywinauto import Application
 from server import game_start
 import variable as v_
@@ -2890,6 +2894,11 @@ class game_Playing(QThread):
                                     # 스케쥴 시작
                                     if result_schedule_ == "각종템받기":
                                         get_items(v_.now_cla)
+                                        myQuest_play_add(v_.now_cla, result_schedule_)
+                                        time.sleep(0.2)
+                                    elif result_schedule_ == "거래소등록":
+                                        jejak_ready(v_.now_cla)
+                                        auction_ready(v_.now_cla)
                                         myQuest_play_add(v_.now_cla, result_schedule_)
                                         time.sleep(0.2)
 

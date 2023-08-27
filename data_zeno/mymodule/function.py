@@ -226,6 +226,31 @@ def imgs_set_(a, b, c, d, cla, img, data):
     except ValueError:
         return False
 
+def imgs_set_num(a, b, c, d, cla, img, data):
+    try:
+        from PIL import ImageGrab
+        from functools import partial
+        import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+
+        if cla == 'one':
+            plus = 0
+        if cla == 'two':
+            plus = 960
+        if cla == 'three':
+            plus = 960 + 960
+        if cla == 'four':
+            plus = 960 + 960 + 960
+
+        pos = (a + plus, b, c - a, d - b)
+        pyautogui.screenshot("asd.png", region=pos)
+
+        result = pyautogui.locateCenterOnScreen(img, region=(a + plus, b, c - a, d - b),
+                                               confidence=data)
+        return result
+    except ValueError:
+        return False
 
 def click_with_image(image_path):
     try:

@@ -1,0 +1,5 @@
+rare_bosuk
+rare_chul
+rare_chun
+rare_gajoog
+rare_wood

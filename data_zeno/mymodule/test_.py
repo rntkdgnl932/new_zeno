@@ -12,7 +12,7 @@ from function import imgs_set_
 def go_test():
     print("tst")
     import pyautogui
-    from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_
+    from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
     from jadong_zeno import jadong_start, jadong_juljun_attack_check
     from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event, dead_die
     from server import server_get_version, server_get_zeno
@@ -20,12 +20,39 @@ def go_test():
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
     from potion_zeno import maul_potion
+    from jejak_zenonia import jejak_start, jejak_ready
+    from auction_zenonia import auction_ready, auction_start, auction_start2
     cla = "one"
     # v_.now_cla = cla
 
     # chago_setting(cla)
 
-    maul_potion(cla)
+    # auction_ready(cla)
+    # jejak_ready(cla)
+    auction_ready(cla)
+
+    # result_low = auction_start(cla)
+    # print("result_low", result_low)
+    # result_many = auction_start2(cla)
+    # print("result_many", result_many)
+
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\4.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_num(269, 460, 283, 480, cla, img, 0.99)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("4", imgs_)
+    # else:
+    #     print("없다..")
+
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_num(256, 485, 267, 500, cla, img, 0.99)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("숫자 없다", imgs_)
+    # else:
+    #     print("숫자 있다")
 
     # red_hwangya_1
     # jadong_juljun_attack_check(cla, "특수_마족_1")
