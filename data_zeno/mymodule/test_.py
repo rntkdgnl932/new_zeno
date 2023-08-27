@@ -28,13 +28,13 @@ def go_test():
     # chago_setting(cla)
 
     # auction_ready(cla)
-    # jejak_ready(cla)
+    jejak_ready(cla)
     # auction_ready(cla)
 
-    result_low = auction_start(cla)
-    print("result_low", result_low)
-    result_many = auction_start2(cla)
-    print("result_many", result_many)
+    # result_low = auction_start(cla)
+    # print("result_low", result_low)
+    # result_many = auction_start2(cla)
+    # print("result_many", result_many)
 
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\4.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

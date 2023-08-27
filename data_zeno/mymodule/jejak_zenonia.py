@@ -36,7 +36,7 @@ def jejak_ready(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(10, 120, 70, 190, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("jejak_startjejak_startjejak_start", jejak_count)
+                    print("jejak_startjejak_startjejak_start     tRUE", jejak_count)
                     jejak_start(cla)
                     jejak_ = True
                 else:
@@ -45,6 +45,7 @@ def jejak_ready(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(120, 120, 180, 180, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
+                        print("jangbi_click", imgs_)
                         click_pos_reg(imgs_.x, imgs_.y, cla)
 
                     else:
@@ -53,6 +54,7 @@ def jejak_ready(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(5, 120, 70, 180, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
+                            print("jaelyo_click", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
                         else:
                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_etc.PNG"
@@ -60,6 +62,7 @@ def jejak_ready(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(500, 70, 720, 120, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
+                                print("jejak_etc", imgs_)
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
                 time.sleep(0.5)
@@ -103,7 +106,7 @@ def jejak_start(cla):
     from action_zeno import menu_open
     from function import click_pos_2, click_pos_reg, imgs_set_
     try:
-        print("jejak_ready")
+        print("jejak_startjejak_startjejak_startjejak_startjejak_startjejak_startjejak_startjejak_start")
         dir_path = "C:\\my_games\\zenonia"
         file_path1 = dir_path + "\\data_zeno\\imgs\\jejak\\jejak_list_1.txt"
         with open(file_path1, "r", encoding='utf-8-sig') as file:
@@ -120,6 +123,9 @@ def jejak_start(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(110, 110, 420, 920, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
+
+                print("ZZZZZZZZZZZZZZZZZ", jejak_list_1[i], imgs_)
+
                 x_reg = imgs_.x
                 y_reg = imgs_.y
 
