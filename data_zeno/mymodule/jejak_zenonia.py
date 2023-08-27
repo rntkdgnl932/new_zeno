@@ -122,7 +122,7 @@ def jejak_start(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\" + jejak_list_1[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(110, 110, 420, 920, cla, img, 0.85)
+            imgs_ = imgs_set_(110, 110, 420, 920, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
 
                 print("ZZZZZZZZZZZZZZZZZ", jejak_list_1[i], imgs_)
@@ -257,7 +257,7 @@ def jejak_start(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\" + jejak_list_2[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(110, 110, 420, 920, cla, img, 0.85)
+            imgs_ = imgs_set_(110, 110, 420, 920, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 x_reg = imgs_.x
                 y_reg = imgs_.y
