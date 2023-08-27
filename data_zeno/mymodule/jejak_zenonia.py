@@ -117,6 +117,7 @@ def jejak_start(cla):
 
 
         # 마법으로 전환
+        print("# 마법으로 전환")
         for i in range(len(jejak_list_1)):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\" + jejak_list_1[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -177,6 +178,7 @@ def jejak_start(cla):
 
         time.sleep(1)
         # 희귀로 전환전에 다시 재설정
+        print("# 희귀로 전환전에 다시 재설정")
         for i in range(5):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_skillbook_click.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -213,6 +215,7 @@ def jejak_start(cla):
 
         time.sleep(1)
         # 다시 돌아오기
+        print("# 다시 돌아오기")
         for i in range(5):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jangbi_click.PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -249,6 +252,7 @@ def jejak_start(cla):
 
         time.sleep(1)
         # 희귀로 전환
+        print("# 희귀로 전환")
         for i in range(len(jejak_list_2)):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\" + jejak_list_2[i] + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
@@ -304,6 +308,7 @@ def jejak_start(cla):
             time.sleep(0.3)
 
         # 나가기
+        print("# 나가기")
         for i in range(4):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
