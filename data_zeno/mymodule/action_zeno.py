@@ -1160,6 +1160,7 @@ def get_items(cla):
         import os
         import numpy as np
         from function import imgs_set_, click_pos_2, click_pos_reg
+        from guild_zenonia import guild_check
         print("get_items")
 
         clean_screen(cla)
@@ -1173,6 +1174,8 @@ def get_items(cla):
         get_post(cla)
         # 시즌 패스
         get_season_pass(cla)
+
+        guild_check(cla)
 
 
         # 가방 열고 아이템 클릭
