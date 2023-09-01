@@ -1168,6 +1168,12 @@ def get_items(cla):
         # 이벤트 보상
         get_event(cla)
 
+        # 마켓 소환
+        get_market_sohwan_start(cla)
+
+        # 마켓 교환소
+        get_market_gyohwanso_start(cla)
+
         # 업적
         get_upjuk(cla)
         # 우편
@@ -1383,7 +1389,621 @@ def get_event(cla):
         print(e)
         return 0
 
+def get_market_sohwan(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import imgs_set_, click_pos_2, click_pos_reg
+        print("get_market_sohwan")
 
+        sohwan = False
+        sohwan_count = 0
+        while sohwan is False:
+            sohwan_count += 1
+            if sohwan_count > 10:
+                sohwan = True
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+
+                poomjul = False
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(435, 390, 515, 435, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(400, 750, cla)
+                    poomjul = True
+                    sohwan = True
+                else:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(260, 390, 340, 435, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(400, 750, cla)
+                        poomjul = True
+                        sohwan = True
+
+                if poomjul == False:
+                    click_pos_2(560, 750, cla)
+                    time.sleep(0.2)
+                    sohwan = True
+
+                    notfullyet_level = False
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_exit.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(420, 950, 530, 1030, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.2)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(560, 750, cla)
+                                for k in range(10):
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\notfullyet_level.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(350, 130, 500, 200, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        sohwan = True
+                                        break
+                                    time.sleep(0.1)
+                        if notfullyet_level == True:
+                            break
+                        time.sleep(0.5)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\toichunjok_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+
+                    poomjul = False
+
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(435, 390, 515, 435, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(400, 750, cla)
+                        poomjul = True
+                        sohwan = True
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(260, 390, 340, 435, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(400, 750, cla)
+                            poomjul = True
+                            sohwan = True
+
+                    if poomjul == False:
+                        click_pos_2(560, 750, cla)
+                        time.sleep(0.2)
+                        sohwan = True
+
+                        notfullyet_level = False
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_exit.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(420, 950, 530, 1030, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.2)
+                                break
+                            else:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\toichunjok_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(560, 750, cla)
+                                    for k in range(10):
+                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\notfullyet_level.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(350, 130, 500, 200, cla, img, 0.85)
+                                        if imgs_ is not None and imgs_ != False:
+                                            sohwan = True
+                                            notfullyet_level = True
+                                            break
+                                        time.sleep(0.1)
+                            if notfullyet_level == True:
+                                break
+                            time.sleep(0.5)
+            time.sleep(0.5)
+
+        for i in range(10):
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(400, 750, cla)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\toichunjok_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(400, 750, cla)
+                else:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+            time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def get_market_sohwan_start(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import imgs_set_, click_pos_2, click_pos_reg
+        print("get_market_sohwan_start")
+
+        e_click = False
+        e_click_count = 0
+        while e_click is False:
+            e_click_count += 1
+            if e_click_count > 10:
+                e_click = True
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_exit.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(900, 20, 960, 80, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.3)
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(165, 125, 225, 170, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+
+                    for i in range(4):
+                        reg_x1 = 180 + (i * 200)
+                        reg_x2 = 250 + (i * 200)
+                        locked = False
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(reg_x1, 200, reg_x2, 250, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            locked = True
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(reg_x1, 200, reg_x2, 250, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                locked = True
+                        if locked == False:
+                            click_pos_2(reg_x1, 230, cla)
+                            get_market_sohwan(cla)
+                    # click_pos_2(235, 230, cla)
+                    # get_market_sohwan(cla)
+                    # click_pos_2(435, 230, cla)
+                    # get_market_sohwan(cla)
+                    # click_pos_2(630, 230, cla)
+                    # get_market_sohwan(cla)
+                    # click_pos_2(830, 230, cla)
+                    # get_market_sohwan(cla)
+
+                    for i in range(4):
+                        reg_x1 = 180 + (i * 200)
+                        reg_x2 = 250 + (i * 200)
+                        locked = False
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(reg_x1, 410, reg_x2, 460, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            locked = True
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(reg_x1, 410, reg_x2, 460, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                locked = True
+                        if locked == False:
+                            click_pos_2(reg_x1, 230, cla)
+                            get_market_sohwan(cla)
+
+                    # click_pos_2(235, 440, cla)
+                    # get_market_sohwan(cla)
+                    # click_pos_2(435, 440, cla)
+                    # get_market_sohwan(cla)
+                    # click_pos_2(630, 440, cla)
+                    # get_market_sohwan(cla)
+                    # click_pos_2(830, 440, cla)
+                    # get_market_sohwan(cla)
+
+                    e_click = True
+
+
+
+                else:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(240, 70, 320, 120, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_sohwan.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 180, 60, 230, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+
+                    time.sleep(0.5)
+
+
+
+
+            else:
+                clean_screen(cla)
+                click_pos_2(765, 60, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+
+            time.sleep(0.5)
+
+
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def get_market_gyohwanso(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import imgs_set_, click_pos_2, click_pos_reg
+        print("get_market_gyohwanso")
+
+        is_sohwan_ = False
+
+        sohwan = False
+        sohwan_count = 0
+        while sohwan is False:
+            sohwan_count += 1
+            if sohwan_count > 10:
+                sohwan = True
+
+            poomjul = False
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(435, 390, 515, 435, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_2(400, 750, cla)
+                poomjul = True
+                sohwan = True
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(260, 390, 340, 435, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(400, 750, cla)
+                    poomjul = True
+                    sohwan = True
+
+            if poomjul == False:
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\bonginsuk_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 280, 540, 330, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(280, 680, cla)
+                    time.sleep(0.4)
+                    click_pos_2(560, 750, cla)
+                    time.sleep(0.2)
+                    is_sohwan_ = True
+                    sohwan = True
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gaginsuk_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 280, 540, 330, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(280, 680, cla)
+                    time.sleep(0.4)
+                    click_pos_2(560, 750, cla)
+                    time.sleep(0.2)
+                    is_sohwan_ = True
+                    sohwan = True
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title2.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(370, 280, 460, 330, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(560, 750, cla)
+                    time.sleep(0.2)
+                    is_sohwan_ = True
+                    sohwan = True
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\jaelyo_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(420, 280, 500, 330, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(280, 680, cla)
+                    time.sleep(0.1)
+                    click_pos_2(280, 680, cla)
+                    time.sleep(0.1)
+                    click_pos_2(280, 680, cla)
+                    time.sleep(0.4)
+                    click_pos_2(560, 750, cla)
+                    time.sleep(0.2)
+                    is_sohwan_ = True
+                    sohwan = True
+
+                time.sleep(0.2)
+
+                if is_sohwan_ == True:
+                    for k in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\notfullyet_level.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(350, 130, 500, 200, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(400, 750, cla)
+                            sohwan = True
+                            break
+                        time.sleep(0.1)
+
+        for i in range(10):
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(350, 720, 430, 770, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    break
+
+            time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
+        return 0
+
+def get_market_gyohwanso_start(cla):
+    try:
+        import cv2
+        import numpy as np
+        from function import imgs_set_, click_pos_2, click_pos_reg, drag_pos
+        print("get_market_gyohwanso")
+
+        e_click = False
+        e_click_count = 0
+        while e_click is False:
+            e_click_count += 1
+            if e_click_count > 10:
+                e_click = True
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_exit.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(900, 20, 960, 80, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.3)
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\bonginsuk.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(200, 125, 280, 170, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+
+                    # 봉인석
+                    locked = False
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(170, 200, 230, 250, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        locked = True
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(170, 200, 230, 250, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            locked = True
+                    if locked == False:
+                        click_pos_2(235, 230, cla)
+                        get_market_gyohwanso(cla)
+
+                    # 각인석
+                    locked = False
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(170, 410, 230, 460, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        locked = True
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(170, 410, 230, 460, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            locked = True
+                    if locked == False:
+                        click_pos_2(235, 440, cla)
+                        get_market_gyohwanso(cla)
+
+                    # 마루족 상인 선물 상자자
+                    locked = False
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(400, 200, 450, 250, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        locked = True
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(400, 200, 450, 250, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            locked = True
+                    if locked == False:
+                        click_pos_2(435, 230, cla)
+                        get_market_gyohwanso(cla)
+
+                    for z in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\pyungbumhan_jaelyo.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(380, 120, 500, 180, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+
+                            locked = False
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(370, 200, 550, 250, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                locked = True
+                            else:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock2.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(370, 200, 550, 250, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    locked = True
+                            if locked == False:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\pyungbumhan_jaelyo.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(380, 120, 500, 180, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    get_market_gyohwanso(cla)
+                            break
+                        else:
+                            drag_pos(870, 350, 200, 350, cla)
+                        time.sleep(0.5)
+
+                    e_click = True
+
+                else:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gyohwanso_click.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(500, 70, 580, 120, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_gyohwanso.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 130, 60, 180, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
+
+
+            else:
+                clean_screen(cla)
+                click_pos_2(765, 60, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.5)
+
+            time.sleep(0.5)
+
+        for i in range(10):
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(350, 720, 430, 770, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\market_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(930, 50, cla)
+                else:
+                    break
+                time.sleep(0.5)
+
+            time.sleep(0.5)
+
+
+
+    except Exception as e:
+        print(e)
+        return 0
 
 def get_upjuk(cla):
     try:

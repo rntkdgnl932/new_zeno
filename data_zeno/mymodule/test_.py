@@ -14,7 +14,7 @@ def go_test():
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
     from jadong_zeno import jadong_start, jadong_juljun_attack_check
-    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event, dead_die
+    from action_zeno import gold_check_open, out_check, now_hunting, get_items, clean_screen, character_change, confirm_all, get_event, dead_die, get_market_gyohwanso_start, get_market_sohwan_start
     from server import server_get_version, server_get_zeno
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
@@ -28,8 +28,17 @@ def go_test():
     # chago_setting(cla)
 
     # auction_ready(cla)
-    jejak_ready(cla)
-    auction_ready(cla)
+    get_items(cla)
+
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(200, 200, 250, 250, cla, img, 0.85)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("lock", imgs_)
+
+
+
 
     # result_low = auction_start(cla)
     # print("result_low", result_low)

@@ -77,6 +77,50 @@ def guild_check(cla):
                         break
                     time.sleep(0.3)
 
+
+                # 길드 퀘스트
+                for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\guild\\mission_point.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(20, 110, 130, 160, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    else:
+                        click_pos_2(540, 100, cla)
+                    time.sleep(0.5)
+                for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\guild\\soolock.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 270, 960, 560, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        break
+                    time.sleep(0.5)
+
+                for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\guild\\bosang.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(800, 270, 960, 560, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\guild\\bosang2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(455, 635, 530, 710, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    else:
+                        break
+                    time.sleep(0.5)
+
+
             else:
                 menu_open(cla)
                 time.sleep(0.2)
@@ -96,14 +140,23 @@ def guild_check(cla):
                         time.sleep(0.3)
 
         for i in range(5):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\guild_title.PNG"
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\guild\\bosang2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.85)
+            imgs_ = imgs_set_(455, 635, 530, 710, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(930, 50, cla)
-                time.sleep(0.5)
-                break
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+            else:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\title\\guild_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(10, 10, 130, 80, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(930, 50, cla)
+                    time.sleep(0.5)
+                    break
+            time.sleep(0.5)
 
 
     except Exception as e:
