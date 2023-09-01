@@ -67,6 +67,17 @@ def auction_ready(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
                     time.sleep(0.5)
+
+                    # 들어왔는지 확인
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list_in.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(660, 130, 700, 170, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.1)
+
                     # 판매전 회수하기
                     for i in range(10):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\recall.PNG"
