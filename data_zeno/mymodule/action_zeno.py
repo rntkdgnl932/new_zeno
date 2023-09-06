@@ -2141,21 +2141,24 @@ def get_post(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 420, 740, 470, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 420, 740, 470, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             is_post = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
 
-        for i in range(10):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\post_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                break
-            time.sleep(0.5)
+
 
         if is_post == True:
+
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\post_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                time.sleep(0.5)
+
             post_ = False
             post_count = 0
             while post_ is False:
@@ -2173,7 +2176,7 @@ def get_post(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\p_point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(560, 30, 620, 70, cla, img, 0.85)
+                    imgs_ = imgs_set_(560, 30, 620, 70, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("2")
                         click_pos_reg(imgs_.x - 30, imgs_.y + 10, cla)
@@ -2205,7 +2208,7 @@ def get_post(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\p_point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(360, 30, 540, 70, cla, img, 0.85)
+                    imgs_ = imgs_set_(360, 30, 540, 70, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("3")
                         click_pos_reg(imgs_.x - 30, imgs_.y + 10, cla)
