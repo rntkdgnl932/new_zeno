@@ -1210,6 +1210,12 @@ def get_items(cla):
                         if exit_1_count > 10:
                             exit_1 = True
                             click_pos_2(480, 980, cla)
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\barobogi.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 940, 1030, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\sohwan\\exit_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1240,6 +1246,12 @@ def get_items(cla):
                         if exit_1_count > 10:
                             exit_1 = True
                             click_pos_2(480, 980, cla)
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\barobogi.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 0, 940, 1030, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\sohwan\\exit_1.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1445,6 +1457,13 @@ def get_market_sohwan(cla):
                             time.sleep(0.2)
                             break
                         else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\barobogi.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 940, 1030, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1506,6 +1525,13 @@ def get_market_sohwan(cla):
                         notfullyet_level = False
 
                         for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\barobogi.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 0, 940, 1030, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_exit.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -1544,6 +1570,12 @@ def get_market_sohwan(cla):
             time.sleep(0.5)
 
         for i in range(10):
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\barobogi.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(0, 0, 940, 1030, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title.PNG"
             img_array = np.fromfile(full_path, np.uint8)
