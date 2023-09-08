@@ -376,6 +376,8 @@ def click_pos_2(pos_1, pos_2, cla):
         if cla == 'four':
             coordinate = 960 + 960 + 960
 
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+
         ser = serial.Serial(arduino_port, baudrate)
 
         moveZ = 1
@@ -474,6 +476,8 @@ def click_pos_reg(pos_1, pos_2, cla):
             coordinate = 0
         if cla == 'four':
             coordinate = 0
+
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         ser = serial.Serial(arduino_port, baudrate)
 
