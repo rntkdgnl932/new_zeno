@@ -629,6 +629,8 @@ def mouse_move_cpp(pos_1, pos_2, cla):
         if cla == 'four':
             coordinate = 960 + 960 + 960
 
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+
         ser = serial.Serial(arduino_port, baudrate)
 
         moveZ = 1
