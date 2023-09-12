@@ -533,6 +533,11 @@ def map_pic_name(cla, where):
             click_reg = 'canak_1'
         elif jadong_spl_[2] == "로쿠광산":
             click_reg = 'locoo_1'
+        elif jadong_spl_[2] == "베네둠1층":
+            click_reg = 'benedoom_1'
+        elif jadong_spl_[2] == "고대유적지":
+            click_reg = 'godae_1'
+
         return click_reg
     except Exception as e:
         print(e)

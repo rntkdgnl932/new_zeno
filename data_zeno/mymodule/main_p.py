@@ -912,11 +912,12 @@ class FirstTab(QWidget):
 
         if os.path.isfile(file_path1) == True:
             with open(file_path1, "r", encoding='utf-8-sig') as file:
-                read_1 = file.read()
-                read_1 = read_1.split(":")
-                read_1 = "< 미드가르드 >/" + read_1[1]
-                read_1 = read_1.split("/")
+                read_1 = file.read().splitlines()
+                # read_1 = read_1.split(":")
+                # read_1 = "< 미드가르드 >/n" + read_1[1]
+                # read_1 = read_1.split("/")
                 list5 = []
+                list5.append("< 미드가르드 >")
                 for i in range(len(read_1)):
                     list5.append(read_1[i])
             with open(file_path2, "r", encoding='utf-8-sig') as file:
