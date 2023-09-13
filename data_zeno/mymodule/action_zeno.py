@@ -1772,7 +1772,7 @@ def get_market_gyohwanso(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\poomjul.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(435, 390, 515, 435, cla, img, 0.85)
+            imgs_ = imgs_set_(430, 390, 515, 435, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 click_pos_2(400, 750, cla)
                 poomjul = True
@@ -1925,6 +1925,14 @@ def get_market_gyohwanso_start(cla):
                             locked = True
                     if locked == False:
                         click_pos_2(235, 230, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\bonginsuk_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(420, 280, 540, 330, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
                         get_market_gyohwanso(cla)
 
                     # 각인석
@@ -1944,6 +1952,14 @@ def get_market_gyohwanso_start(cla):
                             locked = True
                     if locked == False:
                         click_pos_2(235, 440, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gaginsuk_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(420, 280, 540, 330, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
                         get_market_gyohwanso(cla)
 
                     # 마루족 상인 선물 상자자
@@ -1963,6 +1979,14 @@ def get_market_gyohwanso_start(cla):
                             locked = True
                     if locked == False:
                         click_pos_2(435, 230, cla)
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok_title2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(370, 280, 460, 330, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            time.sleep(0.5)
                         get_market_gyohwanso(cla)
 
                     for z in range(10):
@@ -1993,6 +2017,14 @@ def get_market_gyohwanso_start(cla):
                                 imgs_ = imgs_set_(380, 120, 500, 180, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    for i in range(10):
+                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\jaelyo_title.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(420, 280, 500, 330, cla, img, 0.85)
+                                        if imgs_ is not None and imgs_ != False:
+                                            break
+                                        time.sleep(0.5)
                                     get_market_gyohwanso(cla)
                             break
                         else:
