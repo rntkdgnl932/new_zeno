@@ -1365,6 +1365,14 @@ def get_event(cla):
                             imgs_ = imgs_set_(690, 690, 940, 770, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(570, 5000, 940, 765, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+
                             time.sleep(0.5)
                         else:
                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_exit.PNG"
