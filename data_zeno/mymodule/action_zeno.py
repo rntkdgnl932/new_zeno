@@ -365,6 +365,9 @@ def dead_die(cla):
             time.sleep(0.5)
 
             if dead_click == True:
+
+
+
                 dead_gold_change(cla)
                 # 경험치 복구
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\dead\\0_30.PNG"
