@@ -16,6 +16,7 @@ def auction_ready(cla):
     import os
     from action_zeno import menu_open
     from function import click_pos_2, click_pos_reg, imgs_set_
+    from property_zeno import my_property_upload
     try:
         print("auction_ready")
 
@@ -58,6 +59,8 @@ def auction_ready(cla):
                     else:
                         break
                     time.sleep(0.5)
+
+                my_property_upload(cla)
 
                 # 판매하기
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\sell_click.PNG"

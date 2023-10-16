@@ -1316,7 +1316,7 @@ def get_event(cla):
     try:
         import cv2
         import numpy as np
-        from function import imgs_set_, click_pos_2, click_pos_reg
+        from function import imgs_set_, click_pos_2, click_pos_reg, drag_pos
         print("get_event")
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\event_check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -1368,20 +1368,22 @@ def get_event(cla):
                             imgs_ = imgs_set_(690, 690, 940, 770, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
-
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(570, 500, 940, 765, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
                                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(880, 380, 930, 430, cla, img, 0.85)
+                                imgs_ = imgs_set_(570, 500, 940, 765, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                                else:
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(880, 380, 930, 430, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    else:
+                                        drag_pos(650, 720, 650, 400, cla)
 
                             time.sleep(0.5)
                         else:
@@ -2701,4 +2703,95 @@ def zeno_moving(cla):
 
 
 
+def mine_check(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_, click_pos_reg, click_pos_2, text_check_get, in_number_check, int_put_
+    from schedule import myQuest_play_add
 
+    try:
+        print("mine_check")
+
+        gold_ = 0
+        dia_ = 0
+
+        monster_in = False
+        monster_in_count = 0
+        while monster_in is False:
+            monster_in_count += 1
+            if monster_in_count > 7:
+                monster_in = True
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_title.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                monster_in = True
+                print("거래소 오픈")
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\gold.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(650, 30, 850, 70, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("gold", imgs_)
+                    # 789
+                    x_reg_1 = imgs_.x
+                    read_gold = text_check_get(x_reg_1 + 7, 37, 866, 63, cla)
+                    print("read_gold", read_gold)
+
+                    digit_ready = in_number_check(cla, read_gold)
+                    print("digit_ready", digit_ready)
+                    if digit_ready == True:
+                        read_data_int = int(int_put_(read_gold))
+                        print("read_data_int", read_data_int)
+                        gold_ = read_data_int
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\dia.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(650, 37, 850, 63, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("dia", imgs_)
+                    x_reg_2 = imgs_.x
+                    # 741
+
+                    read_dia = text_check_get(x_reg_2 + 7, 39, x_reg_1 - 13, 63, cla)
+                    print("read_dia", read_dia)
+
+                    digit_ready = in_number_check(cla, read_dia)
+                    print("digit_ready", digit_ready)
+                    if digit_ready == True:
+                        read_data_int = int(int_put_(read_dia))
+                        print("read_data_int", read_data_int)
+                        dia_ = read_data_int
+
+
+            else:
+                menu_open(cla)
+                time.sleep(0.2)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\menu_auction.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(670, 100, 950, 530, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.5)
+
+
+
+
+
+
+        return gold_, dia_
+
+    except Exception as e:
+        print(e)
+        return 0
