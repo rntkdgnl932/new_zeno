@@ -21,6 +21,9 @@ rare_chun
 rare_gajoog
 rare_wood
 moogi_sangmyung
+moogi_simyun
+moogi_soop
 jangab_sooglyungong
 skillbook_1
+skillbook_2
 toogoo_sooglyungong
