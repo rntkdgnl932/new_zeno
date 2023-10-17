@@ -30,3 +30,6 @@ skillbook_3
 toogoo_sooglyungong
 gabot_sooglyungisa
 jangab_sooglyungisa
+belt_silence
+belt_banyuk
+belt_soohogisa
