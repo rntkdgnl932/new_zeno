@@ -2715,11 +2715,11 @@ def mine_check(cla):
         if cla == "one":
             plus = 0
         elif cla == " two":
-            prus = 960
+            plus = 960
         elif cla == " three":
-            prus = 960 * 2
+            plus = 960 * 2
         elif cla == " four":
-            prus = 960 * 3
+            plus = 960 * 3
 
         gold_ = 0
         dia_ = 0
