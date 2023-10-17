@@ -24,7 +24,7 @@ def go_test():
     from property_zeno import my_property_upload
 
 
-    cla = "one"
+    cla = "four"
 
     if cla == "one":
         plus = 0
