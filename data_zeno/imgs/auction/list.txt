@@ -20,3 +20,5 @@ rare_chul
 rare_chun
 rare_gajoog
 rare_wood
+moogi_sangmyung
+jangab_sooglyungong
