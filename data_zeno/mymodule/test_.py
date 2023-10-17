@@ -25,6 +25,16 @@ def go_test():
 
 
     cla = "one"
+
+    if cla == "one":
+        plus = 0
+    elif cla == " two":
+        prus = 960
+    elif cla == " three":
+        prus = 960 * 2
+    elif cla == " four":
+        prus = 960 * 3
+
     # v_.now_cla = cla
 
     # chago_setting(cla)

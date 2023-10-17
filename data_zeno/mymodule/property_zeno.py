@@ -70,72 +70,75 @@ def my_property_upload(cla):
         # result_mine[0] => 골드
         # result_mine[1] => 다이아
 
-        # # 파악한 곳 나가기
-        for i in range(10):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_title.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_2(930, 50, cla)
-            else:
-                result_out = out_check(cla)
-                if result_out == True:
-                    break
+        # # # 파악한 곳 나가기
+        # for i in range(10):
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_title.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(5, 30, 150, 80, cla, img, 0.8)
+        #     if imgs_ is not None and imgs_ != False:
+        #         click_pos_2(930, 50, cla)
+        #     else:
+        #         result_out = out_check(cla)
+        #         if result_out == True:
+        #             break
+        #         else:
+        #             clean_screen(cla)
+        #     time.sleep(0.5)
+
+        if int(result_mine[1]) != 0:
+
+
+            # 5. 내 서버 ip 불러오기
+
+            ftp_server = ftp_ip_get()
+
+
+
+            # 업로드 처리 과정
+
+            # 6. 로컬 파일 경로 (절대 경로 사용)
+            local_file_path = 'C:/my_games/zenonia/mysettings/my_property/my_property.txt'
+
+            dir_path = "C:\\my_games\\zenonia\\mysettings\\my_property"
+            file_path = dir_path + "\\my_property.txt"
+
+            isstart1 = False
+            while isstart1 is False:
+                if os.path.isdir(dir_path) == True:
+                    isstart1 = True
+                    with open(file_path, "w", encoding='utf-8-sig') as file:
+                        # data = 사용자:게임이름:게임서버:다이아:골드
+                        data = str(line_[0]) + ':' + str(game_name) + ':' + str(game_server) + ':' + str(result_mine[1]) + ':' + str(
+                            result_mine[0])
+                        file.write(str(data))
+
                 else:
-                    clean_screen(cla)
-            time.sleep(0.5)
-
-        # 5. 내 서버 ip 불러오기
-
-        ftp_server = ftp_ip_get()
+                    os.makedirs(dir_path)
 
 
+            # 7. 원격 파일 경로 (FTP 서버 내)
+            remote_directory = '/zenonia/' + str(line_[0])  # 원격 디렉토리 경로
+            remote_file_path = '/zenonia/' + str(line_[0]) + '/' + str(line_[1]) + '.txt'
+            print("7", remote_file_path)
+            # FTP 연결 및 파일 업로드
+            try:
+                with FTP(ftp_server) as ftp:
+                    ftp.login(ftp_username, ftp_password)
 
-        # 업로드 처리 과정
+                    # # # 원격 디렉토리 생성
+                    # # ftp.mkd(remote_directory)
+                    # if remote_directory not in ftp.nlst():
+                    #     ftp.mkd(remote_directory)
+                    # if remote_file_path in ftp.nlst():
+                    #     ftp.delete(remote_file_path)
 
-        # 6. 로컬 파일 경로 (절대 경로 사용)
-        local_file_path = 'C:/my_games/zenonia/mysettings/my_property/my_property.txt'
-
-        dir_path = "C:\\my_games\\zenonia\\mysettings\\my_property"
-        file_path = dir_path + "\\my_property.txt"
-
-        isstart1 = False
-        while isstart1 is False:
-            if os.path.isdir(dir_path) == True:
-                isstart1 = True
-                with open(file_path, "w", encoding='utf-8-sig') as file:
-                    # data = 사용자:게임이름:게임서버:다이아:골드
-                    data = str(line_[0]) + ':' + str(game_name) + ':' + str(game_server) + ':' + str(result_mine[1]) + ':' + str(
-                        result_mine[0])
-                    file.write(str(data))
-
-            else:
-                os.makedirs(dir_path)
-
-
-        # 7. 원격 파일 경로 (FTP 서버 내)
-        remote_directory = '/zenonia/' + str(line_[0])  # 원격 디렉토리 경로
-        remote_file_path = '/zenonia/' + str(line_[0]) + '/' + str(line_[1]) + '.txt'
-        print("7", remote_file_path)
-        # FTP 연결 및 파일 업로드
-        try:
-            with FTP(ftp_server) as ftp:
-                ftp.login(ftp_username, ftp_password)
-
-                # # # 원격 디렉토리 생성
-                # # ftp.mkd(remote_directory)
-                # if remote_directory not in ftp.nlst():
-                #     ftp.mkd(remote_directory)
-                # if remote_file_path in ftp.nlst():
-                #     ftp.delete(remote_file_path)
-
-                with open(local_file_path, 'rb') as file:
-                    # 파일 업로드시 UTF-8 인코딩 사용
-                    ftp.storbinary('STOR ' + remote_file_path, file, 8192)
-                print(f'로컬 파일 {local_file_path}을 FTP 서버의 {remote_file_path}로 업로드했습니다.')
-        except Exception as e:
-            print(f'파일 업로드 실패: {e}')
+                    with open(local_file_path, 'rb') as file:
+                        # 파일 업로드시 UTF-8 인코딩 사용
+                        ftp.storbinary('STOR ' + remote_file_path, file, 8192)
+                    print(f'로컬 파일 {local_file_path}을 FTP 서버의 {remote_file_path}로 업로드했습니다.')
+            except Exception as e:
+                print(f'파일 업로드 실패: {e}')
 
     except Exception as e:
         print(e)
