@@ -29,11 +29,11 @@ def go_test():
     if cla == "one":
         plus = 0
     elif cla == " two":
-        prus = 960
+        plus = 960
     elif cla == " three":
-        prus = 960 * 2
+        plus = 960 * 2
     elif cla == " four":
-        prus = 960 * 3
+        plus = 960 * 3
 
     # v_.now_cla = cla
 
