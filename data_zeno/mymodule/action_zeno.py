@@ -787,7 +787,7 @@ def clean_screen_action(cla):
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             # 제노는 3클라 고정
-            imgs_ = imgs_set_(0, 50, 960, 1030, "three", img, 0.8)
+            imgs_ = imgs_set_(0, 50, 960, 1030, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x - 40, imgs_.y, v_.now_cla)
 
