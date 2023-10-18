@@ -2749,7 +2749,7 @@ def mine_check(cla):
                     for i in range(4):
                         read_gold = text_check_get(x_reg_1 + 7 + i, 37, 866, 63, cla)
                         if read_gold == "":
-                            print("못 읽음")
+                            print("골드 못 읽음")
                         else:
                             print("read_gold", read_gold)
                             break
@@ -2773,7 +2773,7 @@ def mine_check(cla):
                     for i in range(4):
                         read_dia = text_check_get(x_reg_2 + 7 + i, 39, x_reg_1 - 13, 63, cla)
                         if read_dia == "":
-                            print("못 읽음")
+                            print("다이아 못 읽음")
                         else:
                             print("read_dia", read_dia)
                             break
