@@ -40,7 +40,7 @@ def go_test():
     # chago_setting(cla)
 
     # auction_ready(cla)
-    my_property_upload(cla)
+    auction_ready(cla)
 
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
