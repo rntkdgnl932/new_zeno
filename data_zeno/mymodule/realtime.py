@@ -114,9 +114,8 @@ def collection(cla):
 def boonhae(cla):
     import numpy as np
     import cv2
-    from action_zeno import clean_screen
+    from action_zeno import clean_screen, bag_open
     from function import click_pos_reg, click_pos_2, imgs_set_
-    from potion_zeno import maul_boonhae_buy
     try:
         print("boonhae")
         clean_screen(cla)
@@ -142,53 +141,52 @@ def boonhae(cla):
                 if imgs_ is not None and imgs_ != False:
                     j_boon_ = True
                 else:
-                    click_pos_2(680, 400, cla)
+                    click_pos_2(680, 395, cla)
                     time.sleep(0.5)
-                    click_pos_2(770, 400, cla)
+                    click_pos_2(770, 395, cla)
                     time.sleep(0.5)
 
-                    for i in range(4):
+                    for i in range(10):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(800, 740, 920, 780, cla, img, 0.85)
+                        imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                        else:
-                            j_boon_ = True
                             break
-                        time.sleep(0.3)
-            else:
-                if j_boon_count == 3:
-                    # 마을에 분해키트 사러 가자
-                    # item_boonhae_sangjum, book_boonhae_sangjum
+                        time.sleep(0.1)
+                    j_boon_ = True
 
+
+            else:
+                bag_open(cla)
+
+                for i in range(10):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\jangbi_boonhae.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(650, 320, 770, 370, cla, img, 0.85)
-                    if imgs_ is None:
-                        data = "item_boonhae_sangjum"
-                        maul_boonhae_buy(cla, data)
-                else:
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\item_boonhae.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(440, 930, 510, 1010, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-            time.sleep(0.5)
-        for i in range(4):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\x.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(250, 310, 960, 390, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-            else:
-                break
-            time.sleep(0.3)
+                        break
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\bag_boonhae_click.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(840, 720, 910, 790, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
 
+                    time.sleep(0.3)
+
+            time.sleep(0.5)
+
+        # 스킬북 분해전 한번 더 확인
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(800, 740, 920, 780, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 스킬북 분해
         s_boon_ = False
@@ -200,8 +198,11 @@ def boonhae(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\skillbook_boonhae.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 320, 770, 370, cla, img, 0.85)
+            imgs_ = imgs_set_(780, 320, 900, 370, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
+
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(1)
 
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\no_have_item.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
@@ -215,37 +216,16 @@ def boonhae(cla):
                     click_pos_2(770, 400, cla)
                     time.sleep(0.5)
 
-                    for i in range(4):
+                    for i in range(10):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(800, 740, 920, 780, cla, img, 0.85)
+                        imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                        else:
-                            s_boon_ = True
                             break
-                        time.sleep(0.3)
-            else:
-
-                if s_boon_count == 3:
-                    # 마을에 분해키트 사러 가자
-                    # item_boonhae_sangjum, book_boonhae_sangjum
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\skillbook_boonhae.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(650, 320, 770, 370, cla, img, 0.85)
-                    if imgs_ is None:
-                        data = "book_boonhae_sangjum"
-                        maul_boonhae_buy(cla, data)
-                else:
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\book_boonhae.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(490, 930, 570, 1010, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-            time.sleep(0.5)
+                        time.sleep(0.1)
+                    s_boon_ = True
 
         for i in range(4):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\x.PNG"

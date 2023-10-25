@@ -24,7 +24,7 @@ def go_test():
     from property_zeno import my_property_upload
 
 
-    cla = "four"
+    cla = "one"
 
     if cla == "one":
         plus = 0
@@ -40,14 +40,8 @@ def go_test():
     # chago_setting(cla)
 
     # auction_ready(cla)
-    auction_ready(cla)
+    maul_potion(cla)
 
-    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\lock.PNG"
-    # img_array = np.fromfile(full_path, np.uint8)
-    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(200, 200, 250, 250, cla, img, 0.85)
-    # if imgs_ is not None and imgs_ != False:
-    #     print("lock", imgs_)
 
 
 
