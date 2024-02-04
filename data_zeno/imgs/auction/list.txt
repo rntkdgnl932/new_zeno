@@ -29,6 +29,7 @@ skillbook_1
 skillbook_2
 skillbook_3
 toogoo_sooglyungong
+gabot_banyuk
 gabot_sooglyungisa
 jangab_sooglyungisa
 belt_silence

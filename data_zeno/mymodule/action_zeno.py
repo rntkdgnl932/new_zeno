@@ -933,106 +933,160 @@ def in_maul_check(cla):
         return 0
 
 def go_maul(cla):
+    import cv2
+    import numpy as np
+    from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
+    from jadong_zeno import spot_arrive
     try:
-        import cv2
-        import numpy as np
-        from function import click_pos_2, click_pos_reg, imgs_set_
-        from jadong_zeno import spot_arrive
+
         print("go_maul")
+        quihwan_ = False
+        quihwan_count = 0
+        while quihwan_ is False:
+            quihwan_count += 1
+            if quihwan_count > 10:
+                quihwan_ = True
 
-        in_maul_ = False
-        in_maul_count = 0
-        while in_maul_ is False:
-            in_maul_count += 1
-            if in_maul_count > 10:
-                in_maul_ = True
+            result_out = out_check(cla)
 
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\map.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(20, 20, 100, 70, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
+            if result_out == True:
 
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\is_dungeon.PNG"
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\maul\\jabhwa.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(60, 550, 250, 620, cla, img, 0.85)
+                imgs_ = imgs_set_(690, 940, 750, 1020, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    print("is_dungeon", imgs_)
+                    quihwan_ = True
 
-                    quihwan_ = False
-                    quihwan_count = 0
-                    while quihwan_ is False:
-                        quihwan_count += 1
-                        if quihwan_count > 10:
-                            quihwan_ = True
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            quihwan_ = True
-                            time.sleep(2)
-                            where = "마을로 가즈아"
-                            spot_arrive(cla, where)
-                        else:
-                            click_pos_2(930, 50, cla)
-                        time.sleep(1)
                 else:
-                    time.sleep(0.2)
-                    click_pos_2(840, 100, cla)
-                    time.sleep(0.5)
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\maul.PNG"
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+                    imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x + 50, imgs_.y, cla)
-                        time.sleep(0.2)
-                        click_pos_2(240, 100, cla)
-                    potal_ = False
-                    potal_count = 0
-                    while potal_ is False:
-                        potal_count += 1
-                        if potal_count > 7:
-                            potal_ = True
-
-                        in_ = in_maul_check(cla)
-                        if in_ == False:
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\teleport.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(240, 160, 300, 230, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_2(270, 200, cla)
-                                time.sleep(0.5)
-                            confirm_all(cla)
-
-                        else:
-                            in_maul_ = True
-                            potal_ = True
-                        time.sleep(0.3)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        quihwan_ = True
+                        time.sleep(2)
+                        where = "마을로 가즈아"
+                        spot_arrive(cla, where)
             else:
-                clean_screen(cla)
-                time.sleep(0.2)
-                click_pos_2(110, 130, cla)
-                # # 마을이동서 있으면 클릭...없으면 map으로 이동
-                # # map으로 이동 후 던전인지 확인...
-                # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
-                # img_array = np.fromfile(full_path, np.uint8)
-                # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                # imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
-                # if imgs_ is not None and imgs_ != False:
-                #     click_pos_reg(imgs_.x, imgs_.y, cla)
-                #     in_maul_ = True
-                # else:
-                #     click_pos_2(110, 130, cla)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    drag_pos(360, 460, 900, 460, cla)
+                    for i in range(10):
+                        result_out = out_check(cla)
+                        if result_out == True:
+                            break
+                        time.sleep(0.5)
+                else:
+                    clean_screen(cla)
             time.sleep(1)
     except Exception as e:
         print(e)
         return 0
-
+# def go_maul(cla):
+#     try:
+#         import cv2
+#         import numpy as np
+#         from function import click_pos_2, click_pos_reg, imgs_set_
+#         from jadong_zeno import spot_arrive
+#         print("go_maul")
+#
+#         in_maul_ = False
+#         in_maul_count = 0
+#         while in_maul_ is False:
+#             in_maul_count += 1
+#             if in_maul_count > 10:
+#                 in_maul_ = True
+#
+#             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\map.PNG"
+#             img_array = np.fromfile(full_path, np.uint8)
+#             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#             imgs_ = imgs_set_(20, 20, 100, 70, cla, img, 0.85)
+#             if imgs_ is not None and imgs_ != False:
+#
+#                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\is_dungeon.PNG"
+#                 img_array = np.fromfile(full_path, np.uint8)
+#                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                 imgs_ = imgs_set_(60, 550, 250, 620, cla, img, 0.85)
+#                 if imgs_ is not None and imgs_ != False:
+#                     print("is_dungeon", imgs_)
+#
+#                     quihwan_ = False
+#                     quihwan_count = 0
+#                     while quihwan_ is False:
+#                         quihwan_count += 1
+#                         if quihwan_count > 10:
+#                             quihwan_ = True
+#                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
+#                         img_array = np.fromfile(full_path, np.uint8)
+#                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                         imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
+#                         if imgs_ is not None and imgs_ != False:
+#                             click_pos_reg(imgs_.x, imgs_.y, cla)
+#                             quihwan_ = True
+#                             time.sleep(2)
+#                             where = "마을로 가즈아"
+#                             spot_arrive(cla, where)
+#                         else:
+#                             click_pos_2(930, 50, cla)
+#                         time.sleep(1)
+#                 else:
+#                     time.sleep(0.2)
+#                     click_pos_2(840, 100, cla)
+#                     time.sleep(0.5)
+#                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\maul.PNG"
+#                     img_array = np.fromfile(full_path, np.uint8)
+#                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                     imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+#                     if imgs_ is not None and imgs_ != False:
+#                         click_pos_reg(imgs_.x + 50, imgs_.y, cla)
+#                         time.sleep(0.2)
+#                         click_pos_2(240, 100, cla)
+#                     potal_ = False
+#                     potal_count = 0
+#                     while potal_ is False:
+#                         potal_count += 1
+#                         if potal_count > 7:
+#                             potal_ = True
+#
+#                         in_ = in_maul_check(cla)
+#                         if in_ == False:
+#                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\teleport.PNG"
+#                             img_array = np.fromfile(full_path, np.uint8)
+#                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                             imgs_ = imgs_set_(240, 160, 300, 230, cla, img, 0.85)
+#                             if imgs_ is not None and imgs_ != False:
+#                                 click_pos_2(270, 200, cla)
+#                                 time.sleep(0.5)
+#                             confirm_all(cla)
+#
+#                         else:
+#                             in_maul_ = True
+#                             potal_ = True
+#                         time.sleep(0.3)
+#             else:
+#                 clean_screen(cla)
+#                 time.sleep(0.2)
+#                 click_pos_2(110, 130, cla)
+#                 # # 마을이동서 있으면 클릭...없으면 map으로 이동
+#                 # # map으로 이동 후 던전인지 확인...
+#                 # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\maul_quihwan.PNG"
+#                 # img_array = np.fromfile(full_path, np.uint8)
+#                 # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                 # imgs_ = imgs_set_(340, 940, 410, 1010, cla, img, 0.85)
+#                 # if imgs_ is not None and imgs_ != False:
+#                 #     click_pos_reg(imgs_.x, imgs_.y, cla)
+#                 #     in_maul_ = True
+#                 # else:
+#                 #     click_pos_2(110, 130, cla)
+#             time.sleep(1)
+#     except Exception as e:
+#         print(e)
+#         return 0
 
 def menu_open(cla):
     try:
@@ -1705,7 +1759,7 @@ def get_market_sohwan_start(cla):
                             if imgs_ is not None and imgs_ != False:
                                 locked = True
                         if locked == False:
-                            click_pos_2(reg_x1, 230, cla)
+                            click_pos_2(reg_x1, 440, cla)
                             get_market_sohwan(cla)
 
                     # click_pos_2(235, 440, cla)
@@ -1719,30 +1773,35 @@ def get_market_sohwan_start(cla):
 
                     e_click = True
 
-
-
                 else:
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_click.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(240, 70, 320, 120, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_sohwan.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 180, 60, 230, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\marujok.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(165, 125, 225, 170, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_sohwan.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(0, 180, 60, 230, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(160, 70, 260, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
-
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_sohwan.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 180, 60, 230, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                        time.sleep(0.5)
-
-                    time.sleep(0.5)
-
-
-
-
             else:
                 clean_screen(cla)
                 click_pos_2(765, 60, cla)
@@ -1757,7 +1816,18 @@ def get_market_sohwan_start(cla):
 
             time.sleep(0.5)
 
-
+        # for i in range(10):
+        #     result_out = out_check(cla)
+        #     if result_out == False:
+        #         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_exit.PNG"
+        #         img_array = np.fromfile(full_path, np.uint8)
+        #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #         imgs_ = imgs_set_(900, 20, 960, 80, cla, img, 0.85)
+        #         if imgs_ is not None and imgs_ != False:
+        #             click_pos_reg(imgs_.x, imgs_.y, cla)
+        #     else:
+        #         break
+        #     time.sleep(0.3)
 
 
 
@@ -2048,19 +2118,34 @@ def get_market_gyohwanso_start(cla):
                     e_click = True
 
                 else:
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gyohwanso_click.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(500, 70, 580, 120, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_gyohwanso.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 130, 60, 180, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    for i in range(10):
+
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_gyohwanso.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 130, 60, 180, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\bonginsuk.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(200, 125, 280, 170, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gold_gyohwanso.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(0, 130, 60, 180, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\gyohwanso_click.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(430, 70, 530, 120, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
 
 
 
@@ -2123,25 +2208,29 @@ def get_upjuk(cla):
         if imgs_ is not None and imgs_ != False:
             isupjuk = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
-
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            isupjuk = True
-            click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
-
-        for i in range(10):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_title.PNG"
+        else:
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+            imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                break
-            time.sleep(0.5)
+                isupjuk = True
+                click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
+
+
 
         if isupjuk == True:
+
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 120, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                time.sleep(0.5)
+
+
             post_ = False
             post_count = 0
             while post_ is False:
@@ -2338,13 +2427,14 @@ def get_season_pass(cla):
         if imgs_ is not None and imgs_ != False:
             isseason = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.85)
-        if imgs_ is not None and imgs_ != False:
-            isseason = True
-            click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
+        else:
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                isseason = True
+                click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
 
         for i in range(10):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\seasonpass_title.PNG"
@@ -2356,6 +2446,16 @@ def get_season_pass(cla):
             time.sleep(0.5)
 
         if isseason == True:
+
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\seasonpass_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 30, 135, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                time.sleep(0.5)
+
             season_pass_ = False
             season_pass_count = 0
             while season_pass_ is False:
@@ -2372,7 +2472,7 @@ def get_season_pass(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\sp_point.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(90, 70, 150, 180, cla, img, 0.85)
+                    imgs_ = imgs_set_(90, 70, 150, 300, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x - 30, imgs_.y + 15, cla)
 

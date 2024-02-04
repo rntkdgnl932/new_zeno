@@ -14,7 +14,7 @@ def go_test():
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
     from jadong_zeno import jadong_start, jadong_juljun_attack_check
-    from action_zeno import go_maul, out_check, mine_check
+    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
@@ -40,9 +40,34 @@ def go_test():
     # chago_setting(cla)
 
     # auction_ready(cla)
-    maul_potion(cla)
+    auction_ready(cla)
 
-
+    # x_1 = 255
+    # x_2 = 270
+    # y_1 = 495
+    # y_2 = 515
+    # #
+    # # x_1 = 269
+    # # x_2 = 284
+    # # 490
+    # # 515
+    # #
+    # # 279
+    # # 294
+    # # 490
+    # # 515
+    # #
+    # # 289
+    # # 304
+    # # 490
+    # # 515
+    #
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("숫자 없다", x_1, y_1, x_2, y_2)
 
 
 

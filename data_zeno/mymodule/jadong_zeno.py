@@ -433,6 +433,7 @@ def juljun_arrive(cla, where):
                         imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             drag_pos(360, 460, 900, 460, cla)
+
                         else:
                             break
                     if result_attack == "rest":

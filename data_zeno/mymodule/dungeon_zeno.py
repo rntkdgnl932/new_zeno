@@ -135,6 +135,8 @@ def dungeon_click(cla, where):
             dun_title = "devil_title"
         if dungeon_spl_[1] == "아르카스":
             dun_title = "arcas_title"
+        if dungeon_spl_[1] == "격전":
+            dun_title = "gyugjun_title"
         # if dungeon_spl_[1] == "묘지":
         #     dun_title = "tomb_title"
 
@@ -183,9 +185,9 @@ def dungeon_click(cla, where):
 
             else:
                 if dungeon_spl_[0] == "일반":
-                    click_pos_2(365, 65, cla)
+                    click_pos_2(315, 65, cla)
                 if dungeon_spl_[0] == "특수":
-                    click_pos_2(440, 65, cla)
+                    click_pos_2(400, 65, cla)
                 # if dungeon_spl_[0] == "파티":
                 #     click_pos_2(560, 65, cla)
                 time.sleep(1)
@@ -211,7 +213,7 @@ def dungeon_click(cla, where):
                         opened = False
                     else:
                         click_pos_2(150, 220, cla)
-                if dungeon_spl_[1] == "죄악":
+                if dungeon_spl_[1] == "죄악" or dungeon_spl_[1] == "격전":
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\not_open.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
@@ -268,14 +270,8 @@ def dungeon_step_click(cla, where):
             if dungeon_spl_[1] == "저주":
                 if step > 2:
                     step = 2
-            if dungeon_spl_[1] == "마족":
-                if step > 4:
-                    drag_pos(880, 480, 580, 480, cla)
-                else:
-                    drag_pos(580, 480, 880, 480, cla)
-                if step > 5:
-                    step = 5
-            if dungeon_spl_[1] == "아르카스":
+
+            if dungeon_spl_[1] == "마족" or dungeon_spl_[1] == "아르카스" or dungeon_spl_[1] == "격전":
                 if step > 4:
                     drag_pos(880, 480, 580, 480, cla)
                 else:
@@ -495,11 +491,12 @@ def dungeon_check(cla, where):
 
 
 def juljun_arrive(cla, where):
-    try:
-        from action_zeno import clean_screen, out_check, now_hunting
-        from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
+    from action_zeno import clean_screen, out_check, now_hunting
+    from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
 
-        from jadong_zeno import spot_arrive
+    from jadong_zeno import spot_arrive
+    try:
+
 
         print("juljun_arrive")
         in_map_ = False
@@ -529,8 +526,16 @@ def juljun_arrive(cla, where):
                         imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             drag_pos(360, 460, 900, 460, cla)
+
+                            for o in range(10):
+                                result_out = out_check(cla)
+                                if result_out == True:
+                                    break
+                                time.sleep(0.5)
+
                         else:
                             break
+                        time.sleep(1)
                     if result_attack == "rest":
                         print("랜덤이동 후 공격모드로 바꾸기")
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\quickslot\\random_move.PNG"
@@ -682,7 +687,7 @@ def jadong_juljun_attack_check(cla, where):
                             print("절전공격모드 아님")
                 else:
                     if jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수":
-                        # jadong_spl_[1] == "업보, 지옥, 죄악, 저주, 마족, 아르카스"
+                        # jadong_spl_[1] == "업보, 지옥, 죄악, 저주, 마족, 아르카스, 격전"
                         # title_ = text_check_get(45, 90, 140, 160, cla)
                         # print("title_", title_)
                         # title_ = text_check_get(45, 90, 140, 130, cla)
@@ -745,6 +750,17 @@ def jadong_juljun_attack_check(cla, where):
                                 print("arcas_title", imgs_)
                             else:
                                 print("not arcas_title")
+
+                        elif jadong_spl_[1] == "격전":
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\gyugjun_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                dun_ = True
+                                print("gyugjun_title", imgs_)
+                            else:
+                                print("not gyugjun_title")
 
                         time.sleep(1)
 
