@@ -1,6 +1,7 @@
 import sys
 import time
 import requests
+import random
 
 sys.path.append('C:/my_games/zenonia/data_zeno/mymodule')
 
@@ -40,7 +41,16 @@ def go_test():
     # chago_setting(cla)
 
     # auction_ready(cla)
-    auction_ready(cla)
+    jadong_start(cla, "사냥_미드가르드_고대유적지_43활투")
+
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\confirm.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(490, 610, 650, 650, cla, img, 0.85)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("confirm", imgs_)
+
+    # chango_in(cla)
 
     # x_1 = 255
     # x_2 = 270

@@ -62,6 +62,16 @@ def collection(cla):
                             time.sleep(0.3)
                             click_pos_2(900, 1000, cla)
                             time.sleep(0.3)
+                            for c in range(10):
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\collection\\confirm.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(480, 620, 620, 670, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("confirm", imgs_)
+                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    break
+                                time.sleep(0.2)
                         else:
                             break
                         time.sleep(0.5)
@@ -128,44 +138,51 @@ def boonhae(cla):
             j_boon_count += 1
             if j_boon_count > 5:
                 j_boon_ = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\jangbi_boonhae.PNG"
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(650, 320, 770, 370, cla, img, 0.85)
+            imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
 
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\no_have_item.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(710, 530, 890, 590, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    j_boon_ = True
-                else:
-                    click_pos_2(680, 395, cla)
-                    time.sleep(0.5)
-                    click_pos_2(770, 395, cla)
+                j_boon_ = True
+
+                for i in range(3):
+
+                    x_plus = i * 90
+                    click_pos_2(690 + x_plus, 350, cla)
                     time.sleep(0.5)
 
-                    for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\no_have_item.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(710, 530, 890, 590, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        pass
+                    else:
+
+                        click_pos_2(680, 395, cla)
+                        time.sleep(0.5)
+                        click_pos_2(770, 395, cla)
+                        time.sleep(0.5)
+
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
                         img_array = np.fromfile(full_path, np.uint8)
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
-                            break
-                        time.sleep(0.1)
-                    j_boon_ = True
 
+
+                    time.sleep(0.5)
 
             else:
                 bag_open(cla)
 
                 for i in range(10):
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\jangbi_boonhae.PNG"
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(650, 320, 770, 370, cla, img, 0.85)
+                    imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         break
                     else:

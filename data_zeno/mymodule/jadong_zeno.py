@@ -1,3 +1,4 @@
+import random
 import time
 import sys
 import cv2
@@ -118,7 +119,7 @@ def map_in(cla, where):
                         map_list_click(cla, where)
                         # 전리품 클릭
                         map_junlipoom_open(cla, where)
-                        # 전리품 주는 몬스터 클릭
+                        # 전리품 주는 몬스터 클릭 => 업뎃 후 몬스터 랜덤클릭
                         map_junlipoom_click(cla, where)
                         # 지도에 표시된 포탈 클릭
                         map_spot_click(cla, where)
@@ -272,11 +273,79 @@ def map_junlipoom_open(cla, where):
             if imgs_ is not None and imgs_ != False:
                 in_map_ = True
             else:
-                click_pos_2(150, 100, cla)
+                click_pos_2(50, 100, cla)
             time.sleep(0.5)
     except Exception as e:
         print(e)
         return 0
+
+# def map_junlipoom_click(cla, where):
+#     try:
+#         from action_zeno import clean_screen
+#         from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
+#         print("map_junlipoom_click")
+#
+#
+#         click_reg = map_pic_name(cla, where)
+#
+#         in_map_ = False
+#         in_map_count = 0
+#         while in_map_ is False:
+#             in_map_count += 1
+#             if in_map_count > 10:
+#                 in_map_ = True
+#
+#             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map_spot.PNG"
+#             img_array = np.fromfile(full_path, np.uint8)
+#             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#             imgs_ = imgs_set_(310, 170, 950, 840, cla, img, 0.85)
+#             if imgs_ is not None and imgs_ != False:
+#                 in_map_ = True
+#             else:
+#
+#                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_1.PNG"
+#                 img_array = np.fromfile(full_path, np.uint8)
+#                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                 imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
+#                 if imgs_ is not None and imgs_ != False:
+#                     if click_reg == 'goolm_1':
+#                         click_pos_2(455, 555, cla)
+#                     else:
+#                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
+#                         img_array = np.fromfile(full_path, np.uint8)
+#                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                         imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
+#                         if imgs_ is not None and imgs_ != False:
+#                             click_pos_reg(imgs_.x, imgs_.y, cla)
+#
+#                 else:
+#
+#                     if click_reg == 'red_hwangya_1':
+#                         click_pos_2(110, 570, cla)
+#                     elif click_reg == 'goolm_1':
+#                         for i in range(10):
+#                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
+#                             img_array = np.fromfile(full_path, np.uint8)
+#                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                             imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
+#                             if imgs_ is not None and imgs_ != False:
+#                                 click_pos_reg(imgs_.x, imgs_.y, cla)
+#                                 break
+#                             else:
+#                                 drag_pos(140, 540, 140, 140, cla)
+#                             time.sleep(0.5)
+#                     else:
+#
+#                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
+#                         img_array = np.fromfile(full_path, np.uint8)
+#                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+#                         imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
+#                         if imgs_ is not None and imgs_ != False:
+#                             click_pos_reg(imgs_.x, imgs_.y, cla)
+#             time.sleep(0.5)
+#     except Exception as e:
+#         print(e)
+#         return 0
 
 def map_junlipoom_click(cla, where):
     try:
@@ -301,46 +370,21 @@ def map_junlipoom_click(cla, where):
             if imgs_ is not None and imgs_ != False:
                 in_map_ = True
             else:
+                click_pos_2(150, 105, cla)
+                for i in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\monster_title.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(0, 120, 80, 180, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        break
+                    time.sleep(0.2)
 
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_1.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    if click_reg == 'goolm_1':
-                        click_pos_2(455, 555, cla)
-                    else:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                y_ran = random.randint(1, 12)
+                y_plus = 200 + (65 * y_ran)
 
-                else:
+                click_pos_2(120, y_plus, cla)
 
-                    if click_reg == 'red_hwangya_1':
-                        click_pos_2(110, 570, cla)
-                    elif click_reg == 'goolm_1':
-                        for i in range(10):
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                break
-                            else:
-                                drag_pos(140, 540, 140, 140, cla)
-                            time.sleep(0.5)
-                    else:
-
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\junlipoom\\" + click_reg + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(0, 160, 300, 1020, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
             time.sleep(0.5)
     except Exception as e:
         print(e)
@@ -371,7 +415,16 @@ def map_spot_click(cla, where):
                 imgs_ = imgs_set_(310, 170, 950, 840, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(1)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\teleport2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(310, 170, 950, 840, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("teleport2", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            break
+                        time.sleep(0.2)
             time.sleep(0.5)
     except Exception as e:
         print(e)

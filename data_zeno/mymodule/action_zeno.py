@@ -2734,7 +2734,7 @@ def gold_check_open(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(280, 50, 380, 110, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
-            gold_ = text_check_get(415, 70, 500, 90, cla)
+            gold_ = text_check_get(415, 70, 515, 90, cla)
             print("gold", gold_)
             is_number = in_number_check(cla, gold_)
             if is_number == True:
