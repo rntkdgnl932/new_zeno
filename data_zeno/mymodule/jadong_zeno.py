@@ -809,6 +809,17 @@ def jadong_juljun_attack_check(cla, where):
                             else:
                                 print("not arcas_title")
 
+                        elif jadong_spl_[1] == "격전":
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\gyugjun_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                dun_ = True
+                                print("gyugjun_title", imgs_)
+                            else:
+                                print("not gyugjun_title")
+
                         time.sleep(1)
 
                         if dun_ == True:
