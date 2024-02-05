@@ -2914,3 +2914,22 @@ def mine_check(cla):
     except Exception as e:
         print(e)
         return 0
+
+
+def system_check(cla):
+    import numpy as np
+    import cv2
+    from function import imgs_set_
+    from action_zeno import confirm_all
+    try:
+        print("system_check")
+
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\system_check.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(100, 200, 900, 860, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            confirm_all(cla)
+    except Exception as e:
+        print(e)
+        return 0
