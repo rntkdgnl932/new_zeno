@@ -2933,7 +2933,7 @@ def system_check(cla):
         if imgs_ is not None and imgs_ != False:
             confirm_all(cla)
 
-            why = "아키는 현재 시스템 점검 중"
+            why = "제노는 현재 시스템 점검 중"
             print(why)
             line_to_me(cla, why)
 
