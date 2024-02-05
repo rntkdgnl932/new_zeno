@@ -46,7 +46,7 @@ from test_ import go_test
 
 from tuto_grow import tuto_grow_start
 
-from action_zeno import get_items, character_change, dead_die
+from action_zeno import get_items, character_change, dead_die, system_check
 from dungeon_zeno import dungeon_start
 from jadong_zeno import jadong_start
 from jejak_zenonia import jejak_ready
@@ -2928,6 +2928,9 @@ class game_Playing(QThread):
 
                                     # 항상 죽었는지 확인하기
                                     # dead_die(v_.now_cla)
+
+                                    # 시스템 점검 중인지 체크하기
+                                    system_check(cla)
 
                                     # 스케쥴 시작
                                     if result_schedule_ == "각종템받기":

@@ -2919,8 +2919,10 @@ def mine_check(cla):
 def system_check(cla):
     import numpy as np
     import cv2
+    import os
     from function import imgs_set_
     from action_zeno import confirm_all
+    from massenger import line_to_me
     try:
         print("system_check")
 
@@ -2930,6 +2932,24 @@ def system_check(cla):
         imgs_ = imgs_set_(100, 200, 900, 860, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             confirm_all(cla)
+
+            why = "제노 꺼진게 확실하다"
+            print(why)
+            line_to_me(cla, why)
+
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'no'
+                file.write(str(data))
+                time.sleep(0.2)
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = cla
+                file.write(str(data))
+                time.sleep(0.2)
+            os.execl(sys.executable, sys.executable, *sys.argv)
+
     except Exception as e:
         print(e)
         return 0
