@@ -2930,7 +2930,7 @@ class game_Playing(QThread):
                                     # dead_die(v_.now_cla)
 
                                     # 시스템 점검 중인지 체크하기
-                                    system_check(cla)
+                                    system_check(v_.now_cla)
 
                                     # 스케쥴 시작
                                     if result_schedule_ == "각종템받기":
