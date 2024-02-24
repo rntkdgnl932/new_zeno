@@ -17,9 +17,12 @@ rare_chul
 rare_chun
 rare_gajoog
 rare_wood
+moogi_myungsasoo_hwal
+moogi_jungbogja_daegum
 moogi_sangmyung
 moogi_simyun
 moogi_soop
+moogi_poison_daeger
 jangab_lion
 jangab_sooglyungong
 jangab_sooglyungisa
@@ -35,4 +38,6 @@ gabot_sooglyungong_mail
 belt_silence
 belt_banyuk
 belt_soohogisa
+sinbal_sooglyungisa
 sinbal_sooglyungong
+ear_byuljogak
