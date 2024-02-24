@@ -40,8 +40,10 @@ def go_test():
 
     # chago_setting(cla)
 
+    auction_ready(cla)
+
     # auction_ready(cla)
-    jadong_start(cla, "사냥_미드가르드_고대유적지_43활투")
+    # jadong_start(cla, "사냥_미드가르드_고대유적지_43활투")
 
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\confirm.PNG"
     # img_array = np.fromfile(full_path, np.uint8)

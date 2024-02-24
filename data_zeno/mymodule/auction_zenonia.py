@@ -36,188 +36,30 @@ def auction_ready(cla):
                 time.sleep(0.2)
 
                 # 정산하기
-                for i in range(5):
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_point.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(555, 65, 620, 110, cla, img, 0.8)
-                    if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\calculate.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(530, 70, 600, 120, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\all_calculate.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(770, 940, 960, 1030, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.5)
-                    else:
-                        break
-                    time.sleep(0.5)
 
+                # 서버 정산
+                click_pos_2(870, 50, cla)
+                time.sleep(0.5)
+
+                auction_settle(cla)
+
+                # 월드 정산
+                click_pos_2(777, 50, cla)
+                time.sleep(0.5)
+
+                auction_settle(cla)
+
+                # 재화 파악하기
                 my_property_upload(cla)
 
-                # 판매하기
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\sell_click.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(380, 70, 440, 120, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                    time.sleep(0.5)
+                # 월드거래소 판매하기
 
-                    # 들어왔는지 확인
-                    for i in range(10):
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list_in.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(660, 130, 700, 170, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            break
-                        time.sleep(0.1)
+                auction_swich(cla, "world")
 
-                    # 판매전 회수하기
-                    for i in range(10):
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\recall.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(490, 240, 650, 950, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.3)
-                        else:
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\recall.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(490, 160, 650, 950, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                                time.sleep(0.3)
-                            else:
-                                break
-                        time.sleep(0.5)
-                    # 리스트 불러와서 판매하기
-                    dir_path = "C:\\my_games\\zenonia"
-                    file_path1 = dir_path + "\\data_zeno\\imgs\\auction\\list.txt"
-                    with open(file_path1, "r", encoding='utf-8-sig') as file:
-                        auction_list = file.read().splitlines()
-
-                    for i in range(len(auction_list)):
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list\\" + auction_list[i] + ".PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(650, 160, 950, 600, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-
-                            sell_x = imgs_.x
-                            sell_y = imgs_.y
-
-                            click_pos_reg(sell_x, sell_y, cla)
-                            time.sleep(0.3)
-                            for k in range(10):
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    break
-                                time.sleep(0.2)
-
-                            # 현재 최저 거래단가 구하기
-
-                            # 클릭하자
-                            click_pos_2(570, 465, cla)
-                            time.sleep(0.1)
-                            click_pos_2(570, 465, cla)
-                            time.sleep(0.1)
-
-                            result_low = auction_start(cla)
-                            result_many = auction_start2(cla)
-
-                            how_much_ready = float(result_low) * float(result_many)
-                            how_much_ = int(how_much_ready)
-
-                            if how_much_ >= 10:
-
-                                # 클릭하자
-                                click_pos_2(570, 590, cla)
-                                time.sleep(0.1)
-                                click_pos_2(570, 590, cla)
-                                time.sleep(0.1)
-
-
-                                string_how_much = str(how_much_)
-
-                                for s in range(len(string_how_much)):
-                                    if string_how_much[s] == "0":
-                                        click_pos_2(745, 665, cla)
-                                    if string_how_much[s] == "1":
-                                        click_pos_2(670, 470, cla)
-                                    if string_how_much[s] == "2":
-                                        click_pos_2(745, 470, cla)
-                                    if string_how_much[s] == "3":
-                                        click_pos_2(820, 470, cla)
-                                    if string_how_much[s] == "4":
-                                        click_pos_2(670, 535, cla)
-                                    if string_how_much[s] == "5":
-                                        click_pos_2(745, 535, cla)
-                                    if string_how_much[s] == "6":
-                                        click_pos_2(820, 535, cla)
-                                    if string_how_much[s] == "7":
-                                        click_pos_2(670, 600, cla)
-                                    if string_how_much[s] == "8":
-                                        click_pos_2(745, 600, cla)
-                                    if string_how_much[s] == "9":
-                                        click_pos_2(820, 600, cla)
-                                    time.sleep(0.3)
-
-                                for k in range(10):
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    else:
-                                        break
-                                    time.sleep(0.5)
-                            else:
-                                for k in range(10):
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        click_pos_2(410, 725, cla)
-                                    else:
-                                        break
-                                    time.sleep(0.5)
-                        for k in range(10):
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                break
-                            time.sleep(0.5)
-
-                        for c in range(10):
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\canclee.PNG"
-                            img_array = np.fromfile(full_path, np.uint8)
-                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(350, 690, 470, 745, cla, img, 0.85)
-                            if imgs_ is not None and imgs_ != False:
-                                click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                break
-                            time.sleep(0.5)
+                # 서버거래소 판매하기
+                click_pos_2(870, 50, cla)
+                time.sleep(0.5)
+                auction_swich(cla, "server")
 
 
                 auction_ = True
@@ -253,6 +95,218 @@ def auction_ready(cla):
     except Exception as e:
         print(e)
 
+def auction_settle(cla):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, click_pos_reg, imgs_set_
+    try:
+        print("auction_settle")
+
+        for i in range(5):
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_point.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(555, 65, 620, 110, cla, img, 0.8)
+            if imgs_ is not None and imgs_ != False:
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\calculate.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(530, 70, 600, 120, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.5)
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\all_calculate.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(770, 940, 960, 1030, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+            else:
+                break
+            time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
+
+def auction_swich(cla, data):
+    import numpy as np
+    import cv2
+    from function import click_pos_2, click_pos_reg, imgs_set_
+    try:
+        print("auction_swich")
+
+        # 판매하기
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\sell_click.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(380, 70, 440, 120, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+            time.sleep(0.5)
+
+            # 들어왔는지 확인
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list_in.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(660, 130, 700, 170, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    break
+                time.sleep(0.1)
+
+            # 판매전 회수하기
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\recall.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(490, 240, 650, 950, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                    time.sleep(0.3)
+                else:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\recall.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(490, 160, 650, 950, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.3)
+                    else:
+                        break
+                time.sleep(0.5)
+            # 리스트 불러와서 판매하기
+            dir_path = "C:\\my_games\\zenonia"
+            if data == "world":
+                file_path1 = dir_path + "\\data_zeno\\imgs\\auction\\list_world.txt"
+            else:
+                # server
+                file_path1 = dir_path + "\\data_zeno\\imgs\\auction\\list_server.txt"
+            with open(file_path1, "r", encoding='utf-8-sig') as file:
+                auction_list = file.read().splitlines()
+
+            for i in range(len(auction_list)):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list\\" + auction_list[i] + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(650, 160, 950, 600, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+
+                    sell_x = imgs_.x
+                    sell_y = imgs_.y
+
+                    click_pos_reg(sell_x, sell_y, cla)
+                    time.sleep(0.3)
+                    for k in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.2)
+
+                    # 현재 최저 거래단가 구하기
+
+                    # 클릭하자
+                    click_pos_2(570, 465, cla)
+                    time.sleep(0.1)
+                    click_pos_2(570, 465, cla)
+                    time.sleep(0.1)
+
+                    result_low = auction_start(cla)
+                    result_many = auction_start2(cla)
+
+                    how_much_ready = float(result_low) * float(result_many)
+                    how_much_ = int(how_much_ready)
+
+
+                    sell_start = False
+                    if data == "world":
+                        if how_much_ >= 100:
+                            sell_start = True
+                    else:
+                        if how_much_ >= 10:
+                            sell_start = True
+
+                    if sell_start == True:
+
+                        # 클릭하자
+                        click_pos_2(570, 590, cla)
+                        time.sleep(0.1)
+                        click_pos_2(570, 590, cla)
+                        time.sleep(0.1)
+
+                        string_how_much = str(how_much_)
+
+                        for s in range(len(string_how_much)):
+                            if string_how_much[s] == "0":
+                                click_pos_2(745, 665, cla)
+                            if string_how_much[s] == "1":
+                                click_pos_2(670, 470, cla)
+                            if string_how_much[s] == "2":
+                                click_pos_2(745, 470, cla)
+                            if string_how_much[s] == "3":
+                                click_pos_2(820, 470, cla)
+                            if string_how_much[s] == "4":
+                                click_pos_2(670, 535, cla)
+                            if string_how_much[s] == "5":
+                                click_pos_2(745, 535, cla)
+                            if string_how_much[s] == "6":
+                                click_pos_2(820, 535, cla)
+                            if string_how_much[s] == "7":
+                                click_pos_2(670, 600, cla)
+                            if string_how_much[s] == "8":
+                                click_pos_2(745, 600, cla)
+                            if string_how_much[s] == "9":
+                                click_pos_2(820, 600, cla)
+                            time.sleep(0.3)
+
+                        for k in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                            else:
+                                break
+                            time.sleep(0.5)
+                    else:
+                        for k in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(410, 725, cla)
+                            else:
+                                break
+                            time.sleep(0.5)
+                for k in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\auction_confirm.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(510, 690, 585, 745, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        break
+                    time.sleep(0.5)
+
+                for c in range(10):
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\canclee.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(350, 690, 470, 745, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        break
+                    time.sleep(0.5)
+
+    except Exception as e:
+        print(e)
 
 def auction_start(cla):
     from function import imgs_set_num

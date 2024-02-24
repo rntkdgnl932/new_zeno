@@ -3,9 +3,6 @@ belt_silence
 blessing_bangugoo
 blessing_jangsingoo
 blessing_moogi
-common_bangugoo
-common_jangsingoo
-common_moogi
 jungsoo_devil
 jungsoo_human
 jungsoo_junglyung
@@ -31,6 +28,7 @@ skillbook_3
 toogoo_sooglyungong
 gabot_banyuk
 gabot_sooglyungisa
+gabot_junlyung_gajook
 jangab_sooglyungisa
 belt_silence
 belt_banyuk
