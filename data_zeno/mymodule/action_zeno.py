@@ -57,13 +57,15 @@ def character_schedule_select(cla, character_id):
         return 0
 
 def character_change(cla, character_id):
+    from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
+    from massenger import line_to_me
+    import numpy as np
+    import cv2
+    import os
+    from event_18 import event_stop
     try:
 
-        from function import click_pos_2, imgs_set, imgs_set_, random_int, drag_pos, text_check_get, click_pos_reg
-        from massenger import line_to_me
-        import numpy as np
-        import cv2
-        import os
+
 
 
 
@@ -86,9 +88,12 @@ def character_change(cla, character_id):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(790, 970, 940, 1040, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
+
                     # 좌표
                     x_reg = imgs_.x
                     y_reg = imgs_.y
+                    # 이벤트 닫기
+                    event_stop(cla)
 
                     last_change = False
                     last_change_count = 0
@@ -2838,16 +2843,27 @@ def mine_check(cla):
                 monster_in = True
                 print("거래소 오픈")
 
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\zen.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(480, 30, 850, 70, cla, img, 0.8)
+                if imgs_ is not None and imgs_ != False:
+                    print("zen", imgs_)
+
+                    x_2 = imgs_.x
+
+
+
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\gold.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(650, 30, 850, 70, cla, img, 0.8)
+                imgs_ = imgs_set_(480, 30, 850, 70, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("gold", imgs_)
                     # 789
                     x_reg_1 = imgs_.x - plus
                     for i in range(4):
-                        read_gold = text_check_get(x_reg_1 + 7 + i, 37, 866, 63, cla)
+                        read_gold = text_check_get(x_reg_1 + 7 + i, 37, x_2 - 12, 63, cla)
                         if read_gold == "":
                             print("골드 못 읽음")
                         else:
@@ -2864,14 +2880,14 @@ def mine_check(cla):
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\dia.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(650, 37, 850, 63, cla, img, 0.8)
+                imgs_ = imgs_set_(480, 37, 850, 63, cla, img, 0.8)
                 if imgs_ is not None and imgs_ != False:
                     print("dia", imgs_)
                     x_reg_2 = imgs_.x - plus
                     # 741
 
                     for i in range(4):
-                        read_dia = text_check_get(x_reg_2 + 7 + i, 39, x_reg_1 - 13, 63, cla)
+                        read_dia = text_check_get(x_reg_2 + 7 + i, 39, x_reg_1 - 25, 63, cla)
                         if read_dia == "":
                             print("다이아 못 읽음")
                         else:

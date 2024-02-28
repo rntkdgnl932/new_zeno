@@ -40,7 +40,18 @@ def go_test():
 
     # chago_setting(cla)
 
-    auction_ready(cla)
+    result_mine = mine_check(cla)
+    print("result_mine", result_mine)
+
+    # result = out_check(cla)
+    # print("result", result)
+    #
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\zen.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(480, 30, 850, 70, cla, img, 0.8)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("zen", imgs_)
 
     # auction_ready(cla)
     # jadong_start(cla, "사냥_미드가르드_고대유적지_43활투")
