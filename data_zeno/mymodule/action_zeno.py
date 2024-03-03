@@ -779,8 +779,32 @@ def clean_screen_action(cla):
     try:
         import cv2
         import numpy as np
-        from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
+        import sys
+        import os
+        from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos, imgs_set
+        from massenger import line_to_me
         print("clean_screen_action")
+
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\monitor\\jangsigan_zeno.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set(280, 490, 400, 540, cla, img)
+        if imgs_ is not None:
+            ms_ = str(v_.this_game) + str(": 장시간 보여...무슨 에러가 발생한듯...")
+            line_to_me(cla, ms_)
+
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'no'
+                file.write(str(data))
+                time.sleep(0.2)
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = v_.now_cla
+                file.write(str(data))
+                time.sleep(0.2)
+            os.execl(sys.executable, sys.executable, *sys.argv)
 
         # 플 내리기
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\zenonia_start_ready.PNG"
