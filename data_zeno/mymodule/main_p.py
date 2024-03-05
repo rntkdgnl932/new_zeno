@@ -133,7 +133,7 @@ class MyApp(QDialog):
         # 업데이트버젼
         # pyinstaller --hidden-import PyQt5 --hidden-import pyserial --hidden-import requests --hidden-import chardet --add-data="C:\\my_games\\zenonia\\data_zeno;./data_zeno" --name zenonia -i="zenonia.ico" --add-data="zenonia.ico;./" --icon="zenonia.ico" --paths "C:\Users\1_S_3\AppData\Local\Programs\Python\Python311\Lib\site-packages\cv2" main.py
 
-        self.setGeometry(1000 + 960 + 960, 300, 900, 600)
+        self.setGeometry(30, 300, 900, 600)
         self.show()
     def my_title(self):
         self.setWindowTitle("제노니아(ver " + version + ")")
@@ -675,10 +675,14 @@ class FirstTab(QWidget):
         sche_down_modify = QPushButton('down')
         sche_down_modify.clicked.connect(self.sche_down_modify)
         # 스케쥴 변경 확인
-        self.sche_add1 = QPushButton('>> Three', self)
+        self.sche_add1 = QPushButton('>> One', self)
         self.sche_add1.clicked.connect(self.mySchedule_start1)
-        self.sche_add2 = QPushButton('>> Four', self)
+        self.sche_add2 = QPushButton('>> Two', self)
         self.sche_add2.clicked.connect(self.mySchedule_start2)
+        self.sche_add3 = QPushButton('>> Three', self)
+        self.sche_add3.clicked.connect(self.mySchedule_start3)
+        self.sche_add4 = QPushButton('>> Four', self)
+        self.sche_add4.clicked.connect(self.mySchedule_start4)
 
         # 테스트 버튼
         self.mytestin = QPushButton('테스뚜')
@@ -1040,12 +1044,25 @@ class FirstTab(QWidget):
         hbox1.addWidget(self.clear)
         hbox1.addWidget(self.all_clear)
 
+        go_cla_1 = QHBoxLayout()
+        go_cla_1.addWidget(self.sche_add1)
+        go_cla_1.addWidget(self.sche_add2)
+
+        go_cla_2 = QHBoxLayout()
+        go_cla_2.addWidget(self.sche_add3)
+        go_cla_2.addWidget(self.sche_add4)
+
+        go_cla_end = QVBoxLayout()
+        go_cla_end.addLayout(go_cla_1)
+        go_cla_end.addLayout(go_cla_2)
+
         hbox7 = QHBoxLayout()
         hbox7.addWidget(sche_up_modify)
         hbox7.addWidget(sche_down_modify)
         hbox7.addStretch(4)
-        hbox7.addWidget(self.sche_add1)
-        hbox7.addWidget(self.sche_add2)
+        hbox7.addLayout(go_cla_end)
+        # hbox7.addWidget(self.sche_add1)
+        # hbox7.addWidget(self.sche_add2)
         hbox7.addStretch(8)
         hbox7.addLayout(hbox1)
 
@@ -2551,10 +2568,14 @@ class FirstTab(QWidget):
 
     def mySchedule_start1(self):
         try:
-            self.sche_add1.setText("Three")
+            self.sche_add1.setText("One 실행중")
             self.sche_add2.setText("")
+            self.sche_add3.setText("")
+            self.sche_add4.setText("")
             self.sche_add1.setDisabled(True)
             self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
             start_onecla = game_Playing_onecla(self)
             start_onecla.start()
 
@@ -2565,10 +2586,48 @@ class FirstTab(QWidget):
     def mySchedule_start2(self):
         try:
             self.sche_add1.setText("")
-            self.sche_add2.setText("Four")
+            self.sche_add2.setText("Two 실행중")
+            self.sche_add3.setText("")
+            self.sche_add4.setText("")
             self.sche_add1.setDisabled(True)
             self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
             start_twocla = game_Playing_twocla(self)
+            start_twocla.start()
+
+        except Exception as e:
+            print(e)
+            return 0
+
+    def mySchedule_start3(self):
+        try:
+            self.sche_add1.setText("")
+            self.sche_add2.setText("")
+            self.sche_add3.setText("Three 실행중")
+            self.sche_add4.setText("")
+            self.sche_add1.setDisabled(True)
+            self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
+            start_twocla = game_Playing_threecla(self)
+            start_twocla.start()
+
+        except Exception as e:
+            print(e)
+            return 0
+
+    def mySchedule_start4(self):
+        try:
+            self.sche_add1.setText("")
+            self.sche_add2.setText("")
+            self.sche_add3.setText("")
+            self.sche_add4.setText("Four 실행중")
+            self.sche_add1.setDisabled(True)
+            self.sche_add2.setDisabled(True)
+            self.sche_add3.setDisabled(True)
+            self.sche_add4.setDisabled(True)
+            start_twocla = game_Playing_fourcla(self)
             start_twocla.start()
 
         except Exception as e:
@@ -2767,8 +2826,8 @@ class game_Playing_onecla(QThread):
                 file.write(str(data))
 
             with open(file_path2, "w", encoding='utf-8-sig') as file:
-                data = 'three'
-                v_.now_cla = 'three'
+                data = 'one'
+                v_.now_cla = 'one'
                 file.write(str(data))
 
             # v_.now_cla = 'three' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
@@ -2784,6 +2843,77 @@ class game_Playing_onecla(QThread):
 
 
 class game_Playing_twocla(QThread):
+
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+
+    def run(self):
+        try:
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'yes'
+                file.write(str(data))
+
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = 'two'
+                v_.now_cla = 'two'
+                file.write(str(data))
+
+
+
+            # v_.now_cla = 'four' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
+
+            self.m_ = Monitoring_two()
+            self.m_.start()
+
+            # self.x_ = game_Playing()
+            # self.x_.start()
+
+        except Exception as e:
+            print(e)
+            return 0
+
+class game_Playing_threecla(QThread):
+
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.parent = parent
+
+    def run(self):
+        try:
+            dir_path = "C:\\my_games\\load\\zenonia"
+            file_path = dir_path + "\\start.txt"
+            file_path2 = dir_path + "\\cla.txt"
+
+            with open(file_path, "w", encoding='utf-8-sig') as file:
+                data = 'yes'
+                file.write(str(data))
+
+            with open(file_path2, "w", encoding='utf-8-sig') as file:
+                data = 'three'
+                v_.now_cla = 'three'
+                file.write(str(data))
+
+
+
+            # v_.now_cla = 'four' <= 오딘 제외하고 1클라 돌리는 게임은 주석 처리.
+
+            self.m_ = Monitoring_two()
+            self.m_.start()
+
+            # self.x_ = game_Playing()
+            # self.x_.start()
+
+        except Exception as e:
+            print(e)
+            return 0
+
+
+class game_Playing_fourcla(QThread):
 
     def __init__(self, parent):
         super().__init__(parent)
@@ -2817,7 +2947,6 @@ class game_Playing_twocla(QThread):
         except Exception as e:
             print(e)
             return 0
-
 
 # 실제 게임 플레이 부분 #################################################################
 ################################################
