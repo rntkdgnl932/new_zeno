@@ -353,7 +353,6 @@ def map_junlipoom_click(cla, where):
         from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
         print("map_junlipoom_click")
 
-
         click_reg = map_pic_name(cla, where)
 
         in_map_ = False
@@ -370,20 +369,33 @@ def map_junlipoom_click(cla, where):
             if imgs_ is not None and imgs_ != False:
                 in_map_ = True
             else:
-                click_pos_2(150, 105, cla)
-                for i in range(10):
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\monster_title.PNG"
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_1.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(430, 340, 520, 390, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\spot_click_2.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(0, 120, 80, 180, cla, img, 0.85)
+                    imgs_ = imgs_set_(560, 380, 655, 725, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        break
-                    time.sleep(0.2)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
 
-                y_ran = random.randint(1, 12)
-                y_plus = 200 + (65 * y_ran)
+                else:
+                    click_pos_2(150, 105, cla)
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\monster_title.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(0, 120, 80, 180, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            break
+                        time.sleep(0.2)
 
-                click_pos_2(120, y_plus, cla)
+                    y_ran = random.randint(1, 12)
+                    y_plus = 200 + (65 * y_ran)
+
+                    click_pos_2(120, y_plus, cla)
 
             time.sleep(0.5)
     except Exception as e:

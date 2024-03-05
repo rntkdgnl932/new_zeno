@@ -15,7 +15,7 @@ def go_test():
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
     from jadong_zeno import jadong_start, jadong_juljun_attack_check
-    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items
+    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
@@ -40,8 +40,7 @@ def go_test():
 
     # chago_setting(cla)
 
-    result_mine = mine_check(cla)
-    print("result_mine", result_mine)
+    get_event(cla)
 
     # result = out_check(cla)
     # print("result", result)

@@ -1452,19 +1452,63 @@ def get_event(cla):
                             if imgs_ is not None and imgs_ != False:
                                 click_pos_reg(imgs_.x, imgs_.y, cla)
                             else:
+                                # 타이틀 포인트 부터 파악
+                                title_point = False
+
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_title_point.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(450, 460, 945, 495, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    print("e_title_point", imgs_)
+                                    title_point = True
+                                    click_pos_reg(imgs_.x - 70, imgs_.y + 15, cla)
+                                else:
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_title_point2.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(450, 460, 945, 495, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        print("e_title_point2", imgs_)
+                                        title_point = True
+                                        click_pos_reg(imgs_.x - 70, imgs_.y + 15, cla)
+
+                                if title_point == True:
+                                    time.sleep(0.5)
+                                    drag_pos(650, 550, 650, 870, cla)
+                                    for c in range(5):
+                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(570, 500, 940, 765, cla, img, 0.85)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
+                                        else:
+                                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_edge_point.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(595, 725, 945, 765, cla, img, 0.85)
+                                            if imgs_ is not None and imgs_ != False:
+                                                print("e_edge_point", imgs_)
+                                                click_pos_reg(imgs_.x - 15, imgs_.y, cla)
+                                            else:
+                                                break
+                                        time.sleep(0.5)
+
+
                                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(570, 500, 940, 765, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                                    click_pos_reg(imgs_.x - 15, imgs_.y, cla)
                                 else:
                                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_point2.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(880, 380, 930, 430, cla, img, 0.85)
                                     if imgs_ is not None and imgs_ != False:
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                                        click_pos_reg(imgs_.x - 15, imgs_.y, cla)
                                     else:
                                         drag_pos(650, 720, 650, 400, cla)
 
