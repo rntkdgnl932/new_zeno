@@ -1510,7 +1510,15 @@ def get_event(cla):
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_reg(imgs_.x - 15, imgs_.y, cla)
                                     else:
-                                        drag_pos(650, 720, 650, 400, cla)
+                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\e_edge_point.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(595, 725, 945, 765, cla, img, 0.85)
+                                        if imgs_ is not None and imgs_ != False:
+                                            print("e_edge_point", imgs_)
+                                            click_pos_reg(imgs_.x - 15, imgs_.y, cla)
+                                        else:
+                                            drag_pos(650, 720, 650, 400, cla)
 
                             time.sleep(0.5)
                         else:
