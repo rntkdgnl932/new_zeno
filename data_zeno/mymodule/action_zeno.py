@@ -2832,6 +2832,25 @@ def gold_check_open(cla):
                     hunt_ = True
                 result_out = out_check(cla)
                 if result_out == True:
+                    # 퀘스트 수락 버튼 놓아두기
+
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_soolock_1.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(480, 600, 700, 700, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        print("quest_soolock_1", imgs_)
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_soolock_2.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(480, 600, 700, 700, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            print("quest_soolock_2", imgs_)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\hunting\\hunt_checked.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)

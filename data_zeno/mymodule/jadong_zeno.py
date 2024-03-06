@@ -419,7 +419,25 @@ def map_spot_click(cla, where):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(490, 610, 650, 650, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                in_map_ = True
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\dia.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(470, 510, 530, 600, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\cancle.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(330, 600, 470, 660, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_reg(imgs_.x, imgs_.y, cla)
+                        time.sleep(0.5)
+                        # 전리품 주는 몬스터 클릭 => 업뎃 후 몬스터 랜덤클릭
+                        map_junlipoom_click(cla, where)
+                        # 지도에 표시된 포탈 클릭
+                        map_spot_click(cla, where)
+
+                else:
+                    in_map_ = True
             else:
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map_spot.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
