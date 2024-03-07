@@ -158,7 +158,7 @@ def map_list_open_ready(cla, where):
     from function import click_pos_2, click_pos_reg, imgs_set_
     try:
 
-        print("map_list_open")
+        print("map_list_open_ready")
         jadong_spl_ = where.split("_")
         # 사냥_미드가르드_고대유적지_43활투
         in_map_ = False
