@@ -184,51 +184,63 @@ def map_list_open_ready(cla, where):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(180, 50, cla)
 
-                        for i in range(10):
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_midgard.PNG"
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_midgard.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_in.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                            imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                            imgs_ = imgs_set_(20, 100, 930, 1000, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
-                                print("okokok")
-                                break
+                                print("미드가르드로 고고고!!!")
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                for i in range(10):
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_title.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(130, 30, 250, 70, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        break
+                                    time.sleep(0.3)
                             else:
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\return_midgard\\map_return_midgard.PNG"
+                                print("미드가르드 맵인데 안 보인다. 오류다.")
+                        else:
+
+                            for i in range(10):
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_midgard.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(375, 85, cla)
+                                    print("okokok")
+                                    break
                                 else:
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\userminer\\map_userminer.PNG"
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\return_midgard\\map_return_midgard.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
                                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                     imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
                                     if imgs_ is not None and imgs_ != False:
                                         click_pos_2(375, 85, cla)
                                     else:
-                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\andra\\map_andra.PNG"
+                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\userminer\\map_userminer.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
                                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                         imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
                                         if imgs_ is not None and imgs_ != False:
                                             click_pos_2(375, 85, cla)
-                            time.sleep(0.3)
-
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_in.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(20, 100, 930, 1000, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            for i in range(10):
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_title.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(130, 30, 250, 70, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    break
+                                        else:
+                                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\andra\\map_andra.PNG"
+                                            img_array = np.fromfile(full_path, np.uint8)
+                                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                            imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                                            if imgs_ is not None and imgs_ != False:
+                                                click_pos_2(375, 85, cla)
                                 time.sleep(0.3)
+
+
 
 
             # elif jadong_spl_[1] == "re미드가르드":
