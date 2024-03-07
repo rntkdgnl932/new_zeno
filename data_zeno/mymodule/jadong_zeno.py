@@ -302,7 +302,12 @@ def map_list_open(cla, where):
             if imgs_ is not None and imgs_ != False:
                 in_map_ = True
             else:
-                click_pos_2(840, 100, cla)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(20, 20, 100, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_2(840, 100, cla)
             time.sleep(0.5)
     except Exception as e:
         print(e)
