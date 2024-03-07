@@ -14,7 +14,7 @@ def go_test():
     print("tst")
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
-    from jadong_zeno import jadong_start, jadong_juljun_attack_check
+    from jadong_zeno import jadong_start, jadong_juljun_attack_check, map_list_open_ready
     from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
@@ -40,9 +40,8 @@ def go_test():
     # v_.now_cla = cla
 
     # chago_setting(cla)
-
-    maul_potion(cla)
-
+    where = "사냥_미드가르드_고대유적지_43활투"
+    map_list_open_ready(cla, where)
     # result = out_check(cla)
     # print("result", result)
     #

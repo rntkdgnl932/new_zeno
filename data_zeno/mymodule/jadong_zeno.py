@@ -190,6 +190,7 @@ def map_list_open_ready(cla, where):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
+                                print("okokok")
                                 break
                             else:
                                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\return_midgard\\map_return_midgard.PNG"
