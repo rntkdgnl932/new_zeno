@@ -23,6 +23,7 @@ def go_test():
     from jejak_zenonia import jejak_start, jejak_ready
     from auction_zenonia import auction_ready, auction_start, auction_start2
     from property_zeno import my_property_upload
+    from guild_zenonia import guild_check
 
 
     cla = "one"
@@ -40,7 +41,7 @@ def go_test():
 
     # chago_setting(cla)
 
-    get_event(cla)
+    maul_potion(cla)
 
     # result = out_check(cla)
     # print("result", result)
