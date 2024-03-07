@@ -40,8 +40,14 @@ def go_test():
     # v_.now_cla = cla
 
     # chago_setting(cla)
-    where = "사냥_미드가르드_고대유적지_43활투"
-    map_list_open_ready(cla, where)
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_in.PNG"
+    img_array = np.fromfile(full_path, np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    imgs_ = imgs_set_(20, 100, 930, 1000, cla, img, 0.85)
+    if imgs_ is not None and imgs_ != False:
+        print("midgard_in", imgs_)
+    else:
+        print("안 보인다다다다ㅏㄷ다ㅏ닫")
     # result = out_check(cla)
     # print("result", result)
     #
