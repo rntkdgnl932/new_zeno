@@ -113,6 +113,10 @@ def map_in(cla, where):
                         in_map_ = True
 
                         # 여기에 갈 장소 넣기
+
+                        # 해당 리스트가 맞는지 확인하고 아니라면 세계지도로 다시 들어가기
+                        map_list_open_ready(cla, where)
+                        
                         # 오른쪽에 리스트 열기
                         map_list_open(cla, where)
                         # 열린 리스트 클릭하기기
@@ -146,6 +150,138 @@ def map_in(cla, where):
     except Exception as e:
         print(e)
         return 0
+
+
+
+def map_list_open_ready(cla, where):
+    from action_zeno import clean_screen
+    from function import click_pos_2, click_pos_reg, imgs_set_
+    try:
+
+        print("map_list_open")
+        jadong_spl_ = where.split("_")
+        # 사냥_미드가르드_고대유적지_43활투
+        in_map_ = False
+        in_map_count = 0
+        while in_map_ is False:
+            in_map_count += 1
+            if in_map_count > 10:
+                in_map_ = True
+
+            if jadong_spl_[1] == "미드가르드":
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_title.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(130, 30, 250, 70, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    in_map_ = True
+                else:
+                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map.PNG"
+                    img_array = np.fromfile(full_path, np.uint8)
+                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    imgs_ = imgs_set_(20, 20, 100, 70, cla, img, 0.85)
+                    if imgs_ is not None and imgs_ != False:
+                        click_pos_2(180, 50, cla)
+
+                        for i in range(10):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_midgard.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                break
+                            else:
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\return_midgard\\map_return_midgard.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    click_pos_2(375, 85, cla)
+                                else:
+                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\userminer\\map_userminer.PNG"
+                                    img_array = np.fromfile(full_path, np.uint8)
+                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                    imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                                    if imgs_ is not None and imgs_ != False:
+                                        click_pos_2(375, 85, cla)
+                                    else:
+                                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\andra\\map_andra.PNG"
+                                        img_array = np.fromfile(full_path, np.uint8)
+                                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                        imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                                        if imgs_ is not None and imgs_ != False:
+                                            click_pos_2(375, 85, cla)
+                            time.sleep(0.3)
+
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_in.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y cla)
+                            for i in range(10):
+                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_title.PNG"
+                                img_array = np.fromfile(full_path, np.uint8)
+                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                                imgs_ = imgs_set_(130, 30, 250, 70, cla, img, 0.85)
+                                if imgs_ is not None and imgs_ != False:
+                                    break
+                                time.sleep(0.3)
+
+
+            # elif jadong_spl_[1] == "re미드가르드":
+            #
+            #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\return_midgard\\return_midgard_title.PNG"
+            #     img_array = np.fromfile(full_path, np.uint8)
+            #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #     imgs_ = imgs_set_(130, 30, 250, 70, cla, img, 0.85)
+            #     if imgs_ is not None and imgs_ != False:
+            #         in_map_ = True
+            #     else:
+            #         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\map.PNG"
+            #         img_array = np.fromfile(full_path, np.uint8)
+            #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #         imgs_ = imgs_set_(20, 20, 100, 70, cla, img, 0.85)
+            #         if imgs_ is not None and imgs_ != False:
+            #             click_pos_2(180, 50, cla)
+            #
+            #             for i in range(10):
+            #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_midgard.PNG"
+            #                 img_array = np.fromfile(full_path, np.uint8)
+            #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #                 imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+            #                 if imgs_ is not None and imgs_ != False:
+            #                     break
+            #                 else:
+            #                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\return_midgard\\map_return_midgard.PNG"
+            #                     img_array = np.fromfile(full_path, np.uint8)
+            #                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #                     imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+            #                     if imgs_ is not None and imgs_ != False:
+            #                         click_pos_2(375, 85, cla)
+            #                     else:
+            #                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\userminer\\map_userminer.PNG"
+            #                         img_array = np.fromfile(full_path, np.uint8)
+            #                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #                         imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+            #                         if imgs_ is not None and imgs_ != False:
+            #                             click_pos_2(375, 85, cla)
+            #                         else:
+            #                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\andra\\map_andra.PNG"
+            #                             img_array = np.fromfile(full_path, np.uint8)
+            #                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            #                             imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
+            #                             if imgs_ is not None and imgs_ != False:
+            #                                 click_pos_2(375, 85, cla)
+            #                 time.sleep(0.3)
+
+
+            time.sleep(0.5)
+    except Exception as e:
+        print(e)
+        return 0
+
 
 def map_list_open(cla, where):
     try:
