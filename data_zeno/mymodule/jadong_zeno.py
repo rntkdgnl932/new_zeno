@@ -116,7 +116,7 @@ def map_in(cla, where):
 
                         # 해당 리스트가 맞는지 확인하고 아니라면 세계지도로 다시 들어가기
                         map_list_open_ready(cla, where)
-                        
+
                         # 오른쪽에 리스트 열기
                         map_list_open(cla, where)
                         # 열린 리스트 클릭하기기
@@ -219,7 +219,7 @@ def map_list_open_ready(cla, where):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(390, 50, 535, 90, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y cla)
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
                             for i in range(10):
                                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_title.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
