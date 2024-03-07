@@ -663,202 +663,206 @@ def maul_dead_potion(cla):
                         time.sleep(0.5)
                     print("잡화 상점 도착")
 
-                    # 귀환주문서 부터
-                    print("마을귀환서 구매")
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\maul_guihwan_bag.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        print("c")
-                    else:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\maul_guihwan_sangjum.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
+                    # # 귀환주문서 부터
+                    # print("마을귀환서 구매")
+                    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\maul_guihwan_bag.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     print("c")
+                    # else:
+                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\maul_guihwan_sangjum.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #         time.sleep(0.5)
+                    #
+                    #         in_jabhwa3 = False
+                    #         in_jabhwa3_count = 0
+                    #         while in_jabhwa3 is False:
+                    #             in_jabhwa3_count += 1
+                    #             if in_jabhwa3_count > 10:
+                    #                 in_jabhwa3 = True
+                    #
+                    #             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_2(420, 450, cla)
+                    #                 time.sleep(0.3)
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.3)
+                    #
+                    #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
+                    #                 img_array = np.fromfile(full_path, np.uint8)
+                    #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                 imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    #                 if imgs_ is not None and imgs_ != False:
+                    #                     in_jabhwa3 = True
+                    #                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                     time.sleep(0.3)
+                    # # 랜덤이동서
+                    # print("랜덤이동서 구매")
+                    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\random_move_bag.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\random_move_sangjum.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #         time.sleep(0.5)
+                    #
+                    #         in_jabhwa3 = False
+                    #         in_jabhwa3_count = 0
+                    #         while in_jabhwa3 is False:
+                    #             in_jabhwa3_count += 1
+                    #             if in_jabhwa3_count > 10:
+                    #                 in_jabhwa3 = True
+                    #
+                    #             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_2(420, 450, cla)
+                    #                 time.sleep(0.3)
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.3)
+                    #
+                    #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
+                    #                 img_array = np.fromfile(full_path, np.uint8)
+                    #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                 imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    #                 if imgs_ is not None and imgs_ != False:
+                    #                     in_jabhwa3 = True
+                    #                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                     time.sleep(0.3)
+                    # else:
+                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\random_move_sangjum.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #         time.sleep(0.5)
+                    #
+                    #         in_jabhwa3 = False
+                    #         in_jabhwa3_count = 0
+                    #         while in_jabhwa3 is False:
+                    #             in_jabhwa3_count += 1
+                    #             if in_jabhwa3_count > 10:
+                    #                 in_jabhwa3 = True
+                    #
+                    #             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 for i in range(1):
+                    #                     click_pos_2(530, 460, cla)
+                    #                     time.sleep(0.3)
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.3)
+                    #
+                    #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
+                    #                 img_array = np.fromfile(full_path, np.uint8)
+                    #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                 imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    #                 if imgs_ is not None and imgs_ != False:
+                    #                     in_jabhwa3 = True
+                    #                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                     time.sleep(0.3)
+                    # # 천마석
+                    # print("천마석")
+                    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\chunma_bag.PNG"
+                    # img_array = np.fromfile(full_path, np.uint8)
+                    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    # imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    # if imgs_ is not None and imgs_ != False:
+                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\chunma_sangjum.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #         time.sleep(0.5)
+                    #
+                    #         in_jabhwa3 = False
+                    #         in_jabhwa3_count = 0
+                    #         while in_jabhwa3 is False:
+                    #             in_jabhwa3_count += 1
+                    #             if in_jabhwa3_count > 10:
+                    #                 in_jabhwa3 = True
+                    #
+                    #             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_2(530, 605, cla)
+                    #                 time.sleep(0.3)
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.3)
+                    #
+                    #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
+                    #                 img_array = np.fromfile(full_path, np.uint8)
+                    #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                 imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    #                 if imgs_ is not None and imgs_ != False:
+                    #                     in_jabhwa3 = True
+                    #                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                     time.sleep(0.3)
+                    # else:
+                    #
+                    #     drag_pos(140, 670, 140, 170, cla)
+                    #
+                    #     time.sleep(0.5)
+                    #
+                    #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\chunma_sangjum.PNG"
+                    #     img_array = np.fromfile(full_path, np.uint8)
+                    #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #     imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
+                    #     if imgs_ is not None and imgs_ != False:
+                    #         click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #         time.sleep(0.5)
+                    #
+                    #         in_jabhwa3 = False
+                    #         in_jabhwa3_count = 0
+                    #         while in_jabhwa3 is False:
+                    #             in_jabhwa3_count += 1
+                    #             if in_jabhwa3_count > 10:
+                    #                 in_jabhwa3 = True
+                    #
+                    #             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
+                    #             img_array = np.fromfile(full_path, np.uint8)
+                    #             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #             imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
+                    #             if imgs_ is not None and imgs_ != False:
+                    #                 click_pos_2(530, 650, cla)
+                    #                 time.sleep(0.3)
+                    #                 click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                 time.sleep(0.3)
+                    #
+                    #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
+                    #                 img_array = np.fromfile(full_path, np.uint8)
+                    #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                    #                 imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
+                    #                 if imgs_ is not None and imgs_ != False:
+                    #                     in_jabhwa3 = True
+                    #                     click_pos_reg(imgs_.x, imgs_.y, cla)
+                    #                     time.sleep(0.3)
 
-                            in_jabhwa3 = False
-                            in_jabhwa3_count = 0
-                            while in_jabhwa3 is False:
-                                in_jabhwa3_count += 1
-                                if in_jabhwa3_count > 10:
-                                    in_jabhwa3 = True
+                    # 위는 자동구매로 대체하기
+                    click_pos_2(80, 760, cla)
 
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(420, 450, cla)
-                                    time.sleep(0.3)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        in_jabhwa3 = True
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.3)
-                    # 랜덤이동서
-                    print("랜덤이동서 구매")
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\random_move_bag.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\random_move_sangjum.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
-
-                            in_jabhwa3 = False
-                            in_jabhwa3_count = 0
-                            while in_jabhwa3 is False:
-                                in_jabhwa3_count += 1
-                                if in_jabhwa3_count > 10:
-                                    in_jabhwa3 = True
-
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(420, 450, cla)
-                                    time.sleep(0.3)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        in_jabhwa3 = True
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.3)
-                    else:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\random_move_sangjum.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
-
-                            in_jabhwa3 = False
-                            in_jabhwa3_count = 0
-                            while in_jabhwa3 is False:
-                                in_jabhwa3_count += 1
-                                if in_jabhwa3_count > 10:
-                                    in_jabhwa3 = True
-
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    for i in range(1):
-                                        click_pos_2(530, 460, cla)
-                                        time.sleep(0.3)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        in_jabhwa3 = True
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.3)
-                    # 천마석
-                    print("천마석")
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\chunma_bag.PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                    if imgs_ is not None and imgs_ != False:
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\chunma_sangjum.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
-
-                            in_jabhwa3 = False
-                            in_jabhwa3_count = 0
-                            while in_jabhwa3 is False:
-                                in_jabhwa3_count += 1
-                                if in_jabhwa3_count > 10:
-                                    in_jabhwa3 = True
-
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(530, 605, cla)
-                                    time.sleep(0.3)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        in_jabhwa3 = True
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.3)
-                    else:
-
-                        drag_pos(140, 670, 140, 170, cla)
-
-                        time.sleep(0.5)
-
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\chunma_sangjum.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(10, 350, 100, 750, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            time.sleep(0.5)
-
-                            in_jabhwa3 = False
-                            in_jabhwa3_count = 0
-                            while in_jabhwa3 is False:
-                                in_jabhwa3_count += 1
-                                if in_jabhwa3_count > 10:
-                                    in_jabhwa3 = True
-
-                                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_sangjum_potion.PNG"
-                                img_array = np.fromfile(full_path, np.uint8)
-                                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                imgs_ = imgs_set_(490, 650, 600, 700, cla, img, 0.85)
-                                if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(530, 650, cla)
-                                    time.sleep(0.3)
-                                    click_pos_reg(imgs_.x, imgs_.y, cla)
-                                    time.sleep(0.3)
-
-                                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\confirm_potion.PNG"
-                                    img_array = np.fromfile(full_path, np.uint8)
-                                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                                    imgs_ = imgs_set_(530, 740, 620, 785, cla, img, 0.85)
-                                    if imgs_ is not None and imgs_ != False:
-                                        in_jabhwa3 = True
-                                        click_pos_reg(imgs_.x, imgs_.y, cla)
-                                        time.sleep(0.3)
                     # 물약
                     print("물약 사기")
 
