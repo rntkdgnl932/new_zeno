@@ -121,7 +121,7 @@ def map_in(cla, where):
                         map_list_open(cla, where)
                         # 열린 리스트 클릭하기기
                         map_list_click(cla, where)
-                        # 전리품 클릭
+                        # 전리품 클릭 => 몬스터 클릭
                         map_junlipoom_open(cla, where)
                         # 전리품 주는 몬스터 클릭 => 업뎃 후 몬스터 랜덤클릭
                         map_junlipoom_click(cla, where)
@@ -585,6 +585,8 @@ def map_spot_click(cla, where):
                     if imgs_ is not None and imgs_ != False:
                         click_pos_reg(imgs_.x, imgs_.y, cla)
                         time.sleep(0.5)
+                        # 다시 몬스터 랜덤 클릭
+                        map_junlipoom_open(cla, where)
                         # 전리품 주는 몬스터 클릭 => 업뎃 후 몬스터 랜덤클릭
                         map_junlipoom_click(cla, where)
                         # 지도에 표시된 포탈 클릭
