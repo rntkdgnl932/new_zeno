@@ -1121,7 +1121,7 @@ def menu_open(cla):
     try:
         import cv2
         import numpy as np
-        from function import click_pos_2, imgs_set_
+        from function import click_pos_2, imgs_set_, click_pos_reg
         print("menu_open")
 
 
@@ -1132,6 +1132,14 @@ def menu_open(cla):
             mno_count += 1
             if mno_count > 7:
                 mno_ = True
+
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\cancle.PNG"
+            img_array = np.fromfile(full_path, np.uint8)
+            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            imgs_ = imgs_set_(330, 600, 470, 660, cla, img, 0.85)
+            if imgs_ is not None and imgs_ != False:
+                click_pos_reg(imgs_.x, imgs_.y, cla)
+                time.sleep(0.5)
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
             img_array = np.fromfile(full_path, np.uint8)
