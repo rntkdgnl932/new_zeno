@@ -2849,6 +2849,14 @@ def gold_check_open(cla):
                         if imgs_ is not None and imgs_ != False:
                             print("quest_soolock_2", imgs_)
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\cancle.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(330, 600, 470, 660, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_reg(imgs_.x, imgs_.y, cla)
+                                time.sleep(0.5)
 
 
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\hunting\\hunt_checked.PNG"
