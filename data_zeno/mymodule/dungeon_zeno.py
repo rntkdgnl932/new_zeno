@@ -715,18 +715,26 @@ def jadong_juljun_attack_check(cla, where):
                             else:
                                 print("not upbo_title")
                         elif jadong_spl_[1] == "지옥":
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\juljun_hell_title.PNG"
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\hell_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
                                 dun_ = True
-                                print("devil_title", imgs_)
+                                print("hell_title", imgs_)
                             else:
-                                print("not devil_title")
+                                print("not hell_title")
 
                         elif jadong_spl_[1] == "죄악":
-                            dun_ = True
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\crime_title.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                dun_ = True
+                                print("crime_title", imgs_)
+                            else:
+                                print("not crime_title")
 
                         # elif jadong_spl_[1] == "저주":
                         #
