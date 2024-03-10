@@ -716,6 +716,16 @@ def confirm_all(cla):
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(415, 710, 540, 780, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
+            go_ = True
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
+        # 재료 부족
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_soolyung.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(100, 200, 900, 900, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            go_ = True
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
 
@@ -939,6 +949,7 @@ def clean_screen_action(cla):
             click_pos_reg(imgs_.x, imgs_.y, cla)
         # 죽음 dead 관련
         dead_die(cla)
+
     except Exception as e:
         print(e)
         return 0
