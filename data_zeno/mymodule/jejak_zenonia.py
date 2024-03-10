@@ -194,6 +194,24 @@ def jejak_start(cla):
             time.sleep(0.3)
 
         time.sleep(1)
+
+        # 재료 부족 닫기
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_boojok.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(370, 430, 580, 480, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(390, 590, 560, 660, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    break
+                time.sleep(0.5)
+
         # 희귀로 전환전에 다시 재설정
         print("# 희귀로 전환전에 다시 재설정")
         for i in range(5):
@@ -231,6 +249,24 @@ def jejak_start(cla):
             time.sleep(1)
 
         time.sleep(1)
+
+        # 재료 부족 닫기
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_boojok.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(370, 430, 580, 480, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(390, 590, 560, 660, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    break
+                time.sleep(0.5)
+
         # 다시 돌아오기
         print("# 다시 돌아오기")
         for i in range(5):
@@ -268,6 +304,24 @@ def jejak_start(cla):
             time.sleep(1)
 
         time.sleep(1)
+
+        # 재료 부족 닫기
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_boojok.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(370, 430, 580, 480, cla, img, 0.7)
+        if imgs_ is not None and imgs_ != False:
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_confirm.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(390, 590, 560, 660, cla, img, 0.7)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    break
+                time.sleep(0.5)
+
         # 희귀로 전환
         print("# 희귀로 전환")
         for i in range(len(jejak_list_2)):
