@@ -179,9 +179,7 @@ def jejak_start(cla):
                                 imgs_ = imgs_set_(390, 590, 560, 660, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                break
-                            time.sleep(0.3)
+                                    break
 
                         time.sleep(1)
                 for y in range(10):
@@ -325,8 +323,7 @@ def jejak_start(cla):
                                 imgs_ = imgs_set_(390, 590, 560, 660, cla, img, 0.7)
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
-                            else:
-                                break
+                                    break
                         time.sleep(1)
                 for y in range(10):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_title.PNG"
