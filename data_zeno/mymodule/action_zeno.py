@@ -720,7 +720,7 @@ def confirm_all(cla):
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
         # 재료 부족
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\upjuk_soolyung.PNG"
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\jaelyo_confirm.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(100, 200, 900, 900, cla, img, 0.7)
