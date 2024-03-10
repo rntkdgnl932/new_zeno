@@ -12,7 +12,7 @@ import variable as v_
 def jejak_ready(cla):
     import numpy as np
     import cv2
-    from action_zeno import menu_open
+    from action_zeno import menu_open, confirm_all
     from function import click_pos_2, click_pos_reg, imgs_set_
     try:
         print("jejak_ready")
@@ -31,6 +31,9 @@ def jejak_ready(cla):
             imgs_ = imgs_set_(10, 10, 120, 80, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 print("jejak_count222", jejak_count)
+
+                confirm_all(cla)
+
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_jaelyo_jangbi.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
