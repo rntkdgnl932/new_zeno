@@ -728,6 +728,15 @@ def confirm_all(cla):
             go_ = True
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
+        # 제작 닫기
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\close.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(440, 970, 520, 1020, cla, img, 0.85)
+        if imgs_ is not None and imgs_ != False:
+            go_ = True
+            click_pos_reg(imgs_.x, imgs_.y, cla)
+
 
 
         return go_
