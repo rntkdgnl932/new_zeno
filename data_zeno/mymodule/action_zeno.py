@@ -1432,7 +1432,7 @@ def get_event(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\event_check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 25, 750, 60, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 25, 750, 60, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             print("event_check", imgs_)
             click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
@@ -1566,7 +1566,7 @@ def get_event(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\get_event\\event_check.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(700, 25, 750, 60, cla, img, 0.85)
+                    imgs_ = imgs_set_(700, 25, 750, 60, cla, img, 0.8)
                     if imgs_ is not None and imgs_ != False:
                         print("event_check", imgs_)
                         click_pos_reg(imgs_.x - 15, imgs_.y + 15, cla)
@@ -2313,7 +2313,7 @@ def get_upjuk(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.85)
+        imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             isupjuk = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
@@ -2321,7 +2321,7 @@ def get_upjuk(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.85)
+            imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 isupjuk = True
                 click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
@@ -2410,7 +2410,7 @@ def get_post(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 420, 740, 470, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 420, 740, 470, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             is_post = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
@@ -2532,7 +2532,7 @@ def get_season_pass(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.85)
+        imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             isseason = True
             click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
@@ -2540,7 +2540,7 @@ def get_season_pass(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.85)
+            imgs_ = imgs_set_(700, 350, 740, 390, cla, img, 0.8)
             if imgs_ is not None and imgs_ != False:
                 isseason = True
                 click_pos_reg(imgs_.x - 20, imgs_.y + 15, cla)
@@ -3076,7 +3076,7 @@ def system_check(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\system_check.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(100, 200, 900, 860, cla, img, 0.85)
+        imgs_ = imgs_set_(100, 200, 900, 860, cla, img, 0.8)
         if imgs_ is not None and imgs_ != False:
             confirm_all(cla)
 

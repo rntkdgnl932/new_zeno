@@ -52,6 +52,8 @@ from jadong_zeno import jadong_start
 from jejak_zenonia import jejak_ready
 from auction_zenonia import auction_ready
 
+from event_dungeon_zeno import event_dungeon_start
+
 
 # from pywinauto import Application
 from server import game_start
@@ -926,7 +928,7 @@ class FirstTab(QWidget):
         self.com_group4 = QGroupBox('던전')
         cb4 = QComboBox()
         # list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '파티_묘지']
-        list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '특수_격전']
+        list4 = ['던전 선택', '일반_업보', '일반_지옥', '일반_죄악', '일반_저주', '특수_마족', '특수_아르카스', '특수_격전', '특수_이벤트']
         cb4.addItems(list4)
         cb44 = QComboBox()
         list44 = ['층수', '1', '2', '3', '4', '5', '6']
@@ -3080,7 +3082,11 @@ class game_Playing(QThread):
                                         if jadong_spl_[0] == "사냥":
                                             jadong_start(v_.now_cla, result_schedule_)
                                         elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
-                                            dungeon_start(v_.now_cla, result_schedule_)
+
+                                            if '이벤트' in jadong_spl_[1]:
+                                                event_dungeon_start(v_.now_cla, result_schedule_)
+                                            else:
+                                                dungeon_start(v_.now_cla, result_schedule_)
                             else:
                                 print("제노니아 꺼져있는지 10초간 다시 검사하기")
                                 is_zeno = False

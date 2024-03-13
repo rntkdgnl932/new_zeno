@@ -15,7 +15,7 @@ def go_test():
     import pyautogui
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
     from jadong_zeno import jadong_start, jadong_juljun_attack_check, map_list_open_ready
-    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event
+    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event, get_upjuk
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
@@ -40,15 +40,23 @@ def go_test():
     # v_.now_cla = cla
 
     # chago_setting(cla)
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\midgard_in.PNG"
+    get_upjuk(cla)
+    # result = out_check(cla)
+
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(20, 100, 930, 1000, cla, img, 0.85)
+    imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.8)
     if imgs_ is not None and imgs_ != False:
-        print("midgard_in", imgs_)
+        print("check")
     else:
-        print("안 보인다다다다ㅏㄷ다ㅏ닫")
-    # result = out_check(cla)
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.8)
+        if imgs_ is not None and imgs_ != False:
+            print("check2")
+
     # print("result", result)
     #
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\property\\zen.PNG"
