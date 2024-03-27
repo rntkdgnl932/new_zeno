@@ -3084,7 +3084,8 @@ class game_Playing(QThread):
                                         elif jadong_spl_[0] == "일반" or jadong_spl_[0] == "특수" or jadong_spl_[0] == "파티":
 
                                             if '이벤트' in jadong_spl_[1]:
-                                                event_dungeon_start(v_.now_cla, result_schedule_)
+                                                myQuest_play_add(v_.now_cla, result_schedule_)
+                                                # event_dungeon_start(v_.now_cla, result_schedule_)
                                             else:
                                                 dungeon_start(v_.now_cla, result_schedule_)
                             else:
