@@ -757,7 +757,7 @@ def out_check(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\out\\out_talk.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(290, 870, 340, 920, cla, img, 0.9)
+        imgs_ = imgs_set_(290, 870, 340, 920, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             go_ = True
         return go_

@@ -39,23 +39,12 @@ def go_test():
 
     # v_.now_cla = cla
 
-    # chago_setting(cla)
-    get_upjuk(cla)
-    # result = out_check(cla)
-
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check.PNG"
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\out\\out_talk.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.8)
+    imgs_ = imgs_set_(290, 870, 340, 920, cla, img, 0.9)
     if imgs_ is not None and imgs_ != False:
-        print("check")
-    else:
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\item\\check2.PNG"
-        img_array = np.fromfile(full_path, np.uint8)
-        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(910, 110, 950, 150, cla, img, 0.8)
-        if imgs_ is not None and imgs_ != False:
-            print("check2")
+        print("out_talk")
 
     # print("result", result)
     #
