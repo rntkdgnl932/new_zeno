@@ -33,5 +33,6 @@ rare_wood
 skillbook_1
 skillbook_2
 skillbook_3
+soojungoo_sinyum
 toogoo_junlyung
 toogoo_sooglyungong
