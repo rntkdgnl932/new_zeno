@@ -120,19 +120,30 @@ def juljun_potion_check(cla):
     import numpy as np
     from function import imgs_set_
     try:
-        print("juljun_potion_check")
+        print("juljun_potion_check...")
         is_potion = False
-        for i in range(4):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\juljun_potion_" + str(i) + ".PNG"
+
+        for i in range(10):
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\potion\\" + str(i) + ".PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            if i == 0:
-                imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.95)
-            else:
-                imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.85)
+            imgs_ = imgs_set_(380, 980, 402, 1005, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
+                print("num ? ", i)
                 is_potion = True
-                # print(i)
+                break
+
+        # for i in range(4):
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\juljun_potion_" + str(i) + ".PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     if i == 0:
+        #         imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.95)
+        #     else:
+        #         imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #         is_potion = True
+        #         # print(i)
         # print("is_potion", is_potion)
         if is_potion == False:
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\juljun_potion_zero.PNG"
@@ -143,13 +154,13 @@ def juljun_potion_check(cla):
                 print("false 물약 없다 즉시 집에 가자")
             else:
                 is_potion = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\juljun_potion_0.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.95)
-            if imgs_ is not None and imgs_ != False:
-                print("false 물약 있는거라고 표시된다")
-                is_potion = True
+            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\juljun_potion_0.PNG"
+            # img_array = np.fromfile(full_path, np.uint8)
+            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            # imgs_ = imgs_set_(360, 950, 430, 990, cla, img, 0.95)
+            # if imgs_ is not None and imgs_ != False:
+            #     print("false 물약 있는거라고 표시된다")
+            #     is_potion = True
         return is_potion
     except Exception as e:
         print("error", e)

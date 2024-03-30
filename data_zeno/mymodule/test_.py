@@ -38,13 +38,13 @@ def go_test():
         plus = 960 * 3
 
     # v_.now_cla = cla
-
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\out\\out_talk.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(290, 870, 340, 920, cla, img, 0.9)
-    if imgs_ is not None and imgs_ != False:
-        print("out_talk")
+    for i in range(10):
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\potion\\" + str(i) + ".PNG"
+        img_array = np.fromfile(full_path, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        imgs_ = imgs_set_(380, 980, 402, 1005, cla, img, 0.9)
+        if imgs_ is not None and imgs_ != False:
+            print("num ? ", i)
 
     # print("result", result)
     #
