@@ -340,7 +340,7 @@ def dead_die(cla):
             print("dead_die : result_schedule", result_schedule)
             result_schedule_ = result_schedule[0][2]
 
-            if result_schedule_ == "튜토육성":
+            if result_schedule_ == "튜토육성" or "죄악" in result_schedule_:
                 myQuest_play_add(cla, result_schedule_)
 
             if '_' in result_schedule_:
