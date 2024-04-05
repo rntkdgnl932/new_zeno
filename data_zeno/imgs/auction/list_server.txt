@@ -1,3 +1,4 @@
 common_bangugoo
 common_jangsingoo
 common_moogi
+common_magicpage
