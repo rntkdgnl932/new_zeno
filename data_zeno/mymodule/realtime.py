@@ -146,7 +146,11 @@ def boonhae(cla):
 
                 j_boon_ = True
 
-                for i in range(3):
+                # 1 장비
+                # 2 스킬북
+                # 3 석판
+
+                for i in range(1):
 
                     x_plus = i * 90
                     click_pos_2(690 + x_plus, 350, cla)
@@ -205,44 +209,44 @@ def boonhae(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
 
-        # 스킬북 분해
-        s_boon_ = False
-        s_boon_count = 0
-        while s_boon_ is False:
-            s_boon_count += 1
-            if s_boon_count > 5:
-                s_boon_ = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\skillbook_boonhae.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(780, 320, 900, 370, cla, img, 0.85)
-            if imgs_ is not None and imgs_ != False:
-
-                click_pos_reg(imgs_.x, imgs_.y, cla)
-                time.sleep(1)
-
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\no_have_item.PNG"
-                img_array = np.fromfile(full_path, np.uint8)
-                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_(710, 530, 890, 590, cla, img, 0.85)
-                if imgs_ is not None and imgs_ != False:
-                    s_boon_ = True
-                else:
-                    click_pos_2(680, 400, cla)
-                    time.sleep(0.5)
-                    click_pos_2(770, 400, cla)
-                    time.sleep(0.5)
-
-                    for i in range(10):
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            click_pos_reg(imgs_.x, imgs_.y, cla)
-                            break
-                        time.sleep(0.1)
-                    s_boon_ = True
+        # # 스킬북 분해
+        # s_boon_ = False
+        # s_boon_count = 0
+        # while s_boon_ is False:
+        #     s_boon_count += 1
+        #     if s_boon_count > 5:
+        #         s_boon_ = True
+        #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\skillbook_boonhae.PNG"
+        #     img_array = np.fromfile(full_path, np.uint8)
+        #     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #     imgs_ = imgs_set_(780, 320, 900, 370, cla, img, 0.85)
+        #     if imgs_ is not None and imgs_ != False:
+        #
+        #         click_pos_reg(imgs_.x, imgs_.y, cla)
+        #         time.sleep(1)
+        #
+        #         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\no_have_item.PNG"
+        #         img_array = np.fromfile(full_path, np.uint8)
+        #         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #         imgs_ = imgs_set_(710, 530, 890, 590, cla, img, 0.85)
+        #         if imgs_ is not None and imgs_ != False:
+        #             s_boon_ = True
+        #         else:
+        #             click_pos_2(680, 400, cla)
+        #             time.sleep(0.5)
+        #             click_pos_2(770, 400, cla)
+        #             time.sleep(0.5)
+        #
+        #             for i in range(10):
+        #                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
+        #                 img_array = np.fromfile(full_path, np.uint8)
+        #                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        #                 imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
+        #                 if imgs_ is not None and imgs_ != False:
+        #                     click_pos_reg(imgs_.x, imgs_.y, cla)
+        #                     break
+        #                 time.sleep(0.1)
+        #             s_boon_ = True
 
         for i in range(4):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\x.PNG"
