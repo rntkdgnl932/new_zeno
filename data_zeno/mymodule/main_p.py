@@ -51,6 +51,7 @@ from dungeon_zeno import dungeon_start
 from jadong_zeno import jadong_start
 from jejak_zenonia import jejak_ready
 from auction_zenonia import auction_ready
+from event_18 import event_stop
 
 from event_dungeon_zeno import event_dungeon_start
 
@@ -3054,7 +3055,10 @@ class game_Playing(QThread):
                                     character_id = result_schedule[0][1]
                                     result_schedule_ = result_schedule[0][2]
 
-                                    # 캐릭 번ㅅ번호 다르다면 체인지
+                                    # 첫 이벤트 페이지 확인
+                                    event_stop(v_.now_cla)
+
+                                    # 캐릭 번호 다르다면 체인지
                                     character_change(v_.now_cla, character_id)
 
                                     # 항상 죽었는지 확인하기
