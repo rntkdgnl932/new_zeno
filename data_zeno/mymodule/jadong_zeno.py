@@ -351,13 +351,23 @@ def map_list_click(cla, where):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_list\\" + click_reg + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(740, 120, 960, 1020, cla, img, 0.9)
-                    if imgs_ is not None and imgs_ != False:
-                        click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                    if click_reg == 'antion':
+                        drag_pos(860, 800, 860, 200, cla)
+                        time.sleep(0.3)
+                        click_pos_2(860, 910, cla)
                         time.sleep(0.5)
+                    else:
+                        drag_pos(860, 100, 860, 500, cla)
+                        time.sleep(0.3)
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\midgard\\map_list\\" + click_reg + ".PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(740, 120, 960, 1020, cla, img, 0.9)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_reg(imgs_.x, imgs_.y, cla)
+                            time.sleep(0.5)
+
                 else:
                     in_map_ = True
             else:
@@ -367,7 +377,20 @@ def map_list_click(cla, where):
                 imgs_ = imgs_set_(740, 120, 960, 1020, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
 
-                    if click_reg == 'alak_3':
+                    if click_reg == 'antion':
+                        drag_pos(860, 800, 860, 200, cla)
+                        time.sleep(0.3)
+                        click_pos_2(860, 910, cla)
+                        time.sleep(0.5)
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\maul.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(860, 910, cla)
+                            time.sleep(0.5)
+
+                    elif click_reg == 'alak_3':
                         drag_pos(860, 100, 860, 500, cla)
                         time.sleep(0.3)
                         click_pos_2(860, 500, cla)
@@ -400,7 +423,20 @@ def map_list_click(cla, where):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        drag_pos(850, 200, 850, 700, cla)
+                        if click_reg == 'antion':
+                            drag_pos(860, 800, 860, 200, cla)
+                            time.sleep(0.3)
+                            click_pos_2(860, 910, cla)
+                            time.sleep(0.5)
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\maul.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(740, 120, 870, 1020, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                click_pos_2(860, 910, cla)
+                                time.sleep(0.5)
+                        else:
+                            drag_pos(850, 200, 850, 700, cla)
                     else:
                         click_pos_2(840, 100, cla)
                         time.sleep(0.5)
@@ -420,14 +456,21 @@ def map_junlipoom_open(cla, where):
             in_map_count += 1
             if in_map_count > 10:
                 in_map_ = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\junlipoom.PNG"
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\jangbi.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_(0, 120, 80, 170, cla, img, 0.85)
+            imgs_ = imgs_set_(50, 135, 270, 170, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
                 in_map_ = True
             else:
-                click_pos_2(50, 100, cla)
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jadong\\etc.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(50, 135, 270, 170, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    in_map_ = True
+                else:
+                    click_pos_2(50, 100, cla)
             time.sleep(0.5)
     except Exception as e:
         print(e)
@@ -546,8 +589,11 @@ def map_junlipoom_click(cla, where):
                             break
                         time.sleep(0.2)
 
-                    y_ran = random.randint(1, 12)
-                    y_plus = 200 + (65 * y_ran)
+                    if click_reg == "antion":
+                        y_plus = 390
+                    else:
+                        y_ran = random.randint(1, 12)
+                        y_plus = 200 + (65 * y_ran)
 
                     click_pos_2(120, y_plus, cla)
 
@@ -777,6 +823,8 @@ def map_pic_name(cla, where):
             click_reg = 'benedoom_1'
         elif jadong_spl_[2] == "고대유적지":
             click_reg = 'godae_1'
+        elif jadong_spl_[2] == "안티온":
+            click_reg = 'antion'
 
         return click_reg
     except Exception as e:
