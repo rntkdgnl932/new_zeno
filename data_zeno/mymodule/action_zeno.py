@@ -870,12 +870,14 @@ def clean_screen_action(cla):
         if imgs_ is not None and imgs_ != False:
             click_pos_2(635, 365, cla)
 
+        exit = False
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_exit.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(900, 20, 960, 80, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
+            exit = True
 
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_quest_exit.PNG"
         img_array = np.fromfile(full_path, np.uint8)
@@ -883,6 +885,10 @@ def clean_screen_action(cla):
         imgs_ = imgs_set_(630, 20, 700, 80, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             click_pos_reg(imgs_.x, imgs_.y, cla)
+            exit = True
+        if exit == True:
+            confirm_all(cla)
+
 
         mr_ = menu_open_check(cla)
         if mr_ == True:
