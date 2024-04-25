@@ -1604,7 +1604,7 @@ def get_market_sohwan(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(435, 390, 515, 435, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(400, 750, cla)
+                    click_pos_2(400, 710, cla)
                     poomjul = True
                     sohwan = True
                 else:
@@ -1613,12 +1613,12 @@ def get_market_sohwan(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(260, 390, 340, 435, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_2(400, 750, cla)
+                        click_pos_2(400, 710, cla)
                         poomjul = True
                         sohwan = True
 
                 if poomjul == False:
-                    click_pos_2(560, 750, cla)
+                    click_pos_2(560, 710, cla)
                     time.sleep(0.2)
                     sohwan = True
 
@@ -1646,7 +1646,7 @@ def get_market_sohwan(cla):
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
                             if imgs_ is not None and imgs_ != False:
-                                click_pos_2(560, 750, cla)
+                                click_pos_2(560, 710, cla)
                                 for k in range(10):
                                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\notfullyet_level.PNG"
                                     img_array = np.fromfile(full_path, np.uint8)
@@ -1681,7 +1681,7 @@ def get_market_sohwan(cla):
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                     imgs_ = imgs_set_(435, 390, 515, 435, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
-                        click_pos_2(400, 750, cla)
+                        click_pos_2(400, 710, cla)
                         poomjul = True
                         sohwan = True
                     else:
@@ -1690,12 +1690,12 @@ def get_market_sohwan(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(260, 390, 340, 435, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_2(400, 750, cla)
+                            click_pos_2(400, 710, cla)
                             poomjul = True
                             sohwan = True
 
                     if poomjul == False:
-                        click_pos_2(560, 750, cla)
+                        click_pos_2(560, 710, cla)
                         time.sleep(0.2)
                         sohwan = True
 
@@ -1723,7 +1723,7 @@ def get_market_sohwan(cla):
                                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                                 imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
                                 if imgs_ is not None and imgs_ != False:
-                                    click_pos_2(560, 750, cla)
+                                    click_pos_2(560, 710, cla)
                                     for k in range(10):
                                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\notfullyet_level.PNG"
                                         img_array = np.fromfile(full_path, np.uint8)
@@ -1759,14 +1759,14 @@ def get_market_sohwan(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(400, 750, cla)
+                click_pos_2(400, 710, cla)
             else:
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\toichunjok_title.PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(370, 280, 450, 330, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(400, 750, cla)
+                    click_pos_2(400, 710, cla)
                 else:
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\market\\sohwan_exit.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
@@ -1967,7 +1967,7 @@ def get_market_gyohwanso(cla):
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(430, 390, 515, 435, cla, img, 0.85)
             if imgs_ is not None and imgs_ != False:
-                click_pos_2(400, 750, cla)
+                click_pos_2(400, 710, cla)
                 poomjul = True
                 sohwan = True
             else:
@@ -1976,7 +1976,7 @@ def get_market_gyohwanso(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(260, 390, 340, 435, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(400, 750, cla)
+                    click_pos_2(400, 710, cla)
                     poomjul = True
                     sohwan = True
 
@@ -1989,7 +1989,7 @@ def get_market_gyohwanso(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(280, 680, cla)
                     time.sleep(0.4)
-                    click_pos_2(560, 750, cla)
+                    click_pos_2(560, 710, cla)
                     time.sleep(0.2)
                     is_sohwan_ = True
                     sohwan = True
@@ -2001,7 +2001,7 @@ def get_market_gyohwanso(cla):
                 if imgs_ is not None and imgs_ != False:
                     click_pos_2(280, 680, cla)
                     time.sleep(0.4)
-                    click_pos_2(560, 750, cla)
+                    click_pos_2(560, 710, cla)
                     time.sleep(0.2)
                     is_sohwan_ = True
                     sohwan = True
@@ -2011,7 +2011,7 @@ def get_market_gyohwanso(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(370, 280, 460, 330, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(560, 750, cla)
+                    click_pos_2(560, 710, cla)
                     time.sleep(0.2)
                     is_sohwan_ = True
                     sohwan = True
@@ -2021,13 +2021,13 @@ def get_market_gyohwanso(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(420, 280, 500, 330, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(280, 680, cla)
+                    click_pos_2(270, 650, cla)
                     time.sleep(0.1)
-                    click_pos_2(280, 680, cla)
+                    click_pos_2(270, 650, cla)
                     time.sleep(0.1)
-                    click_pos_2(280, 680, cla)
+                    click_pos_2(270, 650, cla)
                     time.sleep(0.4)
-                    click_pos_2(560, 750, cla)
+                    click_pos_2(560, 710, cla)
                     time.sleep(0.2)
                     is_sohwan_ = True
                     sohwan = True
@@ -2041,7 +2041,7 @@ def get_market_gyohwanso(cla):
                         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                         imgs_ = imgs_set_(350, 130, 500, 200, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
-                            click_pos_2(400, 750, cla)
+                            click_pos_2(400, 710, cla)
                             sohwan = True
                             break
                         time.sleep(0.1)
