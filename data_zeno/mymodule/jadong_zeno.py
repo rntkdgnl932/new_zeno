@@ -847,7 +847,13 @@ def jadong_arrive_check(cla, where):
             gold_1 = jadong_juljun_attack_gold_check(cla, where)
             # time.sleep(15)
             # 여기 15초동안 포션체크 하자
-            for i in range(15):
+
+            is_timer = 20
+
+            if "지옥" in where or "죄악" in where:
+                is_timer = 40
+
+            for i in range(is_timer):
                 result_potion = juljun_potion_check(cla)
                 if result_potion == False:
                     potion_check = True
