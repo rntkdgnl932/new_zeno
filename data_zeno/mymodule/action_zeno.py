@@ -786,6 +786,7 @@ def clean_screen(cla):
                 clean = True
             else:
                 clean_screen_action(cla)
+                get_market_gyohwanso(cla)
 
 
 
@@ -2005,7 +2006,7 @@ def get_market_gyohwanso(cla):
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(420, 280, 540, 330, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
-                    click_pos_2(280, 680, cla)
+                    click_pos_2(270, 650, cla)
                     time.sleep(0.4)
                     click_pos_2(560, 710, cla)
                     time.sleep(0.2)
