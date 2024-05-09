@@ -2825,8 +2825,8 @@ def now_hunting(cla):
         go_ = False
 
         gold_1 = gold_check_open(cla)
-        for i in range(20):
-            gold_2= gold_check_open(cla)
+        for i in range(30):
+            gold_2 = gold_check_open(cla)
             if int(gold_1) != int(gold_2):
                 go_ = True
                 break

@@ -862,20 +862,30 @@ def jadong_arrive_check(cla, where):
                 time.sleep(1)
 
             if potion_check == False:
-                gold_2 = jadong_juljun_attack_gold_check(cla, where)
+                if "지옥" in where or "죄악" in where:
+                    for i in range(30):
+                        gold_2 = jadong_juljun_attack_gold_check(cla, where)
 
-                if gold_1 != gold_2:
-                    arrive = True
-                else:
-                    for i in range(3):
-                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
-                        img_array = np.fromfile(full_path, np.uint8)
-                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                        imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
-                        if imgs_ is not None and imgs_ != False:
-                            drag_pos(360, 460, 900, 460, cla)
+                        if gold_1 != gold_2:
+                            arrive = True
                             break
                         time.sleep(1)
+
+                else:
+                    gold_2 = jadong_juljun_attack_gold_check(cla, where)
+
+                    if gold_1 != gold_2:
+                        arrive = True
+                    else:
+                        for i in range(3):
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\juljun\\juljun_1.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(380, 830, 580, 880, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                drag_pos(360, 460, 900, 460, cla)
+                                break
+                            time.sleep(1)
 
         else:
             for i in range(3):
