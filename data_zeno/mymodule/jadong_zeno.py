@@ -836,12 +836,15 @@ def jadong_arrive_check(cla, where):
         from action_zeno import clean_screen
         from function import click_pos_2, click_pos_reg, imgs_set_, drag_pos
         from potion_zeno import juljun_potion_check, juljun_maul_potion
-        print("jadong_arrive_check")
+
 
         potion_check = False
         arrive = False
 
         result_arrive = jadong_juljun_attack_check(cla, where)
+
+        print("jadong_arrive_check", result_arrive)
+
         if result_arrive == "attack":
 
             gold_1 = jadong_juljun_attack_gold_check(cla, where)
@@ -907,6 +910,8 @@ def jadong_arrive_check(cla, where):
                 jadong_juljun_attack_dead(cla, where)
         time.sleep(0.5)
 
+        print("gold_1", gold_1)
+        print("gold_2", gold_2)
 
         return arrive
     except Exception as e:
@@ -1023,7 +1028,7 @@ def jadong_juljun_attack_check(cla, where):
                             else:
                                 print("not upbo_title")
                         elif jadong_spl_[1] == "지옥":
-                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\juljun_hell_title.PNG"
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\juljun_title\\hell_title.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
                             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                             imgs_ = imgs_set_(30, 90, 250, 150, cla, img, 0.85)
