@@ -694,6 +694,52 @@ def mouse_move_cpp(pos_1, pos_2, cla):
     except Exception as e:
         print("error:", e)
 
+def imgs_set_for(a, b, c, d, cla, img, data):
+    try:
+        from PIL import ImageGrab
+        from functools import partial
+        import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+
+        # 예시
+        # full_path = "c:\\my_games\\arthdal\\data_arthdal\\imgs\\jadong\\bookmark_star.PNG"
+        # img_array = np.fromfile(full_path, np.uint8)
+        # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        # imgs_ = imgs_set_for(870, 420, 950, 720, cla, img, 0.85)
+        # if imgs_ is not None and imgs_ != False:
+        #     print("bookmark_star", imgs_)
+        #     for i in range(len(imgs_)):
+        #         print("imgs_", i, imgs_[i])
+        #         print("imgs_", i, imgs_[i][0])
+        #         print("imgs_", i, imgs_[i][1])
+
+        if cla == 'one':
+            plus = 0
+        if cla == 'two':
+            plus = 960
+        if cla == 'three':
+            plus = 960 * 2
+        if cla == 'four':
+            plus = 960 * 3
+        if cla == 'five':
+            plus = 960 * 4
+        if cla == 'six':
+            plus = 960 * 5
+
+        regs = []
+
+        for i in pyautogui.locateAllOnScreen(img, region=(a + plus, b, c - a, d - b), confidence=data):
+            print('i', i)
+            last_x = i.left + int(i.width / 2)
+            last_y = i.top + int(i.height / 2)
+            last = [last_x, last_y]
+            regs.append(last)
+
+        return regs
+    except ValueError:
+        return False
+
 def mouse_move_drag(pos_1, pos_2, cla):
     try:
         import serial

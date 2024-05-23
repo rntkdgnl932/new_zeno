@@ -13,9 +13,9 @@ from function import imgs_set_
 def go_test():
     print("tst")
     import pyautogui
-    from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num
-    from jadong_zeno import jadong_start, jadong_juljun_attack_check, map_list_open_ready
-    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event, get_upjuk, confirm_all
+    from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num, imgs_set_for
+    from jadong_zeno import jadong_start, jadong_juljun_attack_check, map_list_open_ready, map_list_open, map_list_click, map_junlipoom_open, map_junlipoom_click
+    from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event, get_upjuk, confirm_all, dead_die, menu_open
     from potion_zeno import juljun_potion_check, juljun_maul_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
@@ -39,31 +39,20 @@ def go_test():
 
     # v_.now_cla = cla
 
-    exit = False
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_exit.PNG"
+    # auction_start(cla)
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list\\blessing_bangugoo.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(900, 20, 960, 80, cla, img, 0.85)
+    imgs_ = imgs_set_(650, 160, 950, 600, cla, img, 0.85)
     if imgs_ is not None and imgs_ != False:
-        click_pos_reg(imgs_.x, imgs_.y, cla)
-        exit = True
+        print("blessing_bangugoo", imgs_)
 
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\clean_quest_exit.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(630, 20, 700, 80, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        click_pos_reg(imgs_.x, imgs_.y, cla)
-        exit = True
-    if exit == True:
-        confirm_all(cla)
-
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\event_18\\today_one.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(220, 650, 480, 750, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("today_one", imgs_)
+    result = imgs_set_for(650, 160, 950, 600, cla, img, 0.85)
+    print("result", result)
+    print("len(result)", len(result))
+    print("result[len(result) - 1]", result[len(result) - 1])
+    print("result[len(result) - 1][0]", result[len(result) - 1][0])
+    print("result[len(result) - 1][1]", result[len(result) - 1][1])
 
     # for i in range(10):
     #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\potion\\" + str(i) + ".PNG"

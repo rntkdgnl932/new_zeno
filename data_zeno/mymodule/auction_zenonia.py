@@ -132,7 +132,7 @@ def auction_settle(cla):
 def auction_swich(cla, data):
     import numpy as np
     import cv2
-    from function import click_pos_2, click_pos_reg, imgs_set_
+    from function import click_pos_2, click_pos_reg, imgs_set_, imgs_set_for
     try:
         print("auction_swich")
 
@@ -192,8 +192,22 @@ def auction_swich(cla, data):
                 imgs_ = imgs_set_(650, 160, 950, 600, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
 
-                    sell_x = imgs_.x
-                    sell_y = imgs_.y
+                    if "blessing" in auction_list[i]:
+                        result = imgs_set_for(650, 160, 950, 600, cla, img, 0.85)
+                        print("result", result)
+                        print("len(result)", len(result))
+                        if len(result) > 0:
+                            print("result[len(result) - 1]", result[len(result) - 1])
+                            print("result[len(result) - 1][0]", result[len(result) - 1][0])
+                            print("result[len(result) - 1][1]", result[len(result) - 1][1])
+                            sell_x = result[len(result) - 1][0]
+                            sell_y = result[len(result) - 1][1]
+                        else:
+                            sell_x = imgs_.x
+                            sell_y = imgs_.y
+                    else:
+                        sell_x = imgs_.x
+                        sell_y = imgs_.y
 
                     click_pos_reg(sell_x, sell_y, cla)
                     time.sleep(0.3)
@@ -328,6 +342,8 @@ def auction_start(cla):
         x1_reg_point = 0
         x1_reg_1000 = 0
 
+        y_1 = 475
+        y_2 = 500
 
         x1_plus = False
 
@@ -335,7 +351,7 @@ def auction_start(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\point.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, 500, 300, 515, cla, img, 0.9)
+        imgs_ = imgs_set_num(256, y_1, 300, y_2, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("현재 최저 금액 : point", imgs_)
             x1_plus = True
@@ -346,7 +362,7 @@ def auction_start(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\1000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, 500, 275, 515, cla, img, 0.9)
+        imgs_ = imgs_set_num(256, y_1, 275, y_2, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("현재 최저 금액 : , ", imgs_)
             x1_plus = True
@@ -374,8 +390,7 @@ def auction_start(cla):
                 x_1 = 285
                 x_2 = 300
 
-            y_1 = 495
-            y_2 = 515
+
 
             # sell_ready_now_low
 
@@ -396,52 +411,51 @@ def auction_start(cla):
                                 x_1 = x_1 + 4
                                 x_2 = x_2 + 4
 
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
-            img_array = np.fromfile(full_path, np.uint8)
-            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
-            if imgs_ is not None and imgs_ != False:
-                print("숫자 없다", x_1, y_1, x_2, y_2)
-
-            else:
+            # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
+            # img_array = np.fromfile(full_path, np.uint8)
+            # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+            # imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.95)
+            # if imgs_ is not None and imgs_ != False:
+            #     print("숫자 없다", x_1, y_1, x_2, y_2)
+            #
+            # else:
 
 
                 # sell_ready_now_low = text_check_get(x_1, y_1, x_2, y_2, cla)
 
-                for i in range(10):
-                    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\" + str(i) + ".PNG"
-                    img_array = np.fromfile(full_path, np.uint8)
-                    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
-                    if imgs_ is not None and imgs_ != False:
-                        # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
-                        # print(data, imgs_)
+            for i in range(10):
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\" + str(i) + ".PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                if imgs_ is not None and imgs_ != False:
+                    # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
+                    # print(data, imgs_)
 
-                        left_x1 = 266
-                        right_x1 = 274
+                    left_x1 = 266
+                    right_x1 = 274
 
-                        if k != 0:
-                            # 270, 278, 286
-                            if k == 1:
-                                if x1_reg_point != 0 and (266 + x_plus < x1_reg_point < 274 + x_plus):
-                                    sell_ready_now_low += "."
-                            if k == 2:
-                                if x1_reg_point != 0 and (274 + x_plus < x1_reg_point < 282 + x_plus):
-                                    sell_ready_now_low += "."
-                            if k == 3:
-                                if x1_reg_point != 0 and (282 + x_plus < x1_reg_point < 290 + x_plus):
-                                    sell_ready_now_low += "."
-                            sell_ready_now_low += str(i)
-                        else:
-                            sell_ready_now_low += str(i)
+                    if k != 0:
+                        # 270, 278, 286
+                        if k == 1:
+                            if x1_reg_point != 0 and (266 + x_plus < x1_reg_point < 274 + x_plus):
+                                sell_ready_now_low += "."
+                        if k == 2:
+                            if x1_reg_point != 0 and (274 + x_plus < x1_reg_point < 282 + x_plus):
+                                sell_ready_now_low += "."
+                        if k == 3:
+                            if x1_reg_point != 0 and (282 + x_plus < x1_reg_point < 290 + x_plus):
+                                sell_ready_now_low += "."
+                        sell_ready_now_low += str(i)
+                    else:
+                        sell_ready_now_low += str(i)
 
-                        break
+                    break
 
 
             print("3 되면 끝 : ", k)
 
-
-
+        print("현재최저단가", sell_ready_now_low)
         return sell_ready_now_low
     except Exception as e:
         print(e)
@@ -456,13 +470,16 @@ def auction_start2(cla):
         # 결과값
         sell_ready_now_low = ""
 
+        y_1 = 385
+        y_2 = 430
+
 
         x1_plus = False
 
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\1000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(700, 410, 800, 430, cla, img, 0.9)
+        imgs_ = imgs_set_num(700, y_1, 800, y_2, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("1000 여부 : , ", imgs_)
             x1_plus = True
@@ -490,8 +507,7 @@ def auction_start2(cla):
                     x_1 = 755
                     x_2 = 775
 
-                y_1 = 400
-                y_2 = 430
+
 
                 for i in range(10):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
@@ -518,18 +534,17 @@ def auction_start2(cla):
                 if k == 0:
                     # 첫째자리
                     x_1 = 725
-                    x_2 = 742
+                    x_2 = 744
                 if k == 1:
                     # 둘째자리
                     x_1 = 735
-                    x_2 = 752
+                    x_2 = 758
                 if k == 2:
                     # 셋째자리
                     x_1 = 745
-                    x_2 = 762
+                    x_2 = 768
 
-                y_1 = 400
-                y_2 = 430
+
 
                 for i in range(10):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
@@ -550,14 +565,12 @@ def auction_start2(cla):
                 if k == 0:
                     # 첫째자리
                     x_1 = 730
-                    x_2 = 747
+                    x_2 = 751
                 if k == 1:
                     # 둘째자리
                     x_1 = 740
-                    x_2 = 757
+                    x_2 = 764
 
-                y_1 = 400
-                y_2 = 430
 
                 for i in range(10):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
@@ -578,10 +591,8 @@ def auction_start2(cla):
                 if k == 0:
                     # 첫째자리
                     x_1 = 735
-                    x_2 = 752
+                    x_2 = 764
 
-                y_1 = 400
-                y_2 = 430
 
                 for i in range(10):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
@@ -597,11 +608,13 @@ def auction_start2(cla):
                         break
 
                 print("0 되면 끝 : ", k)
-            print("3_2_1", sell_ready_now_low_3, sell_ready_now_low_2, sell_ready_now_low_1)
+            print("333", sell_ready_now_low_3)
+            print("222", sell_ready_now_low_2)
+            print("111", sell_ready_now_low_1)
             result_many_ready = [int(sell_ready_now_low_3), int(sell_ready_now_low_2), int(sell_ready_now_low_1)]
             sell_ready_now_low = max(result_many_ready)
 
-
+        print("판매수량", sell_ready_now_low)
         return sell_ready_now_low
     except Exception as e:
         print(e)

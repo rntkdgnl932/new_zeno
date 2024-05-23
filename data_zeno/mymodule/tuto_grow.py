@@ -438,6 +438,7 @@ def tuto_quest(cla):
     import cv2
     from function import imgs_set_, click_pos_reg, click_pos_2
     from action_zeno import bag_open
+    from schedule import myQuest_play_add
     try:
         print('tuto_quest!', cla)
         boho_ = False
@@ -497,9 +498,18 @@ def tuto_quest(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\not_suport.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(360, 80, 600, 150, cla, img, 0.85)
+                    imgs_ = imgs_set_(360, 80, 600, 220, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         click_pos_2(905, 790, cla)
+                        break
+                    else:
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\not_move.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(360, 110, 600, 220, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            myQuest_play_add(cla, "튜토육성")
+                            break
                     time.sleep(0.2)
 
                 quest_confirm_ready = False
@@ -546,6 +556,27 @@ def tuto_quest(cla):
                 if imgs_ is not None and imgs_ != False:
                     print("quest_click_0", imgs_)
                     click_pos_reg(imgs_.x + 100, imgs_.y + 15, cla)
+
+                    click_pos_2(865, 110, cla)
+
+                    for i in range(10):
+                        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\not_suport.PNG"
+                        img_array = np.fromfile(full_path, np.uint8)
+                        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                        imgs_ = imgs_set_(360, 80, 600, 220, cla, img, 0.85)
+                        if imgs_ is not None and imgs_ != False:
+                            click_pos_2(905, 790, cla)
+                            break
+                        else:
+                            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\not_move.PNG"
+                            img_array = np.fromfile(full_path, np.uint8)
+                            img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                            imgs_ = imgs_set_(360, 110, 600, 220, cla, img, 0.85)
+                            if imgs_ is not None and imgs_ != False:
+                                myQuest_play_add(cla, "튜토육성")
+                                break
+                        time.sleep(0.2)
+
         else:
 
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_click_1.PNG"

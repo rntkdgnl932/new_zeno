@@ -355,6 +355,9 @@ def jejak_start(cla):
                         imgs_ = imgs_set_(440, 970, 520, 1020, cla, img, 0.85)
                         if imgs_ is not None and imgs_ != False:
                             click_pos_reg(imgs_.x, imgs_.y, cla)
+
+                            close_ready = False
+
                             for z in range(10):
                                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\close.PNG"
                                 img_array = np.fromfile(full_path, np.uint8)
@@ -363,8 +366,13 @@ def jejak_start(cla):
                                 if imgs_ is not None and imgs_ != False:
                                     click_pos_reg(imgs_.x, imgs_.y, cla)
                                 else:
+                                    close_ready = True
                                     break
                                 time.sleep(0.5)
+
+                            if close_ready == True:
+                                break
+
                         else:
                             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\jejak\\jejak_boojok.PNG"
                             img_array = np.fromfile(full_path, np.uint8)
