@@ -1247,7 +1247,7 @@ def bag_open(cla):
             mno_count += 1
             if mno_count > 7:
                 mno_ = True
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\bag\\bag_exit.PNG"
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\xx.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(900, 300, 960, 380, cla, img, 0.85)
@@ -1270,7 +1270,7 @@ def bag_open_check(cla):
         from function import imgs_set_
         print("menu_open")
         go_ = False
-        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\bag\\bag_exit.PNG"
+        full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\xx.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
         imgs_ = imgs_set_(900, 310, 950, 370, cla, img, 0.85)
@@ -1431,7 +1431,7 @@ def get_items(cla):
         for i in range(2):
             confirm_all(cla)
             time.sleep(0.5)
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\bag\\bag_exit.PNG"
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\xx.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(900, 310, 950, 370, cla, img, 0.85)
@@ -2854,7 +2854,7 @@ def quickslot_check(cla):
         #     time.sleep(1)
 
         for i in range(2):
-            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\bag\\bag_exit.PNG"
+            full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\xx.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
             imgs_ = imgs_set_(900, 310, 950, 370, cla, img, 0.85)
