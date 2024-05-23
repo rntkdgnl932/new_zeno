@@ -40,12 +40,12 @@ def go_test():
     # v_.now_cla = cla
 
     maul_dead_potion(cla)
-    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\x.PNG"
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    # imgs_ = imgs_set_(250, 310, 960, 390, cla, img, 0.85)
+    # imgs_ = imgs_set_(740, 740, 850, 780, cla, img, 0.85)
     # if imgs_ is not None and imgs_ != False:
-    #     print("x", imgs_)
+    #     print("boonhae_confirm", imgs_)
 
 
     # for i in range(10):
