@@ -16,7 +16,7 @@ def go_test():
     from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num, imgs_set_for
     from jadong_zeno import jadong_start, jadong_juljun_attack_check, map_list_open_ready, map_list_open, map_list_click, map_junlipoom_open, map_junlipoom_click
     from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event, get_upjuk, confirm_all, dead_die, menu_open
-    from potion_zeno import juljun_potion_check, juljun_maul_potion
+    from potion_zeno import juljun_potion_check, juljun_maul_potion, maul_dead_potion
     from realtime import collection, boonhae, chango_in, all_realtime
     from settings import chago_setting, chago_drag
     from potion_zeno import maul_potion
@@ -39,20 +39,14 @@ def go_test():
 
     # v_.now_cla = cla
 
-    # auction_start(cla)
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list\\blessing_bangugoo.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(650, 160, 950, 600, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("blessing_bangugoo", imgs_)
+    maul_dead_potion(cla)
+    # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\x.PNG"
+    # img_array = np.fromfile(full_path, np.uint8)
+    # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    # imgs_ = imgs_set_(250, 310, 960, 390, cla, img, 0.85)
+    # if imgs_ is not None and imgs_ != False:
+    #     print("x", imgs_)
 
-    result = imgs_set_for(650, 160, 950, 600, cla, img, 0.85)
-    print("result", result)
-    print("len(result)", len(result))
-    print("result[len(result) - 1]", result[len(result) - 1])
-    print("result[len(result) - 1][0]", result[len(result) - 1][0])
-    print("result[len(result) - 1][1]", result[len(result) - 1][1])
 
     # for i in range(10):
     #     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\potion\\potion\\" + str(i) + ".PNG"

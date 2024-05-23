@@ -860,7 +860,14 @@ def clean_screen_action(cla):
             if imgs_ is not None and imgs_ != False:
                 click_pos_reg(imgs_.x, imgs_.y, cla)
             else:
-                break
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\cleanscreen\\xx.PNG"
+                img_array = np.fromfile(full_path, np.uint8)
+                img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                imgs_ = imgs_set_(30, 10, 960, 1040, cla, img, 0.85)
+                if imgs_ is not None and imgs_ != False:
+                    click_pos_reg(imgs_.x, imgs_.y, cla)
+                else:
+                    break
             time.sleep(0.3)
 
         # 지도 관련
@@ -1214,7 +1221,7 @@ def menu_open_check(cla):
         import cv2
         import numpy as np
         from function import imgs_set_
-        print("menu_open")
+        print("menu_open_check")
         go_ = False
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\action\\menu_setting.PNG"
         img_array = np.fromfile(full_path, np.uint8)
