@@ -420,7 +420,7 @@ def tuto_skip(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_confirm.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_(490, 600, 640, 640, cla, img, 0.85)
+        imgs_ = imgs_set_(400, 500, 800, 800, cla, img, 0.85)
         if imgs_ is not None and imgs_ != False:
             print("confirm", imgs_)
             click_pos_reg(imgs_.x, imgs_.y, cla)
@@ -521,7 +521,7 @@ def tuto_quest(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\tuto_grow\\quest\\quest_confirm.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(400, 500, 740, 740, cla, img, 0.85)
+                    imgs_ = imgs_set_(400, 500, 800, 800, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         print("quest_confirm", imgs_)
                         quest_confirm_ready = True
