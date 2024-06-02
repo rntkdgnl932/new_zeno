@@ -326,7 +326,7 @@ def level_up_point(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\levelup_check\\zero.PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_(500, 370, 550, 410, cla, img, 0.85)
+                    imgs_ = imgs_set_(470, 370, 550, 430, cla, img, 0.85)
                     if imgs_ is not None and imgs_ != False:
                         # 스탯 업 스톱
                         str_look = True
@@ -341,7 +341,7 @@ def level_up_point(cla):
                             time.sleep(0.5)
                     else:
                         # dex 클릭
-                        click_pos_2(390, 555, cla)
+                        click_pos_2(390, 580, cla)
                         time.sleep(0.2)
                 else:
                     click_pos_reg(reg_x, reg_y, cla)
