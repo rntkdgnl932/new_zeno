@@ -132,9 +132,13 @@ def auction_settle(cla):
 def auction_swich(cla, data):
     import numpy as np
     import cv2
+    import os
     from function import click_pos_2, click_pos_reg, imgs_set_, imgs_set_for
+
     try:
         print("auction_swich")
+
+
 
         # 판매하기
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\sell_click.PNG"
@@ -178,21 +182,28 @@ def auction_swich(cla, data):
             # 리스트 불러와서 판매하기
             dir_path = "C:\\my_games\\zenonia"
             if data == "world":
-                file_path1 = dir_path + "\\data_zeno\\imgs\\auction\\list_world.txt"
+                file_path1 = dir_path + "\\data_zeno\imgs\auction\list\\world"
             else:
                 # server
-                file_path1 = dir_path + "\\data_zeno\\imgs\\auction\\list_server.txt"
-            with open(file_path1, "r", encoding='utf-8-sig') as file:
-                auction_list = file.read().splitlines()
+                file_path1 = dir_path + "\\data_zeno\imgs\auction\list\\server"
 
-            for i in range(len(auction_list)):
-                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list\\" + auction_list[i] + ".PNG"
+            file_list = os.listdir(file_path1)
+
+            # with open(file_path1, "r", encoding='utf-8-sig') as file:
+            #     auction_list = file.read().splitlines()
+
+            for i in range(len(file_path1)):
+
+                result_file_list = file_list[i].split(".")
+                auction_list = result_file_list[0]
+
+                full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\list\\" + str(auction_list) + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
                 imgs_ = imgs_set_(650, 160, 950, 600, cla, img, 0.85)
                 if imgs_ is not None and imgs_ != False:
 
-                    if "blessing" in auction_list[i]:
+                    if "blessing" in auction_list:
                         result = imgs_set_for(650, 160, 950, 600, cla, img, 0.85)
                         print("result", result)
                         print("len(result)", len(result))
