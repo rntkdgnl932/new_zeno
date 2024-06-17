@@ -334,8 +334,8 @@ def line_monitor(game, cla):
                     if int(day_[0]) != nowDay:
                         print("day_[0]", day_[0])
                         print("nowDay", nowDay)
-                        ms_ = str(game) + str(" 초기화 갱신 안되었다.")
-                        line_to_me(cla, ms_)
+                        # ms_ = str(game) + str(" 초기화 갱신 안되었다.")
+                        # line_to_me(cla, ms_)
 
             time.sleep(300)
 
