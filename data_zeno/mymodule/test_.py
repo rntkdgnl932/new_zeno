@@ -39,18 +39,12 @@ def go_test():
 
     # v_.now_cla = cla
 
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\levelup_check\\str.PNG"
+    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\event_18\\not_again_view.PNG"
     img_array = np.fromfile(full_path, np.uint8)
     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(60, 360, 120, 390, cla, img, 0.85)
+    imgs_ = imgs_set_(200, 600, 300, 750, cla, img, 0.85)
     if imgs_ is not None and imgs_ != False:
-        print("str", imgs_)
-    full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\levelup_check\\zero.PNG"
-    img_array = np.fromfile(full_path, np.uint8)
-    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-    imgs_ = imgs_set_(470, 370, 550, 430, cla, img, 0.85)
-    if imgs_ is not None and imgs_ != False:
-        print("zero", imgs_)
+        print("not_again_view", imgs_)
     # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\realtime\\boonhae\\boonhae_confirm.PNG"
     # img_array = np.fromfile(full_path, np.uint8)
     # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
