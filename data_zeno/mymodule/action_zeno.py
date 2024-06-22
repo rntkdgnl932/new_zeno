@@ -147,7 +147,7 @@ def character_change(cla, character_id):
                     # 대기중 화면이 아닐때
                     menu_open(cla)
                     time.sleep(0.1)
-                    click_pos_2(910, 410, cla)
+                    click_pos_2(910, 470, cla)
                     time.sleep(1)
                     for i in range(20):
                         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\check\\game_start.PNG"
