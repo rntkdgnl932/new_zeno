@@ -192,7 +192,7 @@ def auction_swich(cla, data):
             # with open(file_path1, "r", encoding='utf-8-sig') as file:
             #     auction_list = file.read().splitlines()
 
-            for i in range(len(file_path1)):
+            for i in range(len(file_list)):
 
                 result_file_list = file_list[i].split(".")
                 auction_list = result_file_list[0]
