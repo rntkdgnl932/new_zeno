@@ -17,7 +17,7 @@ def tuto_grow_start(cla):
     import cv2
     import os
     from function import imgs_set_, click_pos_2, click_pos_reg
-    from action_zeno import dead_die, bag_open, get_items, quickslot_check, in_maul_check
+    from action_zeno import dead_die, bag_open, get_items, quickslot_check, in_maul_check, confirm_all
     from potion_zeno import potion_check_tuto
     try:
 
@@ -119,6 +119,8 @@ def tuto_grow_start(cla):
         if imgs_ is not None and imgs_ != False:
             print("quest_ing_1...퀘스트 진행중", imgs_)
             potion_check_tuto(cla)
+            # confirm?
+            confirm_all(cla)
         else:
             print("퀘스트 클릭하자")
             # 스킵
