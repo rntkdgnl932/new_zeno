@@ -121,7 +121,7 @@ def dungeon_click(cla, where):
 
         if '_' in where:
             dungeon_spl_ = where.split("_")
-            # 일반_업보_4
+            # 특수_이벤트_2
         if dungeon_spl_[1] == "이벤트":
             dun_title = "event_title"
 
@@ -183,16 +183,19 @@ def dungeon_step_click(cla, where):
 
         if '_' in where:
             dungeon_spl_ = where.split("_")
-            # 일반_업보_4
+            # 특수_이벤트_2
             step = int(dungeon_spl_[2])
 
             if dungeon_spl_[1] == "이벤트":
+
+                if step > 2:
+                    step = 2
+
                 if step > 4:
                     drag_pos(880, 480, 580, 480, cla)
                 else:
                     drag_pos(580, 480, 880, 480, cla)
-                if step > 5:
-                    step = 5
+
             time.sleep(0.5)
         in_dun_ = False
         in_dun_count = 0
