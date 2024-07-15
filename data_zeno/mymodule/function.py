@@ -236,6 +236,37 @@ def imgs_set_(a, b, c, d, cla, img, data):
     except ValueError:
         return False
 
+
+def imgs_set_num(a, b, c, d, cla, img, data):
+    try:
+        from PIL import ImageGrab
+        from functools import partial
+        import pyautogui
+
+        ImageGrab.grab = partial(ImageGrab.grab, all_screens=True)
+
+        if cla == 'one':
+            plus = 0
+        if cla == 'two':
+            plus = 960
+        if cla == 'three':
+            plus = 960 * 2
+        if cla == 'four':
+            plus = 960 * 3
+        if cla == 'five':
+            plus = 960 * 4
+        if cla == 'six':
+            plus = 960 * 5
+
+        # pos = (a + plus, b, c - a, d - b)
+        # pyautogui.screenshot("asd.png", region=pos)
+
+        result = pyautogui.locateCenterOnScreen(img, region=(a + plus, b, c - a, d - b),
+                                               confidence=data)
+        return result
+    except ValueError:
+        return False
+
 def imgs_set_reg(a, b, c, d, cla, img, data):
     try:
         from PIL import ImageGrab
@@ -445,7 +476,7 @@ def click_pos_2(pos_1, pos_2, cla):
         if cla == 'six':
             coordinate = 960 * 5
 
-        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
@@ -570,7 +601,7 @@ def click_pos_reg(pos_1, pos_2, cla):
         if cla == 'six':
             coordinate = 0
 
-        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
@@ -685,7 +716,7 @@ def mouse_move_cpp(pos_1, pos_2, cla):
         if cla == 'six':
             coordinate = 960 * 5
 
-        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
 
@@ -764,7 +795,7 @@ def mouse_move_cpp_reg(pos_1, pos_2, cla):
 
         coordinate = 0
 
-        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
 
@@ -1153,7 +1184,7 @@ def drag_pos(pos_1, pos_2, pos_3, pos_4, cla):
         if cla == 'six':
             coordinate = 960 * 5
 
-        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
 
@@ -1275,7 +1306,7 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
         if cla == 'six':
             coordinate = 0
 
-        pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             cla = "one"

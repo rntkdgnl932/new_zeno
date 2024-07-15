@@ -13,7 +13,7 @@ from function import imgs_set_
 def go_test():
     print("tst")
     import pyautogui
-    from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_num, imgs_set_for
+    from function import click_pos_2, click_pos_reg, text_check_get, in_number_check, int_put_, imgs_set_for # imgs_set_num,
     from jadong_zeno import jadong_start, jadong_juljun_attack_check, map_list_open_ready, map_list_open, map_list_click, map_junlipoom_open, map_junlipoom_click
     from action_zeno import go_maul, out_check, mine_check, get_market_sohwan_start, get_items, get_event, get_upjuk, confirm_all, dead_die, menu_open, go_maul_shade
     from potion_zeno import juljun_potion_check, juljun_maul_potion, maul_dead_potion
@@ -38,6 +38,8 @@ def go_test():
         plus = 960 * 3
 
     # v_.now_cla = cla
+
+    click_pos_2(500, 500, cla)
 
     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\confirm.PNG"
     img_array = np.fromfile(full_path, np.uint8)

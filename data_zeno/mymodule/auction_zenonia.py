@@ -334,7 +334,7 @@ def auction_swich(cla, data):
         print(e)
 
 def auction_start(cla):
-    from function import imgs_set_num
+    from function import imgs_set_
     import numpy as np
     import cv2
     try:
@@ -362,7 +362,7 @@ def auction_start(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\point.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, y_1, 300, y_2, cla, img, 0.9)
+        imgs_ = imgs_set_(256, y_1, 300, y_2, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("현재 최저 금액 : point", imgs_)
             x1_plus = True
@@ -373,7 +373,7 @@ def auction_start(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\1000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, y_1, 275, y_2, cla, img, 0.9)
+        imgs_ = imgs_set_(256, y_1, 275, y_2, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("현재 최저 금액 : , ", imgs_)
             x1_plus = True
@@ -425,7 +425,7 @@ def auction_start(cla):
             # full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
             # img_array = np.fromfile(full_path, np.uint8)
             # img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            # imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.95)
+            # imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.95)
             # if imgs_ is not None and imgs_ != False:
             #     print("숫자 없다", x_1, y_1, x_2, y_2)
             #
@@ -438,7 +438,7 @@ def auction_start(cla):
                 full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\" + str(i) + ".PNG"
                 img_array = np.fromfile(full_path, np.uint8)
                 img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
                 if imgs_ is not None and imgs_ != False:
                     # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                     # print(data, imgs_)
@@ -473,7 +473,7 @@ def auction_start(cla):
         return 0
 
 def auction_start2(cla):
-    from function import imgs_set_num
+    from function import imgs_set_
     import numpy as np
     import cv2
     try:
@@ -490,7 +490,7 @@ def auction_start2(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\1000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(700, y_1, 800, y_2, cla, img, 0.9)
+        imgs_ = imgs_set_(700, y_1, 800, y_2, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("1000 여부 : , ", imgs_)
             x1_plus = True
@@ -524,7 +524,7 @@ def auction_start2(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                    imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
@@ -561,7 +561,7 @@ def auction_start2(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                    imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
@@ -587,7 +587,7 @@ def auction_start2(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                    imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
@@ -609,7 +609,7 @@ def auction_start2(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\many\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                    imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
@@ -632,7 +632,7 @@ def auction_start2(cla):
         return 0
 
 def auction_start_ex(cla):
-    from function import imgs_set_num
+    from function import imgs_set_
     import numpy as np
     import cv2
     try:
@@ -654,7 +654,7 @@ def auction_start_ex(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\point.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, 490, 300, 505, cla, img, 0.9)
+        imgs_ = imgs_set_(256, 490, 300, 505, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("현재 최저 금액 : point", imgs_)
             # 첫번째 소수점 x = 379, 378
@@ -668,7 +668,7 @@ def auction_start_ex(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\1000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, 490, 275, 505, cla, img, 0.9)
+        imgs_ = imgs_set_(256, 490, 275, 505, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("현재 최저 금액 : , ", imgs_)
             x1_plus = True
@@ -680,7 +680,7 @@ def auction_start_ex(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\point.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, 505, 300, 527, cla, img, 0.9)
+        imgs_ = imgs_set_(256, 505, 300, 527, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("마지막 거래 금액 : point", imgs_)
             x2_plus = True
@@ -691,7 +691,7 @@ def auction_start_ex(cla):
         full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\1000.PNG"
         img_array = np.fromfile(full_path, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        imgs_ = imgs_set_num(256, 505, 275, 527, cla, img, 0.9)
+        imgs_ = imgs_set_(256, 505, 275, 527, cla, img, 0.9)
         if imgs_ is not None and imgs_ != False:
             print("마지막 거래 금액 : , ", imgs_)
             x2_plus = True
@@ -754,7 +754,7 @@ def auction_start_ex(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+            imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 print("숫자 없다")
 
@@ -767,7 +767,7 @@ def auction_start_ex(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_1, y_1, x_2, y_2, cla, img, 0.9)
+                    imgs_ = imgs_set_(x_1, y_1, x_2, y_2, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         # data = "현재 최저 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
@@ -812,7 +812,7 @@ def auction_start_ex(cla):
             full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\vacant.PNG"
             img_array = np.fromfile(full_path, np.uint8)
             img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-            imgs_ = imgs_set_num(x_3, y_3, x_4, y_4, cla, img, 0.9)
+            imgs_ = imgs_set_(x_3, y_3, x_4, y_4, cla, img, 0.9)
             if imgs_ is not None and imgs_ != False:
                 print("숫자 없다")
 
@@ -824,7 +824,7 @@ def auction_start_ex(cla):
                     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\auction\\number\\" + str(i) + ".PNG"
                     img_array = np.fromfile(full_path, np.uint8)
                     img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-                    imgs_ = imgs_set_num(x_3, y_3, x_4, y_4, cla, img, 0.9)
+                    imgs_ = imgs_set_(x_3, y_3, x_4, y_4, cla, img, 0.9)
                     if imgs_ is not None and imgs_ != False:
                         # data = "마지막 거래 금액 : 숫자 " + str(i) + " 보여"
                         # print(data, imgs_)
