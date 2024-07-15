@@ -53,6 +53,8 @@ with open(file_path2, "r", encoding='utf-8-sig') as file:
     print("speed_???", speed_)
 
 this_game = "제노니아"
+game_folder = "zenonia"
+data_folder = "data_zeno"
 
 # 자동모드 관련
 potion_count = 0
