@@ -86,4 +86,4 @@ mouse_speed = 20
 mouse_pm = 3
 
 # 아두이노
-now_arduino = "none"
+now_arduino = "on"

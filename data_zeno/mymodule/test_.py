@@ -39,6 +39,8 @@ def go_test():
 
     # v_.now_cla = cla
 
+
+
     click_pos_2(500, 500, cla)
 
     full_path = "c:\\my_games\\zenonia\\data_zeno\\imgs\\dungeon\\confirm.PNG"
