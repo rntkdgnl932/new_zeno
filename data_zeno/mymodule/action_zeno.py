@@ -2999,7 +2999,7 @@ def gold_check_open(cla):
         if imgs_ is not None and imgs_ != False:
             gold_ = text_check_get(415, 70, 515, 90, cla)
             print("gold", gold_)
-            is_number = in_number_check(cla, gold_)
+            is_number = in_number_check(gold_)
             if is_number == True:
                 result_num = int_put_(gold_)
                 many_gold = result_num
@@ -3155,7 +3155,7 @@ def mine_check(cla):
                             print("read_gold", read_gold)
                             break
 
-                    digit_ready = in_number_check(cla, read_gold)
+                    digit_ready = in_number_check(read_gold)
                     print("digit_ready", digit_ready)
                     if digit_ready == True:
                         read_data_int = int(int_put_(read_gold))
@@ -3179,7 +3179,7 @@ def mine_check(cla):
                             print("read_dia", read_dia)
                             break
 
-                    digit_ready = in_number_check(cla, read_dia)
+                    digit_ready = in_number_check(read_dia)
                     print("digit_ready", digit_ready)
                     if digit_ready == True:
                         read_data_int = int(int_put_(read_dia))

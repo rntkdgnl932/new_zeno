@@ -1167,7 +1167,7 @@ def jadong_juljun_attack_gold_check(cla, where):
         many_gold = 0
         gold_ = text_check_get(40, 165, 120, 190, cla)
         print("gold", gold_)
-        is_number = in_number_check(cla, gold_)
+        is_number = in_number_check(gold_)
         if is_number == True:
             result_num = int_put_(gold_)
             many_gold = result_num
@@ -1179,10 +1179,11 @@ def jadong_juljun_attack_gold_check(cla, where):
         return 0
 
 def jadong_juljun_attack_dead(cla, where):
+    from action_zeno import clean_screen, dead_die, out_check
+    from function import drag_pos
+    from function import click_pos_2, click_pos_reg, imgs_set_, text_check_get, in_number_check, int_put_
     try:
-        from action_zeno import clean_screen, dead_die, out_check
-        from function import drag_pos
-        from function import click_pos_2, click_pos_reg, imgs_set_,text_check_get, in_number_check, int_put_
+
 
         print("jadong_juljun_attack_dead")
 

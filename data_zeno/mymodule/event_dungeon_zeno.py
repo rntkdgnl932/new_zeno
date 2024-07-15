@@ -701,10 +701,11 @@ def jadong_juljun_attack_check(cla, where):
 
 
 def jadong_juljun_attack_dead(cla, where):
+    from action_zeno import clean_screen, dead_die, out_check
+    from function import drag_pos
+    from function import click_pos_2, click_pos_reg, imgs_set_
     try:
-        from action_zeno import clean_screen, dead_die, out_check
-        from function import drag_pos
-        from function import click_pos_2, click_pos_reg, imgs_set_,text_check_get, in_number_check, int_put_
+
 
         print("jadong_juljun_attack_dead")
 
