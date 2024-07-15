@@ -576,7 +576,7 @@ def click_pos_2(pos_1, pos_2, cla):
         if cla == 'six':
             coordinate = 960 * 5
 
-        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
@@ -701,7 +701,7 @@ def click_pos_reg(pos_1, pos_2, cla):
         if cla == 'six':
             coordinate = 0
 
-        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             arduino_port = v_.COM_
@@ -1284,7 +1284,7 @@ def drag_pos(pos_1, pos_2, pos_3, pos_4, cla):
         if cla == 'six':
             coordinate = 960 * 5
 
-        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
 
@@ -1406,7 +1406,7 @@ def drag_pos_reg(pos_1, pos_2, pos_3, pos_4, cla):
         if cla == 'six':
             coordinate = 0
 
-        # pyautogui.moveTo(pos_1 + coordinate, pos_2)
+        pyautogui.moveTo(pos_1 + coordinate, pos_2)
 
         if v_.now_arduino == "on":
             cla = "one"
